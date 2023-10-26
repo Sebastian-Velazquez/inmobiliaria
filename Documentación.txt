@@ -1,0 +1,15 @@
+Crear Proyecto:
+    composer create-project laravel/laravel example-app
+    npm install
+
+Configuracion de bd en .env listo
+
+Migrar tabals de logion y registro: 
+    php artisan migrate
+    composer require laravel/ui
+    php artisan ui bootstrap --auth
+
+pagina home.blade.php creado. 
+layouts creados de Header y Footer
+
+Para mañana: seguir con las paginas raices
