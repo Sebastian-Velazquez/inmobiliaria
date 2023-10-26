@@ -66,6 +66,21 @@
                 <li><a href="agents.php">Agentes</a></li>         
                 <li><a href="blog.php">Blog</a></li>
                 <li><a href="contact.php">Contacto</a></li>
+
+                @guest
+                @else
+                <li><a href="">Panel de Control</a></li>
+                <li>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                      onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      {{ __('Cerrar sesión') }}
+                    </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                      </form>
+                  </li>
+                @endguest
               </ul>
             </div>
             <!-- #Nav Ends -->
@@ -155,12 +170,12 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="row">
-          <div class="col-sm-6 login">
-          <h4>Login</h4>
+          <div class="col-sm-10 login">
+          <h4>Iniciar Sesión</h4>
             <form class="" role="form" method="POST" action="{{ route('login') }}">
               @csrf
           <div class="form-group">
-            <label class="sr-only" for="exampleInputEmail2">Email address</label>
+            <label class="sr-only" for="exampleInputEmail2">Ingresar Email</label>
             <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="exampleInputEmail2" placeholder="Enter email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
             @error('email')
               <span class="invalid-feedback" role="alert">
@@ -186,14 +201,10 @@
               </label>
             </label>
           </div>
-          <button type="submit" class="btn btn-success">Sign in</button>
+          <button type="submit" class="btn btn-success">Iniciar</button>
         </form>          
           </div>
-          <div class="col-sm-6">
-            <h4>New User Sign Up</h4>
-            <p>Join today and get updated with all the properties deal happening around.</p>
-            <button type="submit" class="btn btn-info"  onclick="window.location.href='register.php'">Join Now</button>
-          </div>
+
   
         </div>
       </div>

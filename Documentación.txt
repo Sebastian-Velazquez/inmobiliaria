@@ -12,4 +12,6 @@ Migrar tabals de logion y registro:
 pagina home.blade.php creado. 
 layouts creados de Header y Footer
 
-Para mañana: seguir con las paginas raices
+Se adapto el login y acceso al panel 
+se tradujo
+se creo un controlador IndexController para las rutas externas

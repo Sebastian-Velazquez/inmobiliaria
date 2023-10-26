@@ -14,9 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/panel', [App\Http\Controllers\HomeController::class, 'index'])
+        ->name('panel')
+        ->middleware('auth'); //middllwares que no te deja entrar si no estas logueado
+
+Route::get('/about', [App\Http\Controllers\IndexController::class, 'about'])->name('about');
