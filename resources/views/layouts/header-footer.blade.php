@@ -41,9 +41,9 @@
   @endif
 
 <!-- Header Starts -->
-<div class="navbar-wrapper">
+<div class="navbar-wrapper" >
   
-        <div class="navbar-inverse" role="navigation">
+        <div class="navbar-inverse" role="navigation" style="background-color: 	#a94b77">
           <div class="container">
             <div class="navbar-header">
 
@@ -61,11 +61,11 @@
             <!-- Nav Starts -->
             <div class="navbar-collapse  collapse">
               <ul class="nav navbar-nav navbar-right">
-               <li class="active"><a href="index.php">Inicio</a></li>
-                <li><a href="about.php">Acerca de nosotros</a></li>
-                <li><a href="agents.php">Agentes</a></li>         
-                <li><a href="blog.php">Blog</a></li>
-                <li><a href="contact.php">Contacto</a></li>
+               <li class="active"><a href="{{ route('/') }}" style="color: 	#ffffff">Inicio</a></li>
+                <li><a href="{{ route('about') }}" style="color: 	#ffffff">Acerca de nosotros</a></li>
+                <li><a href="agents.php" style="color: 	#ffffff">Agentes</a></li>         
+                <li><a href="blog.php" style="color: 	#ffffff">Blog</a></li>
+                <li><a href="contact.php" style="color: 	#ffffff">Contacto</a></li>
 
                 @guest
                 @else
@@ -99,10 +99,10 @@
 
 <!-- Header Starts -->
 <div class="header">
-<a href="index.php"><img src="images/logo.png" alt="Realestate"></a>
+<a href="{{ route('/') }}"><img src="images/logo.jpg" style="width: 300px" alt="Realestate"></a>
 
               <ul class="pull-right">
-                <li><a href="buysalerent.php">Comprar</a></li>
+                <li><a href="buysalerent.php" >Comprar</a></li>
                 <li><a href="buysalerent.php">Vender</a></li>         
                 <li><a href="buysalerent.php">Alquilar</a></li>
               </ul>
@@ -124,9 +124,9 @@
   <div class="container">
   <div class="row">
               <div class="col-lg-3 col-sm-3">
-                     <h4>Información</h4>
+                     <h4 style="color: 	#a94b77">Información</h4>
                      <ul class="row">
-                  <li class="col-lg-12 col-sm-12 col-xs-3"><a href="about.php">Acerca de nosotros</a></li>
+                  <li class="col-lg-12 col-sm-12 col-xs-3"><a href="about.php" >Acerca de nosotros</a></li>
                   <li class="col-lg-12 col-sm-12 col-xs-3"><a href="agents.php">Agentes</a></li>         
                   <li class="col-lg-12 col-sm-12 col-xs-3"><a href="blog.php">Blog</a></li>
                   <li class="col-lg-12 col-sm-12 col-xs-3"><a href="contact.php">Contacto</a></li>
@@ -134,15 +134,15 @@
               </div>
               
               <div class="col-lg-3 col-sm-3">
-                      <h4>Notificaciones</h4>
+                      <h4 style="color: 	#a94b77">Notificaciones</h4>
                       <p>Reciba notificaciones sobre las últimas propiedades en nuestro mercado.</p>
                       <form class="form-inline" role="form">
                               <input type="text" placeholder="Ingrese su email" class="form-control">
-                                  <button class="btn btn-success" type="button">¡Notificarme!</button></form>
+                                  <button class="btn btn-success" type="button" style="background-color: 	#a94b77">¡Notificarme!</button></form>
               </div>
               
               <div class="col-lg-3 col-sm-3">
-                      <h4>Seguinos en nuestras redes</h4>
+                      <h4 style="color: 	#a94b77">Seguinos en nuestras redes</h4>
                       <a href="#"><img src="images/facebook.png" alt="facebook"></a>
                       <a href="#"><img src="images/twitter.png" alt="twitter"></a>
                       <a href="#"><img src="images/linkedin.png" alt="linkedin"></a>
@@ -150,14 +150,14 @@
               </div>
   
                <div class="col-lg-3 col-sm-3">
-                      <h4>Contacto</h4>
+                      <h4 style="color: 	#a94b77">Contacto</h4>
                       <p><b>Inmobiliaria Flores</b><br>
   <span class="glyphicon glyphicon-map-marker"></span> Julio a Roca 000, Villa Gobernador Galvez <br>
   <span class="glyphicon glyphicon-envelope"></span> inmobiliariafloresvgg@gmail.com<br>
   <span class="glyphicon glyphicon-earphone"></span> (341) 999-9999</p>
               </div>
           </div>
-  <p class="copyright">Copyright 2023. Todos los derechos reservados.	</p>
+  <p class="copyright" style="color: 	#a94b77">Copyright 2023. Todos los derechos reservados.	</p>
   
   
   </div></div>

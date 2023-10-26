@@ -15,3 +15,4 @@ layouts creados de Header y Footer
 Se adapto el login y acceso al panel 
 se tradujo
 se creo un controlador IndexController para las rutas externas
+Se hizo un stilo de css para mostrar al cliente un progreso
