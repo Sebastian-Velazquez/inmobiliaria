@@ -117,7 +117,7 @@
               </select>
               </div>
               <div class="col-lg-3 col-sm-4">
-              <button class="btn btn-success"  onclick="window.location.href='buysalerent.php'" style="background-color:#a94b77">Buscar</button>
+              <button class="btn btn-success"  onclick="window.location.href='{{ route('buy') }}'" style="background-color:#a94b77">Buscar</button>
               </div>
           </div>
           
@@ -139,95 +139,95 @@
 </div>
 <!-- banner -->
 <div class="container">
-  <div class="properties-listing spacer"> <a href="buysalerent.php" class="pull-right viewall" style="bcolor:#a94b77">Ver todo el listado</a>
+  <div class="properties-listing spacer" > <a href="{{ route('buy') }}" class="pull-right viewall" style="color:#a94b77">Ver todo el listado</a>
     <h2>Propiedades Destacadas</h2>
     <div id="owl-example" class="owl-carousel">
       <div class="properties">
         <div class="image-holder"><img src="images/properties/1.jpg" class="img-responsive" alt="properties"/>
           <div class="status sold" style="background-color:#a94b77">Vendido</div>
         </div>
-        <h4><a href="property-detail.php" style="color:#a94b77">Posada Real</a></h4>
+        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
         <p class="price">Precio: $234,900</p>
         <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="property-detail.php" style="background-color:#a94b77">Ver detalle</a>
+        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
       </div>
       <div class="properties">
         <div class="image-holder"><img src="images/properties/2.jpg" class="img-responsive" alt="properties"/>
           <div class="status Nuevo">Nuevo</div>
         </div>
-        <h4><a href="property-detail.php" style="color:#a94b77">Posada Real</a></h4>
+        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
         <p class="price">Precio: $234,900</p>
         <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="property-detail.php" style="background-color:#a94b77">Ver detalle</a>
+        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
       </div>
       <div class="properties">
         <div class="image-holder"><img src="images/properties/3.jpg" class="img-responsive" alt="properties"/></div>
-        <h4><a href="property-detail.php" style="color:#a94b77">Posada Real</a></h4>
+        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
         <p class="price">Precio: $234,900</p>
         <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="property-detail.php" style="background-color:#a94b77">Ver detalle</a>
+        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
       </div>
       <div class="properties">
         <div class="image-holder"><img src="images/properties/4.jpg" class="img-responsive" alt="properties"/></div>
-        <h4><a href="property-detail.php" style="color:#a94b77">Posada Real</a></h4>
+        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
         <p class="price">Precio: $234,900</p>
         <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="property-detail.php" style="background-color:#a94b77">Ver detalle</a>
+        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
       </div>
       <div class="properties">
         <div class="image-holder"><img src="images/properties/1.jpg" class="img-responsive" alt="properties"/>
           <div class="status sold" style="background-color:#a94b77">Vendido</div>
         </div>
-        <h4><a href="property-detail.php" style="color:#a94b77">Posada Real</a></h4>
+        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
         <p class="price">Precio: $234,900</p>
         <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="property-detail.php" style="background-color:#a94b77">Ver detalle</a>
+        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
       </div>
       <div class="properties">
         <div class="image-holder"><img src="images/properties/2.jpg" class="img-responsive" alt="properties"/>
           <div class="status sold" style="background-color:#a94b77">Vendido</div>
         </div>
-        <h4><a href="property-detail.php" style="color:#a94b77">Posada Real</a></h4>
+        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
         <p class="price">Precio: $234,900</p>
         <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="property-detail.php" style="background-color:#a94b77">Ver detalle</a>
+        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
       </div>
       <div class="properties">
         <div class="image-holder"><img src="images/properties/3.jpg" class="img-responsive" alt="properties"/>
           <div class="status Nuevo">Nuevo</div>
         </div>
-        <h4><a href="property-detail.php" style="color:#a94b77">Posada Real</a></h4>
+        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
         <p class="price">Precio: $234,900</p>
         <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="property-detail.php" style="background-color:#a94b77">Ver detalle</a>
+        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
       </div>
       <div class="properties">
         <div class="image-holder"><img src="images/properties/4.jpg" class="img-responsive" alt="properties"/></div>
-        <h4><a href="property-detail.php"  style="color:#a94b77">Posada Real</a></h4>
+        <h4><a href="{{ route('productDetail')}}"  style="color:#a94b77">Posada Real</a></h4>
         <p class="price">Precio: $234,900</p>
         <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="property-detail.php" style="background-color:#a94b77">Ver detalle</a>
+        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
       </div>
       <div class="properties">
         <div class="image-holder"><img src="images/properties/1.jpg" class="img-responsive" alt="properties"/></div>
-        <h4><a href="property-detail.php" style="color:#a94b77">Posada Real</a></h4>
+        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
         <p class="price">Precio: $234,900</p>
         <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="property-detail.php" style="background-color:#a94b77">Ver detalle</a>
+        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
       </div>
       <div class="properties">
         <div class="image-holder"><img src="images/properties/2.jpg" class="img-responsive" alt="properties"/></div>
-        <h4><a href="property-detail.php" style="color:#a94b77">Posada Real</a></h4>
+        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
         <p class="price">Precio: $234,900</p>
         <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="property-detail.php" style="background-color:#a94b77">Ver detalle</a>
+        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
       </div>
       <div class="properties">
         <div class="image-holder"><img src="images/properties/3.jpg" class="img-responsive" alt="properties"/></div>
-        <h4><a href="property-detail.php" style="color:#a94b77">Posada Real</a></h4>
+        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
         <p class="price">Precio: $234,900</p>
         <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="property-detail.php" style="background-color:#a94b77">Ver detalle</a>
+        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
       </div>
       
     </div>
@@ -236,7 +236,7 @@
     <div class="row">
       <div class="col-lg-6 col-sm-9 recent-view">
         <h3>Sobre nosotros</h3>
-        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.<br><a href="about.php">Saber Mas</a></p>
+        <p>The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.<br><a href="{{ route('about')}}" style="color:#a94b77">Saber Mas</a></p>
       
       </div>
       <div class="col-lg-5 col-lg-offset-1 col-sm-3 recommended">
@@ -254,36 +254,36 @@
               <div class="row">
                 <div class="col-lg-4"><img src="images/properties/1.jpg" class="img-responsive" alt="properties"/></div>
                 <div class="col-lg-8">
-                  <h5><a href="property-detail.php"  style="color:#a94b77">Casa con 2 habiataciones</a></h5>
+                  <h5><a href="{{ route('productDetail')}}"  style="color:#a94b77">Casa con 2 habiataciones</a></h5>
                   <p class="price">$300,000</p>
-                  <a href="property-detail.php" class="more">Mas Detalles</a> </div>
+                  <a href="{{ route('productDetail')}}" class="more">Mas Detalles</a> </div>
               </div>
             </div>
             <div class="item">
               <div class="row">
                 <div class="col-lg-4"><img src="images/properties/2.jpg" class="img-responsive" alt="properties"/></div>
                 <div class="col-lg-8">
-                  <h5><a href="property-detail.php"  style="color:#a94b77">Casa con 2 habiataciones</a></h5>
+                  <h5><a href="{{ route('productDetail')}}"  style="color:#a94b77">Casa con 2 habiataciones</a></h5>
                   <p class="price">$300,000</p>
-                  <a href="property-detail.php" class="more">Mas Detalles</a> </div>
+                  <a href="{{ route('productDetail')}}" class="more">Mas Detalles</a> </div>
               </div>
             </div>
             <div class="item">
               <div class="row">
                 <div class="col-lg-4"><img src="images/properties/3.jpg" class="img-responsive" alt="properties"/></div>
                 <div class="col-lg-8">
-                  <h5><a href="property-detail.php"  style="color:#a94b77">Casa con 2 habiataciones</a></h5>
+                  <h5><a href="{{ route('productDetail')}}"  style="color:#a94b77">Casa con 2 habiataciones</a></h5>
                   <p class="price">$300,000</p>
-                  <a href="property-detail.php" class="more">Mas Detalles</a> </div>
+                  <a href="{{ route('productDetail')}}" class="more">Mas Detalles</a> </div>
               </div>
             </div>
             <div class="item">
               <div class="row">
                 <div class="col-lg-4"><img src="images/properties/4.jpg" class="img-responsive" alt="properties"/></div>
                 <div class="col-lg-8">
-                  <h5><a href="property-detail.php"  style="color:#a94b77">Casa con 2 habiataciones</a></h5>
+                  <h5><a href="{{ route('productDetail')}}"  style="color:#a94b77">Casa con 2 habiataciones</a></h5>
                   <p class="price">$300,000</p>
-                  <a href="property-detail.php" class="more">Mas Detalles</a> </div>
+                  <a href="{{ route('productDetail')}}" class="more">Mas Detalles</a> </div>
               </div>
             </div>
           </div>

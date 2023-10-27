@@ -63,14 +63,14 @@
               <ul class="nav navbar-nav navbar-right">
                <li class="active"><a href="{{ route('/') }}" style="color: 	#ffffff">Inicio</a></li>
                 <li><a href="{{ route('about') }}" style="color: 	#ffffff">Acerca de nosotros</a></li>
-                <li><a href="agents.php" style="color: 	#ffffff">Agentes</a></li>         
-                <li><a href="blog.php" style="color: 	#ffffff">Blog</a></li>
-                <li><a href="contact.php" style="color: 	#ffffff">Contacto</a></li>
+                <li><a href="{{ route('agents') }}" style="color: 	#ffffff">Agentes</a></li>         
+                {{-- <li><a href="{{ route('blog') }}" style="color: 	#ffffff">Blog</a></li> --}}
+                <li><a href="{{ route('contact') }}" style="color: 	#ffffff">Contacto</a></li>
 
                 @guest
                 @else
-                <li><a href="">Panel de Control</a></li>
-                <li>
+                  <li><a href="{{ route('panel') }}">Panel de Control</a></li>
+                  <li>
                     <a class="dropdown-item" href="{{ route('logout') }}"
                       onclick="event.preventDefault();
                       document.getElementById('logout-form').submit();">
@@ -102,9 +102,8 @@
 <a href="{{ route('/') }}"><img src="images/logo.jpg" style="width: 300px" alt="Realestate"></a>
 
               <ul class="pull-right">
-                <li><a href="buysalerent.php" >Comprar</a></li>
-                <li><a href="buysalerent.php">Vender</a></li>         
-                <li><a href="buysalerent.php">Alquilar</a></li>
+                <li><a href="{{ route('buy') }}" >Venta / Alquiler</a></li>
+                <li><a href="{{ route('sale') }}">¿quieres poner tu propiedad en administración? </a></li>         
               </ul>
 </div>
 <!-- #Header Starts -->
@@ -126,15 +125,15 @@
               <div class="col-lg-3 col-sm-3">
                      <h4 style="color: 	#a94b77">Información</h4>
                      <ul class="row">
-                  <li class="col-lg-12 col-sm-12 col-xs-3"><a href="about.php" >Acerca de nosotros</a></li>
-                  <li class="col-lg-12 col-sm-12 col-xs-3"><a href="agents.php">Agentes</a></li>         
-                  <li class="col-lg-12 col-sm-12 col-xs-3"><a href="blog.php">Blog</a></li>
-                  <li class="col-lg-12 col-sm-12 col-xs-3"><a href="contact.php">Contacto</a></li>
+                  <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('about') }}" >Acerca de nosotros</a></li>
+                  <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('agents') }}">Agentes</a></li>         
+                  {{-- <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('blog') }}">Blog</a></li> --}}
+                  <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('contact') }}">Contacto</a></li>
                 </ul>
               </div>
               
               <div class="col-lg-3 col-sm-3">
-                      <h4 style="color: 	#a94b77">Notificaciones</h4>
+                      <h4 style="color:#a94b77">Notificaciones</h4>
                       <p>Reciba notificaciones sobre las últimas propiedades en nuestro mercado.</p>
                       <form class="form-inline" role="form">
                               <input type="text" placeholder="Ingrese su email" class="form-control">

@@ -16,3 +16,7 @@ Se adapto el login y acceso al panel
 se tradujo
 se creo un controlador IndexController para las rutas externas
 Se hizo un stilo de css para mostrar al cliente un progreso
+
+php artisan make:controller ProductController
+
+casi todo el estilo cambiado. Falta detalle de producto

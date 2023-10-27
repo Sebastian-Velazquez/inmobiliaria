@@ -3,8 +3,8 @@
 <!-- banner -->
 <div class="inside-banner">
   <div class="container"> 
-    <span class="pull-right"><a href="#">Home</a> / About Us</span>
-    <h2>About Us</h2>
+    <span class="pull-right"><a href="{{route('/')}}">Inicio</a> / Acerca de nosotros</span>
+    <h2>Acerca de nosotros</h2>
 </div>
 </div>
 <!-- banner -->
