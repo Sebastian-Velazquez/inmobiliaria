@@ -28,19 +28,12 @@ CREATE TABLE IF NOT EXISTS operation(
     CONSTRAINT pk_operation PRIMARY KEY(id) 
 )ENGINE=InnoDb;
 
-#Images
-CREATE TABLE IF NOT EXISTS images(
-    id int(255) auto_increment not null,
-    image_path varchar(255) default 'image.png',
-    CONSTRAINT pk_image PRIMARY KEY(id) 
-)ENGINE=InnoDb;
 
 
 #Properties
 CREATE TABLE IF NOT EXISTS property(
     id int(255) auto_increment not null,
     id_type_property int(255) not null,
-    id_image_path int(255),
     id_status int(255) not null,
     id_operation int(255) not null,
     adress varchar(255) not null,
@@ -61,8 +54,48 @@ CREATE TABLE IF NOT EXISTS property(
     created_at datetime,
     updated_at datetime,
     CONSTRAINT pk_property PRIMARY KEY(id), 
-    FOREIGN KEY (id_type_property) REFERENCES type_property(id),
-    FOREIGN KEY (id_status) REFERENCES status(id),
-    FOREIGN KEY (id_operation) REFERENCES operation(id),
-    FOREIGN KEY (id_image_path) REFERENCES images(id)
+    CONSTRAINT pk_type_property FOREIGN KEY (id_type_property) REFERENCES type_property(id),
+    CONSTRAINT pk_id_status FOREIGN KEY (id_status) REFERENCES status(id),
+    CONSTRAINT pk_id_operation FOREIGN KEY (id_operation) REFERENCES operation(id)
 )ENGINE=InnoDb;
+
+#Images
+CREATE TABLE IF NOT EXISTS image(
+    id int(255) auto_increment not null,
+    image_path varchar(255) default 'image.png',
+    created_at datetime,
+    updated_at datetime,
+    CONSTRAINT pk_image PRIMARY KEY(id) 
+)ENGINE=InnoDb;
+
+#Images Properties
+CREATE TABLE IF NOT EXISTS images_property(
+    id int(255) auto_increment not null,
+    id_property int(255) not null,
+    id_image int(255) not null,
+    CONSTRAINT pk_image_property PRIMARY KEY(id),
+    CONSTRAINT fk_id_image FOREIGN KEY(id_image) REFERENCES image(id),
+    CONSTRAINT pk_id_property FOREIGN KEY (id_property) REFERENCES property(id)
+)ENGINE=InnoDb;
+
+
+
+
+#Cargar información 
+    #Tipo de Propiedad
+    INSERT INTO type_property VALUE (null, 'Casa', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+    INSERT INTO type_property VALUE (null, 'Departamento', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+    INSERT INTO type_property VALUE (null, 'Galpon', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+    INSERT INTO type_property VALUE (null, 'Local', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+    INSERT INTO type_property VALUE (null, 'Terreno', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+
+    #Tipo de Estado 
+    INSERT INTO status VALUE (null, 'Disponible', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+    INSERT INTO status VALUE (null, 'No disponible', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+
+    #Tipo de operacion
+    INSERT INTO operation VALUE (null, 'Alquiler', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+    INSERT INTO operation VALUE (null, 'Venta', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+
+    #Nombre de imagne
+    INSERT INTO operation VALUE (null, 'image', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
