@@ -28,8 +28,6 @@ CREATE TABLE IF NOT EXISTS operation(
     CONSTRAINT pk_operation PRIMARY KEY(id) 
 )ENGINE=InnoDb;
 
-
-
 #Properties
 CREATE TABLE IF NOT EXISTS property(
     id int(255) auto_increment not null,
@@ -51,6 +49,7 @@ CREATE TABLE IF NOT EXISTS property(
     kinchen boolean null,
     dining_room boolean null,
     description text null,
+    stand_out boolean default 0,
     created_at datetime,
     updated_at datetime,
     CONSTRAINT pk_property PRIMARY KEY(id), 
@@ -62,23 +61,13 @@ CREATE TABLE IF NOT EXISTS property(
 #Images
 CREATE TABLE IF NOT EXISTS image(
     id int(255) auto_increment not null,
+    id_property int(255) not null,
     image_path varchar(255) default 'image.png',
     created_at datetime,
     updated_at datetime,
-    CONSTRAINT pk_image PRIMARY KEY(id) 
-)ENGINE=InnoDb;
-
-#Images Properties
-CREATE TABLE IF NOT EXISTS images_property(
-    id int(255) auto_increment not null,
-    id_property int(255) not null,
-    id_image int(255) not null,
-    CONSTRAINT pk_image_property PRIMARY KEY(id),
-    CONSTRAINT fk_id_image FOREIGN KEY(id_image) REFERENCES image(id),
+    CONSTRAINT pk_image PRIMARY KEY(id) ,
     CONSTRAINT pk_id_property FOREIGN KEY (id_property) REFERENCES property(id)
 )ENGINE=InnoDb;
-
-
 
 
 #Cargar información 
@@ -97,5 +86,18 @@ CREATE TABLE IF NOT EXISTS images_property(
     INSERT INTO operation VALUE (null, 'Alquiler', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
     INSERT INTO operation VALUE (null, 'Venta', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
 
-    #Nombre de imagne
-    INSERT INTO operation VALUE (null, 'image', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+    #Propertys
+    INSERT INTO property (id, id_type_property, id_status, id_operation, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
+    VALUE (null, 1, 1, 1, 'alberdi', 2355, 30500, 1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    INSERT INTO property (id, id_type_property, id_status, id_operation, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
+    VALUE (null, 4, 2, 2, 'Roca', 2355, 30500, 1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    INSERT INTO property (id, id_type_property, id_status, id_operation, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
+    VALUE (null, 2, 2, 1, 'Garray', 2355, 30500, 1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    INSERT INTO property (id, id_type_property, id_status, id_operation, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
+    VALUE (null, 3, 1, 1, 'Ruta 21', 2355, 30500, 1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+
+    #Nombre de image
+    INSERT INTO image VALUE (null, 1, 'image.jpg', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+    INSERT INTO image VALUE (null, 1, 'image.jpg', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+    INSERT INTO image VALUE (null, 2, 'image.jpg', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+    INSERT INTO image VALUE (null, 3,'image.jpg', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );

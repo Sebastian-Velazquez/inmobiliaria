@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Panel de Control</title>
     <h1>Estamo en el panel de control</h1>
+    @foreach ($images as $image)
+    <p>{{ $image }}</p>
+    @endforeach
 </head>
 <body>
     

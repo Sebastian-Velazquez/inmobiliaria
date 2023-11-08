@@ -24,3 +24,11 @@ se cambio todo el estilo cambiado.
 se esta diseñando la db relacinal
 
 Se realizo la query de la DB y se creo en la db de xampp
+cargando datos en la db
+
+Realizando Model para el ORM:
+    php artisan make:model Image
+    php artisan make:model Operation
+    php artisan make:model Property
+    php artisan make:model Status
+    php artisan make:model TypeOfProperty

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Image;
+use App\Models\Property;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,13 @@ class HomeController extends Controller
      */
     public function panel()
     {
-        return view('index/panel');
+        //$images = Image::with('property')->get();
+        $images = Property::find(1);
+        var_dump($images->image);
+        die();
+        //$images->property;
+        return view('index/panel', [
+            'images'=> $images
+        ]);
     }
 }

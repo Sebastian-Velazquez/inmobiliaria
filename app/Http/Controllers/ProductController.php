@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function __construct()
+    /* public function __construct()
     {
         $this->middleware('auth');
-    }
-    //mostrar Vender
-    /* public function sale(){
-        return view('index/sale');//carpeta y archivo
     } */
+    //mostrar Vender
+    public function outstanding(){
+        return view('index/sale');//carpeta y archivo
+    }
 }
