@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Image;
 use App\Models\Property;
+use App\Models\Operation;
+use App\Models\TypeOfProperty;
+use App\Models\Status;
 
 class HomeController extends Controller
 {
@@ -25,8 +28,9 @@ class HomeController extends Controller
      */
     public function panel()
     {
-        //$images = Image::with('property')->get();
-        $images = Image::all();
+        $images = Property::find(1);
+        var_dump($images->typeProperty->name);
+        die();
         return view('index/panel', [
             'images'=> $images
         ]);

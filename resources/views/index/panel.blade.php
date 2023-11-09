@@ -6,11 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Panel de Control</title>
     <h1>Estamo en el panel de control</h1>
-    {{-- @foreach ($images as $image)
+    @foreach ($images as $image)
     {{$image->property->adress}}
-    -${{$image->property->price}}
+    {{-- {{$image->status->name}}
+    {{$image->operation->name}}
+    {{$image->type_properties->name}} --}}
     <br>
-    @endforeach --}}
+    @endforeach
 </head>
 <body>
     

@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Property extends Model
 {
@@ -14,7 +13,8 @@ class Property extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = [
+/*     protected $fillable = [
+        'id',
         'type_property_id',
         'status_id',
         'operation_id',
@@ -36,28 +36,28 @@ class Property extends Model
         'stand_out',
         'created_at',
         'updated_at'
-    ];
+    ]; */
 
     //One To One
     public function operation(): BelongsTo
     {
-        return $this->belongsTo(Operation::class, 'operation_id', 'id');
+        return $this->belongsTo(Operation::class);
     }
 
     //One To One
     public function status(): BelongsTo
     {
-        return $this->belongsTo(Status::class, 'status_id', 'id');
+        return $this->belongsTo(Status::class,);
     }
 
     //One To One
-    public function tipeOfProperty(): BelongsTo
-    {
-        return $this->belongsTo(tipeOfProperty::class, 'type_property_id', 'id');
+    public function typeProperty(): BelongsTo {
+        return $this->belongsTo(TypeProperty::class, 'type_property_id');
     }
-    //One To One
+
+    //One To Many inverso
     public function image(): BelongsTo
     {
-        return $this->belongsTo(tipeOfProperty::class, 'property_id', 'id');
-    }
+        return $this->belongsTo(Image::class);
+    } 
 }

@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-class TypeOfProperty extends Model
+class TypeProperty extends Model
 {
    // use HasFactory;
-   //One To One
-   public function property(): HasOne
-   {
-       return $this->hasOne(Property::class);
-   }
+    protected $table = 'type_properties';
+    
+    public function property(): HasOne
+    {
+        return $this->hasOne(Property::class);
+    }
 }
