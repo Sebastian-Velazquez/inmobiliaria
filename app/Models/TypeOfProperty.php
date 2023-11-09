@@ -10,13 +10,8 @@ class TypeOfProperty extends Model
 {
    // use HasFactory;
    //One To One
-   protected $table = 'type_property'; // Nombre de la tabla en la base de datos
-
-   protected $primaryKey = 'id'; // Nombre de la columna de la clave primaria
-
-    protected $fillable = [
-        'name',
-        'created_at',
-        'updated_at'
-    ];
+   public function property(): HasOne
+   {
+       return $this->hasOne(Property::class);
+   }
 }

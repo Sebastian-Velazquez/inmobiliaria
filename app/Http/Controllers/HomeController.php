@@ -26,10 +26,7 @@ class HomeController extends Controller
     public function panel()
     {
         //$images = Image::with('property')->get();
-        $images = Property::find(1);
-        var_dump($images->image);
-        die();
-        //$images->property;
+        $images = Image::all();
         return view('index/panel', [
             'images'=> $images
         ]);

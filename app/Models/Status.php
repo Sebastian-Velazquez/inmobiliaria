@@ -11,11 +11,8 @@ class Status extends Model
     //use HasFactory;
     protected $table = 'status'; 
 
-    protected $primaryKey = 'id';
-
-    protected $fillable = [
-        'name',
-        'created_at',
-        'updated_at'
-    ];
+    public function property(): HasOne
+    {
+        return $this->hasOne(Property::class);
+    }
 }

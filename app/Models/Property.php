@@ -15,9 +15,9 @@ class Property extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'id_type_property',
-        'id_status',
-        'id_operation',
+        'type_property_id',
+        'status_id',
+        'operation_id',
         'adress',
         'price',
         'adress_number',
@@ -41,18 +41,23 @@ class Property extends Model
     //One To One
     public function operation(): BelongsTo
     {
-        return $this->belongsTo(Operation::class);
+        return $this->belongsTo(Operation::class, 'operation_id', 'id');
     }
 
     //One To One
     public function status(): BelongsTo
     {
-        return $this->belongsTo(Status::class);
+        return $this->belongsTo(Status::class, 'status_id', 'id');
     }
 
     //One To One
     public function tipeOfProperty(): BelongsTo
     {
-        return $this->belongsTo(tipeOfProperty::class);
+        return $this->belongsTo(tipeOfProperty::class, 'type_property_id', 'id');
+    }
+    //One To One
+    public function image(): BelongsTo
+    {
+        return $this->belongsTo(tipeOfProperty::class, 'property_id', 'id');
     }
 }
