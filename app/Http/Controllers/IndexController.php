@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Property;
+use App\Models\Image;
 
 class IndexController extends Controller
 {
     public function index(){
-        return view('index/index');//carpeta y archivo
+        $propertyOut = Property::all();
+        $propertyImage = Image::all();
+        $propertyImage->properties->id;
+        return view('index/index',[
+            'propiedadDestacado' => $propertyOut,
+            'propiedadImagen' => $propertyImage
+        ]);//carpeta y archivo
     }
     //mostrar sobre nosotros
     public function about(){

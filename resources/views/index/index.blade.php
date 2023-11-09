@@ -1,6 +1,7 @@
 @extends('layouts.header-footer')
 
 @section('content')
+
 <div class="">
             <div id="slider" class="sl-slider-wrapper">
 
@@ -142,16 +143,21 @@
   <div class="properties-listing spacer" > <a href="{{ route('buy') }}" class="pull-right viewall" style="color:#a94b77">Ver todo el listado</a>
     <h2>Propiedades Destacadas</h2>
     <div id="owl-example" class="owl-carousel">
-      <div class="properties">
-        <div class="image-holder"><img src="images/properties/1.jpg" class="img-responsive" alt="properties"/>
-          <div class="status sold" style="background-color:#a94b77">Vendido</div>
-        </div>
-        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
-        <p class="price">Precio: $234,900</p>
-        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
+      @foreach ($propiedadImagen as $image)
+          {{$image}}
+      @endforeach
+    @foreach ($propiedadDestacado as $propiedad)
+    <div class="properties">
+      <div class="image-holder"><img src="images/properties/1.jpg" class="img-responsive" alt="properties"/>
+        <div class="status sold" style="background-color:#a94b77">Vendido</div>
       </div>
-      <div class="properties">
+      <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
+      <p class="price">Precio: $234,900</p>
+      <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
+      <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
+    </div>
+    @endforeach
+      {{-- <div class="properties">
         <div class="image-holder"><img src="images/properties/2.jpg" class="img-responsive" alt="properties"/>
           <div class="status Nuevo">Nuevo</div>
         </div>
@@ -228,7 +234,7 @@
         <p class="price">Precio: $234,900</p>
         <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
         <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
-      </div>
+      </div> --}}
       
     </div>
   </div>

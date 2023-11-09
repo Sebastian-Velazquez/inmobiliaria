@@ -28,8 +28,8 @@ class HomeController extends Controller
      */
     public function panel()
     {
-        $images = Property::find(1);
-        var_dump($images->typeProperty->name);
+        $images = Image::find(1);
+        var_dump($images->property->adress);
         die();
         return view('index/panel', [
             'images'=> $images

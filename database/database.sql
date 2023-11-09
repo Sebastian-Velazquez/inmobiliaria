@@ -34,6 +34,7 @@ CREATE TABLE IF NOT EXISTS property(
     type_property_id int(255) not null,
     status_id int(255) not null,
     operation_id int(255) not null,
+    main_image varchar(255) default 'main.png',
     adress varchar(255) not null,
     price int(100)  not null,
     adress_number int(10) not null,
