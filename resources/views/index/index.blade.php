@@ -143,9 +143,7 @@
   <div class="properties-listing spacer" > <a href="{{ route('buy') }}" class="pull-right viewall" style="color:#a94b77">Ver todo el listado</a>
     <h2>Propiedades Destacadas</h2>
     <div id="owl-example" class="owl-carousel">
-      @foreach ($propiedadImagen as $image)
-          {{$image}}
-      @endforeach
+
     @foreach ($propiedadDestacado as $propiedad)
     <div class="properties">
       <div class="image-holder"><img src="images/properties/1.jpg" class="img-responsive" alt="properties"/>

@@ -26,13 +26,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function panel()
+    public function panelHome()
     {
-        $images = Image::find(1);
+        /* $images = Image::find(1);
         var_dump($images->property->adress);
-        die();
-        return view('index/panel', [
+        die(); */
+        return view('index/panel'/* , [
             'images'=> $images
-        ]);
+        ] */);
     }
 }

@@ -29,6 +29,6 @@ Route::get('/buy', [App\Http\Controllers\IndexController::class, 'buyRent'])->na
 Route::get('/sale', [App\Http\Controllers\IndexController::class, 'sale'])->name('sale');
 Route::get('/product-detail', [App\Http\Controllers\IndexController::class, 'productDetail'])->name('productDetail');
 
-Route::get('/panel', [App\Http\Controllers\HomeController::class, 'panel'])
+Route::get('/panel', [App\Http\Controllers\HomeController::class, 'panelHome'])
         ->name('panel')
         ->middleware('auth'); //middllwares que no te deja entrar si no estas logueado

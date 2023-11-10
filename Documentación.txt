@@ -34,3 +34,6 @@ Realizando Model para el ORM:
     php artisan make:model TypeOfProperty
 
 Puebas y corrección de ORM terminado
+
+Creado controlador para panel
+php artisan make:controller ProductController
