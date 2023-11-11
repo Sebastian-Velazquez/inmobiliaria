@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class Property extends Model
 {
     //use HasFactory;
-    protected $table = 'property';//image es como se llama la tabla en la db de mysql
+    protected $table = 'properties';//image es como se llama la tabla en la db de mysql
 
     protected $primaryKey = 'id';
 

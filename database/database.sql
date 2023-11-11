@@ -5,7 +5,7 @@ USE inmobiliaria;
 CREATE TABLE IF NOT EXISTS type_properties(
     id int(255) auto_increment not null,
     name varchar(100) not null,
-    created_at datetime,
+    created_at datetime default CURRENT_TIMESTAMP not null,
     updated_at datetime,
     CONSTRAINT pk_type_property PRIMARY KEY(id) 
 )ENGINE=InnoDb;
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS type_properties(
 CREATE TABLE IF NOT EXISTS status(
     id int(255) auto_increment not null,
     name varchar(100) not null,
-    created_at datetime,
+    created_at datetime default CURRENT_TIMESTAMP not null,
     updated_at datetime,
     CONSTRAINT pk_status PRIMARY KEY(id) 
 )ENGINE=InnoDb;
@@ -23,35 +23,35 @@ CREATE TABLE IF NOT EXISTS status(
 CREATE TABLE IF NOT EXISTS operations(
     id int(255) auto_increment not null,
     name varchar(100) not null,
-    created_at datetime,
+    created_at datetime default CURRENT_TIMESTAMP not null,
     updated_at datetime,
     CONSTRAINT pk_operation PRIMARY KEY(id) 
 )ENGINE=InnoDb;
 
 #Properties
-CREATE TABLE IF NOT EXISTS property(
+CREATE TABLE IF NOT EXISTS properties(
     id int(255) auto_increment not null,
     type_property_id int(255) not null,
     status_id int(255) not null,
     operation_id int(255) not null,
-    main_image varchar(255) default 'main.png',
     adress varchar(255) not null,
-    price int(100)  not null,
     adress_number int(10) not null,
+    price int(100)  not null,
+    maps varchar(100) null,
+    main_image varchar(255) default 'main.png',
     dimension varchar(100),
     room_number int(10) not null,
     bathroom_number int(10) not null,
+    dining_room boolean null,
+    description text null,
+    stand_out boolean default 0,
     yard boolean null,
     pool boolean null,
     garage boolean null,
     gas boolean null,
-    light boolean null,
     expenses boolean null,
     kinchen boolean null,
-    dining_room boolean null,
-    description text null,
-    stand_out boolean default 0,
-    created_at datetime,
+    created_at datetime default CURRENT_TIMESTAMP not null,
     updated_at datetime,
     CONSTRAINT pk_property PRIMARY KEY(id), 
     CONSTRAINT pk_type_property FOREIGN KEY (type_property_id) REFERENCES type_properties(id),
@@ -64,10 +64,10 @@ CREATE TABLE IF NOT EXISTS images(
     id int(255) auto_increment not null,
     property_id int(255) not null,
     image_path varchar(255) default 'image.png',
-    created_at datetime,
+    created_at datetime default CURRENT_TIMESTAMP not null,
     updated_at datetime,
     CONSTRAINT pk_image PRIMARY KEY(id) ,
-    CONSTRAINT pk_id_property FOREIGN KEY (id_property) REFERENCES properties(id)
+    CONSTRAINT pk_id_property FOREIGN KEY (property_id) REFERENCES properties(id)
 )ENGINE=InnoDb;
 
 
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS images(
     INSERT INTO operations VALUE (null, 'Alquiler', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
     INSERT INTO operations VALUE (null, 'Venta', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
 
-    #Propertys
+    #Propiedades
     INSERT INTO property (id, type_property_id, status_id, operation_id, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
     VALUE (null, 1, 1, 1, 'alberdi', 2355, 30500, 1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
     INSERT INTO property (id, type_property_id, status_id, operation_id, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)

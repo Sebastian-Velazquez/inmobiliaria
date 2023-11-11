@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>AdminLTE 2 | Dashboard</title>
+    <title>Administración | panel</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="dashboard/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
@@ -41,7 +41,7 @@
     <div class="wrapper">
       
       <header class="main-header">
-        <a href="{{route('panel')}}" class="logo"><b>Admin</b>LTE</a>
+        <a href="{{route('panel')}}" class="logo"><b>Panel</b> Inmobiliaria</a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top" role="navigation">
           <!-- Sidebar toggle button-->
@@ -57,7 +57,7 @@
                   <span class="label label-success">4</span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li class="header">You have 4 messages</li>
+                  <li class="header">Tienes 4 mensajes</li>
                   <li>
                     <!-- inner menu: contains the actual data -->
                     <ul class="menu">
@@ -67,15 +67,15 @@
                             <img src="dashboard/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
                           </div>
                           <h4>
-                            Support Team
+                            Equipo de soporte
                             <small><i class="fa fa-clock-o"></i> 5 mins</small>
                           </h4>
-                          <p>Why not buy a new awesome theme?</p>
+                          <p>¿Por qué no comprar un tema nuevo e increíble?</p>
                         </a>
                       </li><!-- end message -->
                     </ul>
                   </li>
-                  <li class="footer"><a href="#">See All Messages</a></li>
+                  <li class="footer"><a href="#">Ver todos los mensajes</a></li>
                 </ul>
               </li>
               <!-- Notifications: style can be found in dropdown.less -->
@@ -85,18 +85,18 @@
                   <span class="label label-warning">10</span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li class="header">You have 10 notifications</li>
+                  <li class="header">Tienes 10 notificaciones</li>
                   <li>
                     <!-- inner menu: contains the actual data -->
                     <ul class="menu">
                       <li>
                         <a href="#">
-                          <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                          <i class="fa fa-users text-aqua"></i>5 nuevos miembros se unieron hoy
                         </a>
                       </li>
                     </ul>
                   </li>
-                  <li class="footer"><a href="#">View all</a></li>
+                  <li class="footer"><a href="#">Ver todo</a></li>
                 </ul>
               </li>
               <!-- Tasks: style can be found in dropdown.less -->
@@ -141,29 +141,29 @@
                   <li class="user-header">
                     <img src="dashboard/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Alexander Pierce - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      Alexander Pierce - Agente Inmobiliario
+                      <small>Miembro desde noviembre de 2012</small>
                     </p>
                   </li>
                   <!-- Menu Body -->
                   <li class="user-body">
                     <div class="col-xs-4 text-center">
-                      <a href="#">Followers</a>
+                      <a href="#">Seguidores</a>
                     </div>
                     <div class="col-xs-4 text-center">
-                      <a href="#">Sales</a>
+                      <a href="#">Ventas</a>
                     </div>
                     <div class="col-xs-4 text-center">
-                      <a href="#">Friends</a>
+                      <a href="#">Amigos</a>
                     </div>
                   </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="#" class="btn btn-default btn-flat">Profile</a>
+                      <a href="#" class="btn btn-default btn-flat">Perfil</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="#" class="btn btn-default btn-flat">Salir</a>
                     </div>
                   </li>
                 </ul>
@@ -202,35 +202,35 @@
           <!-- /.search form -->
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
+            <li class="header">Menú de Navegación</li>
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{route('panel')}}"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-                <li><a href="{{route('panel')}}"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+                <li><a href="{{route('panel')}}"><i class="fa fa-circle-o"></i> Inicio</a></li>
+                <li><a href="{{route('panel')}}"><i class="fa fa-circle-o"></i> Ir a la Página</a></li>
               </ul>
             </li>
             <li class="treeview active">
               <a href="#">
                 <i class="fa fa-files-o"></i>
-                <span>Layout Options</span>
-                <span class="label label-primary pull-right">4</span>
+                <span>Gestionar Propiedades</span>
+                {{-- <span class="label label-primary pull-right">4</span> --}}
               </a>
               <ul class="treeview-menu">
-                <li><a href="top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                <li class="active"><a href="boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                <li><a href="fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                <li><a href="collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+                <li><a href="top-nav.html"><i class="fa fa-circle-o"></i> Crear</a></li>
+                <li class="active"><a href="boxed.html"><i class="fa fa-circle-o"></i> Editar</a></li>
+                <li><a href="fixed.html"><i class="fa fa-circle-o"></i> Eliminar</a></li>
+                <li><a href="collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Ver Todas las Propiedades</a></li>
               </ul>
             </li>
-            <li>
+{{--             <li>
               <a href="../widgets.html">
                 <i class="fa fa-th"></i> <span>Widgets</span> <small class="label pull-right bg-green">new</small>
               </a>
-            </li>
-            <li class="treeview">
+            </li> --}}
+            {{-- <li class="treeview">
               <a href="#">
                 <i class="fa fa-pie-chart"></i>
                 <span>Charts</span>
@@ -241,23 +241,20 @@
                 <li><a href="../charts/flot.html"><i class="fa fa-circle-o"></i> Flot</a></li>
                 <li><a href="../charts/inline.html"><i class="fa fa-circle-o"></i> Inline charts</a></li>
               </ul>
-            </li>
+            </li> --}}
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
-                <span>UI Elements</span>
+                <span>Estado de Propiedades</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> General</a></li>
-                <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> Icons</a></li>
-                <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Buttons</a></li>
-                <li><a href="../UI/sliders.html"><i class="fa fa-circle-o"></i> Sliders</a></li>
-                <li><a href="../UI/timeline.html"><i class="fa fa-circle-o"></i> Timeline</a></li>
-                <li><a href="../UI/modals.html"><i class="fa fa-circle-o"></i> Modals</a></li>
+                <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> Disponible</a></li>
+                <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> No disponible</a></li>
+                <li><a href="../UI/buttons.html"><i class="fa fa-circle-o"></i> Eliminado</a></li>
               </ul>
             </li>
-            <li class="treeview">
+            {{-- <li class="treeview">
               <a href="#">
                 <i class="fa fa-edit"></i> <span>Forms</span>
                 <i class="fa fa-angle-left pull-right"></i>
@@ -267,8 +264,8 @@
                 <li><a href="../forms/advanced.html"><i class="fa fa-circle-o"></i> Advanced Elements</a></li>
                 <li><a href="../forms/editors.html"><i class="fa fa-circle-o"></i> Editors</a></li>
               </ul>
-            </li>
-            <li class="treeview">
+            </li> --}}
+            {{-- <li class="treeview">
               <a href="#">
                 <i class="fa fa-table"></i> <span>Tables</span>
                 <i class="fa fa-angle-left pull-right"></i>
@@ -277,17 +274,17 @@
                 <li><a href="../tables/simple.html"><i class="fa fa-circle-o"></i> Simple tables</a></li>
                 <li><a href="../tables/data.html"><i class="fa fa-circle-o"></i> Data tables</a></li>
               </ul>
-            </li>
-            <li>
+            </li>--}}
+            {{-- <li> 
               <a href="../calendar.html">
                 <i class="fa fa-calendar"></i> <span>Calendar</span>
                 <small class="label pull-right bg-red">3</small>
-              </a>
+              </a> --}}
             </li>
             <li>
               <a href="../mailbox/mailbox.html">
-                <i class="fa fa-envelope"></i> <span>Mailbox</span>
-                <small class="label pull-right bg-yellow">12</small>
+                <i class="fa fa-envelope"></i> <span>Buzon de Mensajes</span>
+                <small class="label pull-right bg-yellow">1</small>
               </a>
             </li>
             <li class="treeview">
