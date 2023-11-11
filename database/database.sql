@@ -88,13 +88,13 @@ CREATE TABLE IF NOT EXISTS images(
     INSERT INTO operations VALUE (null, 'Venta', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
 
     #Propiedades
-    INSERT INTO property (id, type_property_id, status_id, operation_id, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
+    INSERT INTO properties (id, type_property_id, status_id, operation_id, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
     VALUE (null, 1, 1, 1, 'alberdi', 2355, 30500, 1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-    INSERT INTO property (id, type_property_id, status_id, operation_id, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
+    INSERT INTO properties (id, type_property_id, status_id, operation_id, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
     VALUE (null, 4, 2, 2, 'Roca', 2355, 30500, 1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-    INSERT INTO property (id, type_property_id, status_id, operation_id, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
+    INSERT INTO properties (id, type_property_id, status_id, operation_id, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
     VALUE (null, 2, 2, 1, 'Garray', 2355, 30500, 1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
-    INSERT INTO property (id, type_property_id, status_id, operation_id, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
+    INSERT INTO properties (id, type_property_id, status_id, operation_id, adress, adress_number, price, room_number, bathroom_number, created_at, updated_at)
     VALUE (null, 3, 1, 1, 'Ruta 21', 2355, 30500, 1, 2, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
     #Nombre de image

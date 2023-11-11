@@ -1,4 +1,7 @@
 @extends('layouts.header-footer')
+@foreach ($propiedadDestacado as $propiedad)
+<p>{{$propiedad->typeProperty->name}}</p>
+@endforeach
 
 @section('content')
 
