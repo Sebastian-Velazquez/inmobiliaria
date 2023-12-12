@@ -42,15 +42,15 @@ CREATE TABLE IF NOT EXISTS properties(
     dimension varchar(100),
     room_number int(10) not null,
     bathroom_number int(10) not null,
-    dining_room boolean null,
     description text null,
-    stand_out boolean default 0,
-    yard boolean null,
-    pool boolean null,
+    dining_room boolean null, #comedor
+    stand_out boolean default 0, #destacado
+    yard boolean null, #patio
+    pool boolean null, #piscina
     garage boolean null,
     gas boolean null,
     expenses boolean null,
-    kinchen boolean null,
+    kitchen boolean null, 
     created_at datetime default CURRENT_TIMESTAMP not null,
     updated_at datetime,
     CONSTRAINT pk_property PRIMARY KEY(id), 

@@ -39,3 +39,5 @@ Puebas y corrección de ORM terminado
 
 Creado controlador para panel
 php artisan make:controller ProductController
+
+Se realizo el layouts de Panel de Administración

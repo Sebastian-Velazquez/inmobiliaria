@@ -35,4 +35,7 @@ class HomeController extends Controller
             'images'=> $images
         ] */);
     }
+    public function productCreate(){
+        return view('panel/productCreate');
+    }
 }

@@ -32,3 +32,7 @@ Route::get('/product-detail', [App\Http\Controllers\IndexController::class, 'pro
 Route::get('/panel', [App\Http\Controllers\HomeController::class, 'panelHome'])
         ->name('panel')
         ->middleware('auth'); //middllwares que no te deja entrar si no estas logueado
+
+        Route::get('/create', [App\Http\Controllers\HomeController::class, 'productCreate'])
+        ->name('productCreate')
+        ->middleware('auth'); //middllwares que no te deja entrar si no estas logueado
