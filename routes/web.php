@@ -20,19 +20,26 @@ use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('/');
-Route::get('/about', [App\Http\Controllers\IndexController::class, 'about'])->name('about');
-Route::get('/agents', [App\Http\Controllers\IndexController::class, 'agents'])->name('agents');
-//Route::get('/blog', [App\Http\Controllers\IndexController::class, 'blog'])->name('blog');
-Route::get('/contact', [App\Http\Controllers\IndexController::class, 'contact'])->name('contact');
-Route::get('/buy', [App\Http\Controllers\IndexController::class, 'buyRent'])->name('buy');
-Route::get('/sale', [App\Http\Controllers\IndexController::class, 'sale'])->name('sale');
-Route::get('/product-detail', [App\Http\Controllers\IndexController::class, 'productDetail'])->name('productDetail');
+/** IndexController */
+    Route::get('/', [App\Http\Controllers\IndexController::class, 'index'])->name('/');
+    Route::get('/about', [App\Http\Controllers\IndexController::class, 'about'])->name('about');
+    Route::get('/agents', [App\Http\Controllers\IndexController::class, 'agents'])->name('agents');
+    //Route::get('/blog', [App\Http\Controllers\IndexController::class, 'blog'])->name('blog');
+    Route::get('/contact', [App\Http\Controllers\IndexController::class, 'contact'])->name('contact');
+    Route::get('/buy', [App\Http\Controllers\IndexController::class, 'buyRent'])->name('buy');
+    Route::get('/sale', [App\Http\Controllers\IndexController::class, 'sale'])->name('sale');
+    Route::get('/product-detail', [App\Http\Controllers\IndexController::class, 'productDetail'])->name('productDetail');
 
-Route::get('/panel', [App\Http\Controllers\HomeController::class, 'panelHome'])
-        ->name('panel')
-        ->middleware('auth'); //middllwares que no te deja entrar si no estas logueado
-
-        Route::get('/create', [App\Http\Controllers\HomeController::class, 'productCreate'])
+/** HomeController - Panel de usario */
+    Route::get('/panel', [App\Http\Controllers\HomeController::class, 'panelHome'])
+            ->name('panel')
+            ->middleware('auth'); //middllwares que no te deja entrar si no estas logueado
+    Route::get('/form-create', [App\Http\Controllers\HomeController::class, 'productCreate'])
         ->name('productCreate')
         ->middleware('auth'); //middllwares que no te deja entrar si no estas logueado
+
+/** ProductController - CRUD */
+
+    Route::post('/process-create', [App\Http\Controllers\ProductController::class, 'create'])
+        ->name('processCreate')
+        ->middleware('auth');
