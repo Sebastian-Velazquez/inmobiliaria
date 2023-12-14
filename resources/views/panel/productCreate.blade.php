@@ -7,8 +7,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            General Form Elements
-            <small>Preview</small>
+            Formulario
+            <small>NUEVO</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -25,7 +25,7 @@
               <!-- general form elements -->
               <div class="box box-primary">
                 <div class="box-header">
-                  <h3 class="box-title">Quick Example</h3>
+                  <h3 class="box-title">Completar</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
                 <form role="form" action="{{ route('processCreate')}}" method="POST" enctype="multipart/form-data">
@@ -35,19 +35,41 @@
                       <label for="exampleInputEmail1">Tipo de Propiedad</label>
                       <select  name="tipoPropiedad"   class="form-control" id="exampleInputEmail1">
                         <option value="">Seleccionar</option>
-                        <option value="1">1</option>
+                        @foreach ($property as $pro)
+                        <option value="{{ $pro}}">{{ $pro}}</option>
+                        @endforeach
                       </select>
+                      {{-- Mensaje de eror --}}
+                      @error('tipoPropiedad')
+                        <span class="alert alert-succes" style="color:red" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Tipo de Operación</label>
-                      <select  name="tipoOperacón"   class="form-control" id="exampleInputEmail1">
+                      <select  name="tipoOperacion"   class="form-control" id="exampleInputEmail1">
                         <option value="">Seleccionar</option>
-                        <option value="1">1</option>
+                        @foreach ($operation as $ope)
+                        <option value="{{ $ope}}">{{ $ope}}</option>
+                        @endforeach
                       </select>
+                      {{-- Mensaje de eror --}}
+                      @error('tipoOperacion')
+                        <span class="alert alert-succes" style="color:red" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Calle</label>
                       <input type="text" name="adress" class="form-control" id="exampleInputPassword1" placeholder="Ej: Alberdi">
+                      {{-- Mensaje de eror --}}
+                      @error('adress')
+                        <span class="alert alert-succes" style="color:red" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Numero de calle</label>
@@ -118,7 +140,13 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">File input</label>
-                    <input type="file" name="image[]" id="exampleInputFile" multiple accept="image/*">
+                    <input type="file" name="image[]" id="exampleInputFile" multiple {{-- accept="image/*" --}}>
+                    {{-- Mensaje de eror --}}
+                    @error('image[]')
+                    <span class="alert alert-succes" style="color:red" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
                     <p class="help-block">Los formatos compartibles son: .rpg, .jpng, .png</p>
                   </div>
                   <div class="box-footer">

@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Image;
 use App\Models\Property;
+use App\Models\Image;
+use App\Models\TypeProperty;
 use App\Models\Operation;
-use App\Models\TypeOfProperty;
 use App\Models\Status;
 
 class HomeController extends Controller
@@ -36,6 +36,21 @@ class HomeController extends Controller
         ] */);
     }
     public function productCreate(){
-        return view('panel/productCreate');
+        $property = TypeProperty::all();
+        $arrayProperty = [];
+        foreach ($property as $pro) {
+            $arrayProperty[] = $pro->name;
+        }
+        $operation = Operation::all();
+        $arrayOperation = [];
+        foreach ($operation as $ope) {
+            $arrayOperation[] = $ope->name;
+        }
+        /* var_dump($arrayOperation);
+        die(); */
+        return view('panel/productCreate', [
+            'property' => $arrayProperty,
+            'operation' => $arrayOperation,
+        ]);
     }
 }

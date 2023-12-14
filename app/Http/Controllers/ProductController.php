@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\TypeProperty;
 
 class ProductController extends Controller
 {
@@ -12,6 +13,22 @@ class ProductController extends Controller
     }
 
     public function create(Request $request){
+        //validación
+        $validate = $this->validate($request, [
+            'tipoPropiedad' => 'required|in:Casa,Departamento,Galpon,Local,Terreno',
+            'tipoOperacion' => 'required|in:Alquiler,Venta',
+            'adress' => 'required|string|min:3|max:255',
+            'image[]' => 'required|mimes:jpg,jpeg,png,gif',
+        ], [
+            'image[].required' => 'hay archivos que no son imagenes o fomato no compatible!',
+            'tipoPropiedad.required' => 'Campo obligatorio',
+            'tipoPropiedad.in' => 'Algo salió mal',
+            'tipoOperacion.required' => 'Campo obligatorio',
+            'tipoOperacion.in' => 'Algo salió mal',
+            'adress.required' => 'Campo obligatorio',
+            'adress.min' => 'Tiene que contener mas de 3 carcteres',
+            'adress.max' => 'Tiene que contener menos de 256 carcteres',
+        ]);
         //Almacenar imagenes en un array
         $fileImages =  $request->file('image');
         $image_paths = [];
@@ -35,8 +52,8 @@ class ProductController extends Controller
         $kitchen = $request->input('kitchen') ? $request->input('kitchen') : 0; 
         $maps = $request->input('maps');
         $description = $request->input('description');
-        var_dump($image_paths);
+        /* var_dump($image_paths);
         die();
-        return view('index/sale');//carpeta y archivo
+        return view('index/sale');//carpeta y archivo */
     }
 }
