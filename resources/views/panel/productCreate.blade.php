@@ -39,7 +39,7 @@
                         <option value="{{ $pro}}">{{ $pro}}</option>
                         @endforeach
                       </select>
-                      {{-- Mensaje de eror --}}
+                      {{-- Mensaje de error --}}
                       @error('tipoPropiedad')
                         <span class="alert alert-succes" style="color:red" role="alert">
                           <strong>{{ $message }}</strong>
@@ -54,7 +54,7 @@
                         <option value="{{ $ope}}">{{ $ope}}</option>
                         @endforeach
                       </select>
-                      {{-- Mensaje de eror --}}
+                      {{-- Mensaje de error --}}
                       @error('tipoOperacion')
                         <span class="alert alert-succes" style="color:red" role="alert">
                           <strong>{{ $message }}</strong>
@@ -64,7 +64,7 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1">Calle</label>
                       <input type="text" name="adress" class="form-control" id="exampleInputPassword1" placeholder="Ej: Alberdi">
-                      {{-- Mensaje de eror --}}
+                      {{-- Mensaje de error --}}
                       @error('adress')
                         <span class="alert alert-succes" style="color:red" role="alert">
                           <strong>{{ $message }}</strong>
@@ -74,14 +74,32 @@
                     <div class="form-group">
                       <label for="exampleInputPassword1">Numero de calle</label>
                       <input type="number" name="adressNumber" class="form-control" id="exampleInputPassword1" placeholder="Ej: 2255">
+                      {{-- Mensaje de error --}}
+                      @error('adressNumber')
+                        <span class="alert alert-succes" style="color:red" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Precio</label>
                       <input type="number" name="price" class="form-control" id="exampleInputPassword1" placeholder="Ej: 50200">
+                      {{-- Mensaje de error --}}
+                      @error('price')
+                        <span class="alert alert-succes" style="color:red" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Dimensiones</label>
                       <input type="text" name="dimension" class="form-control" id="exampleInputPassword1" placeholder="Ej: 10x40">
+                      {{-- Mensaje de error --}}
+                      @error('dimension')
+                        <span class="alert alert-succes" style="color:red" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Cantidad de habitaciones</label>

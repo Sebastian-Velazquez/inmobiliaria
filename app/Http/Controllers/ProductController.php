@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\TypeProperty;
 
 class ProductController extends Controller
 {
@@ -15,19 +14,44 @@ class ProductController extends Controller
     public function create(Request $request){
         //validación
         $validate = $this->validate($request, [
+            //Slect
             'tipoPropiedad' => 'required|in:Casa,Departamento,Galpon,Local,Terreno',
             'tipoOperacion' => 'required|in:Alquiler,Venta',
-            'adress' => 'required|string|min:3|max:255',
+            //String
+            'adress' => 'required|string|min:3|max:200',
+            'dimension' => 'nullable|string|min:3|max:200',
+            //Number
+            'adressNumber' => 'required|numeric|min:3|max:200',
+            'price' => 'required|numeric|min:3|max:200',
+            //Image
             'image[]' => 'required|mimes:jpg,jpeg,png,gif',
         ], [
+            //image
             'image[].required' => 'hay archivos que no son imagenes o fomato no compatible!',
+            //Select
             'tipoPropiedad.required' => 'Campo obligatorio',
             'tipoPropiedad.in' => 'Algo salió mal',
+            //Select
             'tipoOperacion.required' => 'Campo obligatorio',
             'tipoOperacion.in' => 'Algo salió mal',
+            //String
             'adress.required' => 'Campo obligatorio',
             'adress.min' => 'Tiene que contener mas de 3 carcteres',
-            'adress.max' => 'Tiene que contener menos de 256 carcteres',
+            'adress.max' => 'No puede superar los 200 carcteres',
+            //Number
+            'adressNumber.required' => 'Campo obligatorio',
+            'adressNumber.numeric' => 'Solo numeros enteros',
+            'adressNumber.min' => 'Tiene que contener mas de 3 carcteres',
+            'adressNumber.max' => 'No puede superar los 200 carcteres',
+            //Number
+            'price.required' => 'Campo obligatorio',
+            'price.numeric' => 'Solo numeros enteros',
+            'price.min' => 'Tiene que contener mas de 3 carcteres',
+            'price.max' => 'No puede superar los 200 carcteres',
+            //String
+            'dimension.string' => 'si',
+            'dimension.min' => 'Tiene que contener mas de 3 carcteres',
+            'dimension.max' => 'No puede superar los 200 carcteres',
         ]);
         //Almacenar imagenes en un array
         $fileImages =  $request->file('image');
