@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\File;
+use App\Models\Property;
 
 class ProductController extends Controller
 {
@@ -13,7 +16,7 @@ class ProductController extends Controller
 
     public function create(Request $request){
         //validación
-        $validate = $this->validate($request, [
+        /* $validate = $this->validate($request, [
             //Slect
             'tipoPropiedad' => 'required|in:Casa,Departamento,Galpon,Local,Terreno',
             'tipoOperacion' => 'required|in:Alquiler,Venta',
@@ -23,6 +26,8 @@ class ProductController extends Controller
             //Number
             'adressNumber' => 'required|numeric|min:3|max:200',
             'price' => 'required|numeric|min:3|max:200',
+            'room' => 'nullable|numeric|min:3|max:200',
+            'bathroom' => 'nullable|numeric|min:3|max:200',
             //Image
             'image[]' => 'required|mimes:jpg,jpeg,png,gif',
         ], [
@@ -48,21 +53,32 @@ class ProductController extends Controller
             'price.numeric' => 'Solo numeros enteros',
             'price.min' => 'Tiene que contener mas de 3 carcteres',
             'price.max' => 'No puede superar los 200 carcteres',
+            //Number
+            'room.numeric' => 'Solo numeros enteros',
+            'room.min' => 'Tiene que contener mas de 3 carcteres',
+            'room.max' => 'No puede superar los 200 carcteres',
+            //Number
+            'bathroom.numeric' => 'Solo numeros enteros',
+            'bathroom.min' => 'Tiene que contener mas de 3 carcteres',
+            'bathroom.max' => 'No puede superar los 200 carcteres',
             //String
-            'dimension.string' => 'si',
+            'dimension.string' => '',
             'dimension.min' => 'Tiene que contener mas de 3 carcteres',
             'dimension.max' => 'No puede superar los 200 carcteres',
-        ]);
+        ]); */
         //Almacenar imagenes en un array
-        $fileImages =  $request->file('image');
-        $image_paths = [];
-        foreach ($fileImages as $file) {
-            $image_paths[] = $file->getClientOriginalName();
+        if($request->file('image')){
+            $fileImages =  $request->file('image');
+            $image_paths = [];
+            foreach ($fileImages as $file) {
+                $image_paths[] = $file->getClientOriginalName();
+            }
         }
         //Guardar datos Input
-        $type_propertie = $request->input('tipoPropiedad');
+        $type_property = $request->input('tipoPropiedad');
         $type_operation = $request->input('tipoOperacón');
         $adress = $request->input('adress');
+        $adressNumber = $request->input('adressNumber');
         $price = $request->input('price');
         $dimension = $request->input('dimension');
         $room = $request->input('room'); //Habitaciones
@@ -76,8 +92,29 @@ class ProductController extends Controller
         $kitchen = $request->input('kitchen') ? $request->input('kitchen') : 0; 
         $maps = $request->input('maps');
         $description = $request->input('description');
-        /* var_dump($image_paths);
+        //Guardar Property
+        $property = new Property();
+        $property->type_property_id = $type_property;
+        $property->status_id = 1;
+        $property->operation = $type_operation;
+        $property->adress = $adress;
+        $property->adress_number = $adressNumber;
+        $property->price = $price;
+        $property->maps = $maps;
+        $property->main_image = $image_paths[0];
+
+
+
+        //subiir imagen
+        // foreach ($image_paths as $img) {
+        //     if($img){
+        //         $image_name = time().$image
+        // }
+
+        
+
+        var_dump($property);
         die();
-        return view('index/sale');//carpeta y archivo */
+        return view('index/sale');//carpeta y archivo
     }
 }

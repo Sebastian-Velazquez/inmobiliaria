@@ -103,11 +103,23 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Cantidad de habitaciones</label>
-                      <input type="numberr" name="room" class="form-control" id="exampleInputPassword1" placeholder="Ej: 2">
+                      <input type="number" name="room" class="form-control" id="exampleInputPassword1" placeholder="Ej: 2">
+                      {{-- Mensaje de error --}}
+                        @error('room')
+                          <span class="alert alert-succes" style="color:red" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Cantidad de baños</label>
-                      <input type="numberr" name="bathroom" class="form-control" id="exampleInputPassword1" placeholder="Ej: 1">
+                      <input type="number" name="bathroom" class="form-control" id="exampleInputPassword1" placeholder="Ej: 1">
+                      {{-- Mensaje de error --}}
+                      @error('bathroom')
+                      <span class="alert alert-succes" style="color:red" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                     </div>
                     
                     <label for="exampleInputPassword1">Tilde las opciones que correspondan:</label>
