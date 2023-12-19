@@ -16,7 +16,6 @@
             <li class="active">General Elements</li>
           </ol>
         </section>
-
         <!-- Main content -->
         <section class="content">
           <div class="row">
@@ -172,7 +171,13 @@
                     <label for="exampleInputFile">File input</label>
                     <input type="file" name="image[]" id="exampleInputFile" multiple {{-- accept="image/*" --}}>
                     {{-- Mensaje de eror --}}
-                    @error('image[]')
+                    @error('image')
+                    <span class="alert alert-succes" style="color:red" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    {{-- Mensaje de eror --}}
+                    @error('image.*')
                     <span class="alert alert-succes" style="color:red" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>

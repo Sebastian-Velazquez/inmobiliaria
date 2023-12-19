@@ -15,8 +15,9 @@ class ProductController extends Controller
     }
 
     public function create(Request $request){
+
         //validación
-        /* $validate = $this->validate($request, [
+        $validate = $this->validate($request, [
             //Slect
             'tipoPropiedad' => 'required|in:Casa,Departamento,Galpon,Local,Terreno',
             'tipoOperacion' => 'required|in:Alquiler,Venta',
@@ -24,15 +25,18 @@ class ProductController extends Controller
             'adress' => 'required|string|min:3|max:200',
             'dimension' => 'nullable|string|min:3|max:200',
             //Number
-            'adressNumber' => 'required|numeric|min:3|max:200',
-            'price' => 'required|numeric|min:3|max:200',
-            'room' => 'nullable|numeric|min:3|max:200',
-            'bathroom' => 'nullable|numeric|min:3|max:200',
-            //Image
-            'image[]' => 'required|mimes:jpg,jpeg,png,gif',
-        ], [
+            'adressNumber' => 'required|numeric|min:3',
+            'price' => 'required|numeric|min:3',
+            'room' => 'required|numeric',
+            'bathroom' => 'required|numeric',
+            //Image Array
+            'image' => 'required|array|min:1',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif', // Permitir solo imágenes con extensiones específicas y un tamaño máximo de 2048 KB
+            ],[
             //image
-            'image[].required' => 'hay archivos que no son imagenes o fomato no compatible!',
+            'image.required' => 'Debe proporcionar al menos una imagen.',
+            'image.*.image' => 'Debes seleccionar inmagenes',
+            'image.*.mimes' => 'Las imagen debe ser de tipo jpeg, png, jpg o gif.',
             //Select
             'tipoPropiedad.required' => 'Campo obligatorio',
             'tipoPropiedad.in' => 'Algo salió mal',
@@ -59,19 +63,15 @@ class ProductController extends Controller
             'room.max' => 'No puede superar los 200 carcteres',
             //Number
             'bathroom.numeric' => 'Solo numeros enteros',
-            'bathroom.min' => 'Tiene que contener mas de 3 carcteres',
-            'bathroom.max' => 'No puede superar los 200 carcteres',
             //String
-            'dimension.string' => '',
             'dimension.min' => 'Tiene que contener mas de 3 carcteres',
-            'dimension.max' => 'No puede superar los 200 carcteres',
-        ]); */
+        ]);
         //Almacenar imagenes en un array
         if($request->file('image')){
             $fileImages =  $request->file('image');
-            $image_paths = [];
+            $images_path = [];
             foreach ($fileImages as $file) {
-                $image_paths[] = $file->getClientOriginalName();
+                $images_path[] = $file->getClientOriginalName();
             }
         }
         //Guardar datos Input
@@ -101,20 +101,24 @@ class ProductController extends Controller
         $property->adress_number = $adressNumber;
         $property->price = $price;
         $property->maps = $maps;
-        $property->main_image = $image_paths[0];
-
-
-
-        //subiir imagen
-        // foreach ($image_paths as $img) {
-        //     if($img){
-        //         $image_name = time().$image
-        // }
+        $property->main_image = $images_path[0];
+        /* var_dump($property->main_image);
+        die(); */
+        //Subir imagen
+        if($images_path){
+            $images_path_name = time().$images_path[0]->getClientOriginalName();
+            Storage::disk('images')->put($images_path_name, File::get($images_path[0]));//images es la carpeta en storage
+            $property->main_image = $images_path_name;
+        }
+        $property->save();
+        return redirect()->route('home')->with([
+            'message' => 'La propiedad fue cargada con exito!'
+        ]);
 
         
 
-        var_dump($property);
+        /* var_dump($property);
         die();
-        return view('index/sale');//carpeta y archivo
+        return view('index/sale');//carpeta y archivo */
     }
 }
