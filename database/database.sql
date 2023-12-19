@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS properties(
     garage boolean null,
     gas boolean null,
     expenses boolean null,
-    kitchen boolean null, 
+    kitchen boolean null,  #cocina
     created_at datetime default CURRENT_TIMESTAMP not null,
     updated_at datetime,
     CONSTRAINT pk_property PRIMARY KEY(id), 

@@ -56,6 +56,12 @@ return [
             'throw' => false,
         ],
 
+        'images' => [
+            'driver' => 'local',
+            'root' => storage_path('app/images'), // Ruta al directorio de almacenamiento
+        ],
+        
+
     ],
 
     /*

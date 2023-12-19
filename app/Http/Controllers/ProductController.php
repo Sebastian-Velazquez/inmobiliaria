@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\File;
+//use Illuminate\Http\File;
+use Illuminate\Support\Facades\File;
 use App\Models\Property;
 
 class ProductController extends Controller
@@ -19,8 +20,8 @@ class ProductController extends Controller
         //validación
         $validate = $this->validate($request, [
             //Slect
-            'tipoPropiedad' => 'required|in:Casa,Departamento,Galpon,Local,Terreno',
-            'tipoOperacion' => 'required|in:Alquiler,Venta',
+            'tipoPropiedad' => 'required|in:1,2,3,4,5',
+            'tipoOperacion' => 'required|in:1,2',
             //String
             'adress' => 'required|string|min:3|max:200',
             'dimension' => 'nullable|string|min:3|max:200',
@@ -71,12 +72,12 @@ class ProductController extends Controller
             $fileImages =  $request->file('image');
             $images_path = [];
             foreach ($fileImages as $file) {
-                $images_path[] = $file->getClientOriginalName();
+                $images_path[] = $file;
             }
         }
         //Guardar datos Input
         $type_property = $request->input('tipoPropiedad');
-        $type_operation = $request->input('tipoOperacón');
+        $type_operation = $request->input('tipoOperacion');
         $adress = $request->input('adress');
         $adressNumber = $request->input('adressNumber');
         $price = $request->input('price');
@@ -90,28 +91,39 @@ class ProductController extends Controller
         $gas = $request->input('gas') ? $request->input('gas') : 0; 
         $expenses = $request->input('expenses') ? $request->input('expenses') : 0; 
         $kitchen = $request->input('kitchen') ? $request->input('kitchen') : 0; 
-        $maps = $request->input('maps');
+        $maps = $request->input('maps') ? $request->input('maps') : null;
         $description = $request->input('description');
         //Guardar Property
         $property = new Property();
         $property->type_property_id = $type_property;
         $property->status_id = 1;
-        $property->operation = $type_operation;
+        $property->operation_id = $type_operation;
         $property->adress = $adress;
         $property->adress_number = $adressNumber;
         $property->price = $price;
         $property->maps = $maps;
-        $property->main_image = $images_path[0];
-        /* var_dump($property->main_image);
+        $property->dimension = $dimension;
+        $property->room_number = $room;
+        $property->bathroom_number = $bathroom;
+        $property->description = $description;
+        $property->dining_room = $dining_room;
+        $property->yard = $yard;
+        $property->pool = $pool;
+        $property->garage = $garage;
+        $property->gas = $gas;
+        $property->expenses = $expenses;
+        $property->kitchen = $kitchen;
+        /* var_dump($property->type_property_id);
         die(); */
         //Subir imagen
         if($images_path){
-            $images_path_name = time().$images_path[0]->getClientOriginalName();
+            $images_path_name = time().' - '.$images_path[0]->getClientOriginalName();
+            //Storage::disk('images')->put($images_path_name, file_get_contents($images_path[0]));
             Storage::disk('images')->put($images_path_name, File::get($images_path[0]));//images es la carpeta en storage
             $property->main_image = $images_path_name;
         }
         $property->save();
-        return redirect()->route('home')->with([
+        return redirect()->route('panel')->with([
             'message' => 'La propiedad fue cargada con exito!'
         ]);
 

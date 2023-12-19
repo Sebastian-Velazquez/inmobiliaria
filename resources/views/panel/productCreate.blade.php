@@ -10,6 +10,7 @@
             Formulario
             <small>NUEVO</small>
           </h1>
+            
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Forms</a></li>
@@ -35,7 +36,7 @@
                       <select  name="tipoPropiedad"   class="form-control" id="exampleInputEmail1">
                         <option value="">Seleccionar</option>
                         @foreach ($property as $pro)
-                        <option value="{{ $pro}}">{{ $pro}}</option>
+                        <option value="{{ $pro->id}}">{{ $pro->name}}</option>
                         @endforeach
                       </select>
                       {{-- Mensaje de error --}}
@@ -50,7 +51,7 @@
                       <select  name="tipoOperacion"   class="form-control" id="exampleInputEmail1">
                         <option value="">Seleccionar</option>
                         @foreach ($operation as $ope)
-                        <option value="{{ $ope}}">{{ $ope}}</option>
+                        <option value="{{ $ope->id}}">{{ $ope->name}}</option>
                         @endforeach
                       </select>
                       {{-- Mensaje de error --}}

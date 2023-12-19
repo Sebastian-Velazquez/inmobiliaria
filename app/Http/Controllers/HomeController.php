@@ -37,20 +37,16 @@ class HomeController extends Controller
     }
     public function productCreate(){
         $property = TypeProperty::all();
-        $arrayProperty = [];
-        foreach ($property as $pro) {
-            $arrayProperty[] = $pro->name;
-        }
         $operation = Operation::all();
-        $arrayOperation = [];
+        /* $arrayOperation = [];
         foreach ($operation as $ope) {
             $arrayOperation[] = $ope->name;
-        }
+        } */
         /* var_dump($arrayOperation);
         die(); */
         return view('panel/productCreate', [
-            'property' => $arrayProperty,
-            'operation' => $arrayOperation,
+            'property' => $property,
+            'operation' => $operation,
         ]);
     }
 }

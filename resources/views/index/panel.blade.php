@@ -9,6 +9,12 @@
           <h1>
             Boxed Layout
             <small>Blank example to the boxed layout</small>
+            {{-- Mensaje  --}}
+            @if (session('message'))
+            <div class="alert alert-succes" style="color:rgb(0, 255, 136)" role="alert">
+              <strong>{{ session('message') }}</strong>
+            </div>
+            @endif
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
