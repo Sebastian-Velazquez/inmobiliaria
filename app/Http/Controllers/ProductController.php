@@ -28,7 +28,9 @@ class ProductController extends Controller
             'dimension' => 'nullable|string|min:3|max:200',
             //Number
             'adressNumber' => 'required|numeric|min:3',
+            'adressNumber' => 'min:3',
             'price' => 'required|numeric|min:3',
+            'price' => 'min:3',
             'room' => 'required|numeric',
             'bathroom' => 'required|numeric',
             //Image Array

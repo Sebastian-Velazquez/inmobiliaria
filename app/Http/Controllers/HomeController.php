@@ -28,23 +28,24 @@ class HomeController extends Controller
      */
     public function panelHome()
     {
-        /* $images = Image::find(1);
-        var_dump($images->property->adress);
-        die(); */
-        return view('index/panel'/* , [
-            'images'=> $images
-        ] */);
+        return view('index/panel');
+    }
+    public function productList()
+    {
+        return view('panel/productList');
     }
     public function productCreate(){
         $property = TypeProperty::all();
         $operation = Operation::all();
-        /* $arrayOperation = [];
-        foreach ($operation as $ope) {
-            $arrayOperation[] = $ope->name;
-        } */
-        /* var_dump($arrayOperation);
-        die(); */
         return view('panel/productCreate', [
+            'property' => $property,
+            'operation' => $operation,
+        ]);
+    }
+    public function productEdit(){
+        $property = TypeProperty::all();
+        $operation = Operation::all();
+        return view('panel/productEdit', [
             'property' => $property,
             'operation' => $operation,
         ]);

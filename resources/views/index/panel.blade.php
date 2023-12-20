@@ -3,19 +3,18 @@
       <!-- =============================================== -->
 
       <!-- Right side column. Contains the navbar and content of the page -->
-       {{-- Mensaje  --}}
-       @if (session('message'))
-       <div class="alert alert-succes" style="color:rgb(0, 255, 136)" role="alert">
-         <strong>{{ session('message') }}</strong>
-       </div>
-       @endif
+      {{-- Mensaje  --}}
+      @if (session('message'))
+        <div class="alert alert-succes" style="color:rgb(0, 255, 136)" role="alert">
+          <strong>{{ session('message') }}</strong>
+        </div>
+      @endif
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
             ADMINISTRACION
             <small></small>
-           
           </h1>
           <ol class="breadcrumb">
             <li><a href="{{route('panel')}}"><i class="fa fa-dashboard"></i> Home</a></li>

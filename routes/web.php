@@ -32,14 +32,22 @@ Auth::routes();
 
 /** HomeController - Panel de usario */
     Route::get('/panel', [App\Http\Controllers\HomeController::class, 'panelHome'])
-            ->name('panel')
-            ->middleware('auth'); //middllwares que no te deja entrar si no estas logueado
+        ->name('panel')
+        ->middleware('auth'); //middllwares que no te deja entrar si no estas logueado
+    Route::get('/product-list', [App\Http\Controllers\HomeController::class, 'productlist'])
+        ->name('list')
+        ->middleware('auth');
     Route::get('/form-create', [App\Http\Controllers\HomeController::class, 'productCreate'])
         ->name('productCreate')
         ->middleware('auth'); //middllwares que no te deja entrar si no estas logueado
+    Route::get('/form-edit', [App\Http\Controllers\HomeController::class, 'productEdit'])
+        ->name('productEdit')
+        ->middleware('auth');
 
 /** ProductController - CRUD */
-
     Route::post('/process-create', [App\Http\Controllers\ProductController::class, 'create'])
         ->name('processCreate')
         ->middleware('auth');
+   /*  Route::post('/process-edit', [App\Http\Controllers\ProductController::class, 'edit'])
+        ->name('processEdit')
+        ->middleware('auth'); */
