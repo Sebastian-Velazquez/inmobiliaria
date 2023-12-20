@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 //use Illuminate\Http\File;
 use Illuminate\Support\Facades\File;
 use App\Models\Property;
+use App\Models\Image;
 
 class ProductController extends Controller
 {
@@ -113,8 +114,6 @@ class ProductController extends Controller
         $property->gas = $gas;
         $property->expenses = $expenses;
         $property->kitchen = $kitchen;
-        /* var_dump($property->type_property_id);
-        die(); */
         //Subir imagen
         if($images_path){
             $images_path_name = time().' - '.$images_path[0]->getClientOriginalName();
@@ -122,7 +121,22 @@ class ProductController extends Controller
             Storage::disk('images')->put($images_path_name, File::get($images_path[0]));//images es la carpeta en storage
             $property->main_image = $images_path_name;
         }
+        $dato = $property->main_image;
         $property->save();
+        //Guardar imagenes para el Detalle de la Propiedad
+        $propertyImageMain = Property::where('main_image', $dato)->first();
+        /* var_dump($propertyImageMain);
+        die(); */
+        if($images_path){
+            foreach ($images_path as $img) {
+                $images = new Image();
+                $images->property_id = $propertyImageMain->id;
+                $images_path_name = time().' - '.$img->getClientOriginalName();
+                Storage::disk('images')->put($images_path_name, File::get($img));//images es la carpeta en storage
+                $images->save();
+            }
+        }
+
         return redirect()->route('panel')->with([
             'message' => 'La propiedad fue cargada con exito!'
         ]);

@@ -1,3 +1,4 @@
+#Create Database
 CREATE DATABASE IF NOT EXISTS inmobiliaria;
 USE inmobiliaria;
 
@@ -37,7 +38,7 @@ CREATE TABLE IF NOT EXISTS properties(
     adress varchar(255) not null,
     adress_number int(10) not null,
     price int(100)  not null,
-    maps varchar(100) null,
+    maps text null,
     main_image varchar(255) default 'main.png',
     dimension varchar(100),
     room_number int(10) not null,

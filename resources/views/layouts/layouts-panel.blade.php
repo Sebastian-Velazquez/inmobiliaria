@@ -79,7 +79,7 @@
                 </ul>
               </li>
               <!-- Notifications: style can be found in dropdown.less -->
-              <li class="dropdown notifications-menu">
+              {{-- <li class="dropdown notifications-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-bell-o"></i>
                   <span class="label label-warning">10</span>
@@ -98,9 +98,9 @@
                   </li>
                   <li class="footer"><a href="#">Ver todo</a></li>
                 </ul>
-              </li>
+              </li> --}}
               <!-- Tasks: style can be found in dropdown.less -->
-              <li class="dropdown tasks-menu">
+              {{-- <li class="dropdown tasks-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-flag-o"></i>
                   <span class="label label-danger">9</span>
@@ -129,12 +129,12 @@
                     <a href="#">View all tasks</a>
                   </li>
                 </ul>
-              </li>
+              </li> --}}
               <!-- User Account: style can be found in dropdown.less -->
-              <li class="dropdown user user-menu">
+{{--               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="dashboard/dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <span class="hidden-xs">Flores</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
@@ -167,7 +167,7 @@
                     </div>
                   </li>
                 </ul>
-              </li>
+              </li> --}}
             </ul>
           </div>
         </nav>
@@ -186,12 +186,12 @@
           <!-- Sidebar user panel -->
           <div class="user-panel">
             <div class="pull-left image">
-              <img src="dashboard/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+              <img src="images/logo.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p>Alexander Pierce</p>
+              <p>Flores Marisol</p>
 
-              <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+              {{-- <a href="#"><i class="fa fa-circle text-success"></i> Online</a> --}}
             </div>
           </div>
           <!-- search form -->
@@ -213,7 +213,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{route('panel')}}"><i class="fa fa-circle-o"></i> Inicio</a></li>
-                <li><a href="{{route('panel')}}"><i class="fa fa-circle-o"></i> Ir a la Página</a></li>
+                <li><a href="{{route('/')}}"><i class="fa fa-circle-o"></i> Ir a la Página</a></li>
               </ul>
             </li>
             <li class="treeview active">
@@ -291,7 +291,7 @@
                 <small class="label pull-right bg-yellow">1</small>
               </a>
             </li>
-            <li class="treeview">
+           {{--  <li class="treeview">
               <a href="#">
                 <i class="fa fa-folder"></i> <span>Examples</span>
                 <i class="fa fa-angle-left pull-right"></i>
@@ -305,8 +305,8 @@
                 <li><a href="../examples/500.html"><i class="fa fa-circle-o"></i> 500 Error</a></li>
                 <li><a href="../examples/blank.html"><i class="fa fa-circle-o"></i> Blank Page</a></li>
               </ul>
-            </li>
-            <li class="treeview">
+            </li> --}}
+            {{-- <li class="treeview">
               <a href="#">
                 <i class="fa fa-share"></i> <span>Multilevel</span>
                 <i class="fa fa-angle-left pull-right"></i>
@@ -328,12 +328,12 @@
                 </li>
                 <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
               </ul>
-            </li>
-            <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> Documentation</a></li>
+            </li> --}}
+            {{-- <li><a href="../../documentation/index.html"><i class="fa fa-book"></i> Documentation</a></li>
             <li class="header">LABELS</li>
             <li><a href="#"><i class="fa fa-circle-o text-danger"></i> Important</a></li>
             <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Warning</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-info"></i> Information</a></li>
+            <li><a href="#"><i class="fa fa-circle-o text-info"></i> Information</a></li> --}}
           </ul>
         </section>
         <!-- /.sidebar -->
