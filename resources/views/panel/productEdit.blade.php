@@ -8,13 +8,12 @@
         <section class="content-header">
           <h1>
             Formulario
-            <small>NUEVO</small>
+            <small>EDITAR</small>
           </h1>
             
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="{{route('panel')}}"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Forms</a></li>
-            <li class="active">General Elements</li>
           </ol>
         </section>
         <!-- Main content -->
@@ -35,8 +34,14 @@
                       <label for="exampleInputEmail1">Tipo de Propiedad</label>
                       <select  name="tipoPropiedad"   class="form-control" id="exampleInputEmail1"> 
                         <option value="" >Seleccionar</option>
-                        @foreach ($property as $pro)
-                        <option value="{{ $pro->id}}" {{old('tipoPropiedad') ? 'selected' : '' }}>{{ $pro->name}}</option>
+                        @foreach ($typeProperty as $pro)
+                        <option value="{{ $pro->id}}" 
+                          @if (old('tipoPropiedad')==null && $property->type_property_id == $pro->id)
+                            selected
+                          @elseif(old('tipoPropiedad')==$pro->id)
+                            selected
+                          @endif
+                          >{{ $pro->name}}</option>
                         @endforeach
                       </select>
                       {{-- Mensaje de error --}}
@@ -51,7 +56,13 @@
                       <select  name="tipoOperacion"   class="form-control" id="exampleInputEmail1">
                         <option value="">Seleccionar</option>
                         @foreach ($operation as $ope)
-                        <option value="{{ $ope->id}}" {{old('tipoOperacion') ? 'selected' : '' }}>{{ $ope->name}}</option>
+                        <option value="{{ $ope->id}}" 
+                          @if (old('tipoOperacion')==null && $property->operation_id == $ope->id)
+                            selected
+                          @elseif(old('tipoOperacion')==$ope->id)
+                            selected
+                          @endif
+                          >{{ $ope->name}}</option>
                         @endforeach
                       </select>
                       {{-- Mensaje de error --}}
@@ -63,7 +74,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Calle</label>
-                      <input type="text" name="adress" class="form-control" id="exampleInputPassword1" placeholder="Ej: Alberdi" value="{{old('adress') ? old('adress') : '' }}">
+                      <input type="text" name="adress" class="form-control" id="exampleInputPassword1" placeholder="Ej: Alberdi" value="{{old('adress') ? old('adress') : $property->adress }}">
                       {{-- Mensaje de error --}}
                       @error('adress')
                         <span class="alert alert-succes" style="color:red" role="alert">
@@ -73,7 +84,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Numero de calle</label>
-                      <input type="number" name="adressNumber" class="form-control" id="exampleInputPassword1" placeholder="Ej: 2255" value="{{old('adressNumber') ? old('adressNumber') : ''}}">
+                      <input type="number" name="adressNumber" class="form-control" id="exampleInputPassword1" placeholder="Ej: 2255" value="{{old('adressNumber') ? old('adressNumber') : $property->adress_number}}">
                       {{-- Mensaje de error --}}
                       @error('adressNumber')
                         <span class="alert alert-succes" style="color:red" role="alert">
@@ -83,7 +94,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Precio</label>
-                      <input type="number" name="price" class="form-control" id="exampleInputPassword1" placeholder="Ej: 50200" value="{{old('price') ? old('price') : ''}}">
+                      <input type="number" name="price" class="form-control" id="exampleInputPassword1" placeholder="Ej: 50200" value="{{old('price') ? old('price') : $property->price}}">
                       {{-- Mensaje de error --}}
                       @error('price')
                         <span class="alert alert-succes" style="color:red" role="alert">
@@ -93,7 +104,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Dimensiones</label>
-                      <input type="text" name="dimension" class="form-control" id="exampleInputPassword1" placeholder="Ej: 10x40" value="{{old('dimension') ? old('dimension') : ''}}">
+                      <input type="text" name="dimension" class="form-control" id="exampleInputPassword1" placeholder="Ej: 10x40" value="{{old('dimension') ? old('dimension') : $property->dimension}}">
                       {{-- Mensaje de error --}}
                       @error('dimension')
                         <span class="alert alert-succes" style="color:red" role="alert">
@@ -103,7 +114,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Cantidad de habitaciones</label>
-                      <input type="number" name="room" class="form-control" id="exampleInputPassword1" placeholder="Ej: 2" value="{{old('room') ? old('room') : ''}}">
+                      <input type="number" name="room" class="form-control" id="exampleInputPassword1" placeholder="Ej: 2" value="{{old('room') ? old('room') : $property->room_number}}">
                       {{-- Mensaje de error --}}
                         @error('room')
                           <span class="alert alert-succes" style="color:red" role="alert">
@@ -113,7 +124,7 @@
                     </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Cantidad de baños</label>
-                      <input type="number" name="bathroom" class="form-control" id="exampleInputPassword1" placeholder="Ej: 1" value="{{old('bathroom') ? old('bathroom') : ''}}">
+                      <input type="number" name="bathroom" class="form-control" id="exampleInputPassword1" placeholder="Ej: 1" value="{{old('bathroom') ? old('bathroom') : $property->bathroom_number}}">
                       {{-- Mensaje de error --}}
                       @error('bathroom')
                       <span class="alert alert-succes" style="color:red" role="alert">
@@ -122,40 +133,82 @@
                     @enderror
                     </div>
                     
-                    <label for="exampleInputPassword1">Tilde las opciones que correspondan:</label>
+                    <label for="exampleInputPassword1">Tilde las opciones que correspondan:</label>{{old('diningRoom')}}
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" name="diningRoom" value="1" {{old('diningRoom') ? 'checked' : ''}} > Comedor
+                        <input type="checkbox" name="diningRoom" value="1" 
+                          @if (old()== null && $property->dining_room == 1)
+                            checked 
+                          @elseif(old('diningRoom'))
+                            checked
+                          @endif
+                        > Comedor
                       </label>
                     </div>
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" name="yard"  value="1" {{old('yard') ? 'checked' : ''}} > Patio
+                        <input type="checkbox" name="yard"  value="1" 
+                        @if (old()== null && $property->yard == 1)
+                          checked 
+                        @elseif(old('yard'))
+                          checked
+                        @endif
+                        > Patio
+                      </label>
+                    </div>
+                    <div class="checkbox">
+                      <label>{{-- SI NO EXISTE OLD() SE CARGA LOS DATOS DEL LA DB LUEGO A HABER UN ERROR ESA CONDICION NO PUEDE PASAR --}}
+                        <input type="checkbox" name="pool" value="1" 
+                        @if (old()== null && $property->pool == 1)
+                          checked 
+                        @elseif(old('pool'))
+                          checked
+                        @endif
+                        > Piscina
                       </label>
                     </div>
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" name="pool" value="1" {{old('pool') ? 'checked' : ''}}> Piscina
+                        <input type="checkbox" name="garage" value="1" 
+                        @if (old()== null && $property->garage == 1)
+                          checked 
+                        @elseif(old('garage'))
+                          checked
+                        @endif
+                        > Garaje
                       </label>
                     </div>
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" name="garage" value="1" {{old('garage') ? 'checked' : ''}}> Garaje
+                        <input type="checkbox" name="gas" value="1" 
+                        @if (old()== null && $property->gas == 1)
+                          checked 
+                        @elseif(old('gas'))
+                          checked
+                        @endif
+                        > Gas 
                       </label>
                     </div>
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" name="gas" value="1" {{old('gas') ? 'checked' : ''}} > Gas 
+                        <input type="checkbox" name="expenses" value="1" 
+                        @if (old()== null && $property->expenses == 1)
+                          checked 
+                        @elseif(old('expenses'))
+                          checked
+                        @endif
+                        > Expensas 
                       </label>
                     </div>
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" name="expenses" value="1" {{old('expenses') ? 'checked' : ''}} > Expensas 
-                      </label>
-                    </div>
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox" name="kitchen" value="1" {{old('kitchen') ? 'checked' : ''}} > Cocina 
+                        <input type="checkbox" name="kitchen" value="1" 
+                        @if (old()== null && $property->kitchen == 1)
+                          checked 
+                        @elseif(old('kitchen'))
+                          checked
+                        @endif
+                        > Cocina 
                       </label>
                     </div>
                   </div>

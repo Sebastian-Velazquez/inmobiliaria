@@ -40,9 +40,12 @@ Auth::routes();
     Route::get('/form-create', [App\Http\Controllers\HomeController::class, 'productCreate'])
         ->name('productCreate')
         ->middleware('auth'); //middllwares que no te deja entrar si no estas logueado
-    Route::get('/form-edit', [App\Http\Controllers\HomeController::class, 'productEdit'])
-        ->name('productEdit')
+    Route::get('/form-edit', [App\Http\Controllers\HomeController::class, 'viewEdit']) //EL id esta mandado por get en request
+        ->name('viewEdit')
         ->middleware('auth');
+    /* Route::get('/form-editar/{id}', [App\Http\Controllers\HomeController::class, 'viewEdit'])
+        ->name('edit')
+        ->middleware('auth'); */
 
 /** ProductController - CRUD */
     Route::post('/process-create', [App\Http\Controllers\ProductController::class, 'create'])

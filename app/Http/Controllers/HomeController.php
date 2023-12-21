@@ -41,19 +41,21 @@ class HomeController extends Controller
         ]);
     }
     public function productCreate(){
-        $property = TypeProperty::all();
+        $typeProperty = TypeProperty::all();
         $operation = Operation::all();
         return view('panel/productCreate', [
-            'property' => $property,
+            'typeProperty' => $typeProperty,
             'operation' => $operation,
         ]);
     }
-    public function productEdit(){
-        $property = TypeProperty::all();
+    public function viewEdit(Request $request){
+        $property = Property::find($request->input('id'));
+        $typeProperty = TypeProperty::all();
         $operation = Operation::all();
         return view('panel/productEdit', [
-            'property' => $property,
+            'typeProperty' => $typeProperty,
             'operation' => $operation,
+            'property' => $property,
         ]);
     }
 }

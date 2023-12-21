@@ -12,9 +12,8 @@
           </h1>
             
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li><a href="{{route('panel')}}"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Forms</a></li>
-            <li class="active">General Elements</li>
           </ol>
         </section>
         <!-- Main content -->
@@ -35,7 +34,7 @@
                       <label for="exampleInputEmail1">Tipo de Propiedad</label>
                       <select  name="tipoPropiedad"   class="form-control" id="exampleInputEmail1"> 
                         <option value="" >Seleccionar</option>
-                        @foreach ($property as $pro)
+                        @foreach ($typeProperty as $pro)
                         <option value="{{ $pro->id}}" {{old('tipoPropiedad') ? 'selected' : '' }}>{{ $pro->name}}</option>
                         @endforeach
                       </select>

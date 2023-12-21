@@ -45,10 +45,13 @@
                             <td>{{$pro->type_properties->name}}</td>
                             <td>{{$pro->operations->name}}</td>
                             <td>
-                              <a href="{{route('productEdit')}}"><button type="button" class="btn-sm btn-primary">ir</button></a>
+                              <form method="GET" action="{{ route('viewEdit') }}">
+                                <input type="hidden" name="id" value="{{$pro->id}}">
+                                <button type="submit" class="btn-sm btn-primary">ir</button>
+                            </form>
                             </td>
                             <td>
-                              <a href="{{route('productEdit')}}"><button type="button" class="btn-sm btn-danger">Eliminar</button></a>
+                              <a href="#"><button type="button" class="btn-sm btn-danger">Eliminar</button></a>
                             </td>
                             <td><input type="checkbox" name="" id="" {{$pro->stand_out == 1 ? 'checked' : ''}}></td>
                             <td>
