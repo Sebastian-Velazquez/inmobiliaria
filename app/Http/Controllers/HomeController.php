@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Property;
-use App\Models\Image;
 use App\Models\TypeProperty;
 use App\Models\Operation;
 use App\Models\Status;
@@ -30,9 +29,16 @@ class HomeController extends Controller
     {
         return view('index/panel');
     }
-    public function productList()
-    {
-        return view('panel/productList');
+    public function productList(){
+        $property = Property::all();
+        $status = Status::all();
+        /* $dato = $property->operations;
+        var_dump($dato->name); 
+        die();*/
+        return view('panel/productList',[
+            'property' => $property,
+            'status' => $status,
+        ]);
     }
     public function productCreate(){
         $property = TypeProperty::all();

@@ -39,9 +39,9 @@ class Property extends Model
     ];
 
     //One To One
-    public function operation(): BelongsTo
+    public function operations(): BelongsTo
     {
-        return $this->belongsTo(Operation::class);
+        return $this->belongsTo(Operation::class, 'operation_id'); //IMPORTANTE: , 'operation_id'
     }
 
     //One To One
@@ -50,8 +50,12 @@ class Property extends Model
         return $this->belongsTo(Status::class,);
     }
 
+    /* public function type_properties()
+    {
+        return $this->hasMany(TypeProperty::class);
+    } */
     //One To One
-    public function typeProperty(): BelongsTo {
+    public function type_properties(): BelongsTo { //IMPORTANTE: EL NOMBRE DE LA FUNCION DEBE SER IGUAL AL NOMBE DE LA TABLA RELACIONADA
         return $this->belongsTo(TypeProperty::class, 'type_property_id');
     }
 

@@ -39,21 +39,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     
   </head>
   <!-- ADD THE CLASS layout-boxed TO GET A BOXED LAYOUT -->
@@ -230,7 +215,7 @@
             <li class="header">Menú de Navegación</li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-dashboard"></i> <span>Pantallas</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{route('panel')}}"><i class="fa fa-circle-o"></i> Inicio</a></li>
@@ -245,8 +230,8 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{route('productCreate')}}"><i class="fa fa-circle-o"></i> Crear</a></li>
-                <li class="active"><a href="{{route('productEdit')}}"><i class="fa fa-circle-o"></i> Editar</a></li>
-                <li><a href="{{route('list')}}"><i class="fa fa-circle-o"></i> Ver Todas las Propiedades</a></li>
+
+                <li><a href="{{route('list')}}"><i class="fa fa-circle-o"></i> Gestión de Propiedades</a></li>
               </ul>
             </li>
               {{--             <li>
