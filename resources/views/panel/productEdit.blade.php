@@ -214,12 +214,12 @@
                   </div>
                     <div class="form-group">
                       <label for="exampleInputPassword1">Maps Google</label>
-                      <input type="text" name="maps" class="form-control" id="exampleInputPassword1" placeholder="<iframe> ... </iframe>" value="{{old('maps') ? old('maps') : ''}}">
+                      <input type="text" name="maps" class="form-control" id="exampleInputPassword1" placeholder="<iframe> ... </iframe>" value="{{old('maps') ? old('maps') : $property->maps}}">
                     </div>
                   </div><!-- /.box-body -->
                   <div class="form-group">
                     <label for="exampleInputPassword1">Descripción</label>
-                    <textarea name="description" id="" cols="30" rows="10"  class="form-control" id="exampleInputPassword1" > {{old('description') ? old('description') : ''}} </textarea>
+                    <textarea name="description" id="" cols="30" rows="10"  class="form-control" id="exampleInputPassword1" > {{old('description') ? old('description') : $property->description}} </textarea>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">File input</label>

@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Administración | panel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="dashboard/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    

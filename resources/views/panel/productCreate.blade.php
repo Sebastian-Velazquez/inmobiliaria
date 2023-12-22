@@ -168,7 +168,23 @@
                     <textarea name="description" id="" cols="30" rows="10"  class="form-control" id="exampleInputPassword1" > {{old('description') ? old('description') : ''}} </textarea>
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">File input</label>
+                    <label for="exampleInputFile">Imagen Portada</label>
+                    <input type="file" name="main" id="exampleInputFile" multiple {{-- accept="image/*" --}}>
+                    {{-- Mensaje de eror --}}
+                    @error('main')
+                    <span class="alert alert-succes" style="color:red" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                    {{-- Mensaje de eror --}}
+                    @error('main.*')
+                    <span class="alert alert-succes" style="color:red" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">Imagenes Detalele</label>
                     <input type="file" name="image[]" id="exampleInputFile" multiple {{-- accept="image/*" --}}>
                     {{-- Mensaje de eror --}}
                     @error('image')
@@ -182,8 +198,8 @@
                       <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                    <p class="help-block">Los formatos compartibles son: jpeg, png, jpg, gif</p>
                   </div>
+                  <p class="help-block">Los formatos compartibles son: jpeg, png, jpg, gif</p>
                   <div class="box-footer">
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </div>

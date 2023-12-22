@@ -79,6 +79,7 @@ class ProductController extends Controller
             }
         }
         //Guardar datos Input
+        $main = $request->file('main');
         $type_property = $request->input('tipoPropiedad');
         $type_operation = $request->input('tipoOperacion');
         $adress = $request->input('adress');
@@ -118,9 +119,9 @@ class ProductController extends Controller
         $property->kitchen = $kitchen;
         //Subir imagen
         if($images_path){
-            $images_path_name = time().' - '.$images_path[0]->getClientOriginalName();
+            $images_path_name = time().' - '.$main->getClientOriginalName();
             //Storage::disk('images')->put($images_path_name, file_get_contents($images_path[0]));
-            Storage::disk('images')->put($images_path_name, File::get($images_path[0]));//images es la carpeta en storage
+            Storage::disk('images')->put($images_path_name, File::get($main));//images es la carpeta en storage
             $property->main_image = $images_path_name;
         }
         $dato = $property->main_image;
