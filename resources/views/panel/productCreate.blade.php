@@ -169,14 +169,14 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Imagen Portada</label>
-                    <input type="file" name="main" id="exampleInputFile" multiple {{-- accept="image/*" --}}>
-                    {{-- Mensaje de eror --}}
+                    <input type="file" name="main" id="exampleInputFile" accept="image/*">
+                    {{-- Mensaje de error --}}
                     @error('main')
                     <span class="alert alert-succes" style="color:red" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                    {{-- Mensaje de eror --}}
+                    {{-- Mensaje de error --}}
                     @error('main.*')
                     <span class="alert alert-succes" style="color:red" role="alert">
                       <strong>{{ $message }}</strong>
@@ -184,15 +184,15 @@
                     @enderror
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputFile">Imagenes Detalele</label>
+                    <label for="exampleInputFile">Imagenes Detalle</label>
                     <input type="file" name="image[]" id="exampleInputFile" multiple {{-- accept="image/*" --}}>
-                    {{-- Mensaje de eror --}}
+                    {{-- Mensaje de error --}}
                     @error('image')
                     <span class="alert alert-succes" style="color:red" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                    {{-- Mensaje de eror --}}
+                    {{-- Mensaje de error --}}
                     @error('image.*')
                     <span class="alert alert-succes" style="color:red" role="alert">
                       <strong>{{ $message }}</strong>

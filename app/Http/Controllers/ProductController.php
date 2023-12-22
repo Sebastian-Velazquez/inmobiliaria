@@ -17,7 +17,6 @@ class ProductController extends Controller
     }
 
     public function create(Request $request){
-
         //validación
         $validate = $this->validate($request, [
             //Slect

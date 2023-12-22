@@ -52,10 +52,15 @@ class HomeController extends Controller
         $property = Property::find($request->input('id'));
         $typeProperty = TypeProperty::all();
         $operation = Operation::all();
+        $mainJson = $property->main_image;
+       /*  var_dump($mainJson);
+        die(); */
         return view('panel/productEdit', [
             'typeProperty' => $typeProperty,
             'operation' => $operation,
             'property' => $property,
-        ]);
+        ],
+        compact('mainJson')
+    );
     }
 }

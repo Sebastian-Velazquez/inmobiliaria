@@ -1,0 +1,21 @@
+input[type="file"] {
+    margin-bottom: 10px;
+}
+
+#imagen-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.miniatura {
+    max-width: 100px;
+    max-height: 100px;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+
+.miniatura:hover {
+    cursor: pointer;
+    border-color: #007bff;
+}

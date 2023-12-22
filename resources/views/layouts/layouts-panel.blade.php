@@ -3,8 +3,10 @@
   <head>
     <meta charset="UTF-8">
     <title>Administración | panel</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    
+    <!-- CSS - Panel -->
+    <link href="css/style-form.css" rel="stylesheet" type="text/css" />    
     <!-- Bootstrap 3.3.2 -->
     <link href="dashboard/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
     <!-- FontAwesome 4.3.0 -->
@@ -356,7 +358,7 @@
         <strong>Copyright &copy; 2014-2015 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights reserved.
       </footer>
     </div><!-- ./wrapper -->
-
+    <script src="jquery/jquery-form.js"></script>
     <!-- jQuery 2.1.3 -->
     <script src="dashboard/plugins/jQuery/jQuery-2.1.3.min.js"></script>
     <!-- Bootstrap 3.3.2 JS -->
