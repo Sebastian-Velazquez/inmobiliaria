@@ -135,6 +135,7 @@ class ProductController extends Controller
                 $images->property_id = $propertyImageMain->id;
                 $images_path_name = time().' - '.$img->getClientOriginalName();
                 Storage::disk('images')->put($images_path_name, File::get($img));//images es la carpeta en storage
+                $images->image_path = $images_path_name;
                 $images->save();
             }
         }

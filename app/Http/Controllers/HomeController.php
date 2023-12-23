@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use App\Models\Property;
 use App\Models\TypeProperty;
 use App\Models\Operation;
 use App\Models\Status;
+use App\Models\Image;
 
 class HomeController extends Controller
 {
@@ -52,15 +54,19 @@ class HomeController extends Controller
         $property = Property::find($request->input('id'));
         $typeProperty = TypeProperty::all();
         $operation = Operation::all();
-        $mainJson = $property->main_image;
-       /*  var_dump($mainJson);
+        $images = Image::where('property_id', $property->id)->get();
+        /* var_dump($images[0]->image_path);
         die(); */
         return view('panel/productEdit', [
             'typeProperty' => $typeProperty,
             'operation' => $operation,
             'property' => $property,
+            'images' => $images
         ],
-        compact('mainJson')
     );
+    }
+    public function imagePath($filename){//ruta de imagen
+        $file = Storage::disk('images')->get($filename);
+        return new Response($file,200);
     }
 }

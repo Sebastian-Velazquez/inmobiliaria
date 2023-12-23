@@ -223,6 +223,12 @@
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Imagen Portada</label>
+                    <div>
+                      <img src="{{route('imagePath',['filename' =>$property->main_image])}}" style="max-width: 100px">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputFile">Cambiar Imagen De portada</label>
                     <input type="file" name="main" id="exampleInputFile"  accept="image/*">
                     {{-- Mensaje de error --}}
                     @error('main')
@@ -237,12 +243,21 @@
                       <strong>{{ $message }}</strong>
                     </span>
                     @enderror
+
                                         <!-- Contenedor para mostrar miniaturas de las imágenes -->
-<div id="imagen-preview-container"></div>
+                                        <div class="contenedor-imagenes">
+                                          <div id="imagen-preview-container"></div>
+                                        </div>
                   </div>
 
                   <div class="form-group">
                     <label for="exampleInputFile">Imagenes Detalle</label>
+                    <label for="exampleInputFile">Imagen Portada</label>
+                    <div>
+                      @foreach ($images as $img)
+                      <img src="{{route('imagePath',['filename' =>$img->image_path])}}" style="max-width: 100px">
+                      @endforeach
+                    </div>
                     <input type="file" name="image[]" id="exampleInputFile2" multiple {{-- accept="image/*" --}}>
                     {{-- Mensaje de error --}}
                     @error('image')
@@ -257,7 +272,9 @@
                     </span>
                     @enderror
                     <!-- Contenedor para mostrar miniaturas de las imágenes -->
+                    <div class="contenedor-imagenes">
 <div id="imagen-preview-container2"></div>
+                    </div>
                   </div>
                   <p class="help-block">Los formatos compartibles son: jpeg, png, jpg, gif</p>
                   <div class="box-footer">

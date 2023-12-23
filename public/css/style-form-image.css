@@ -19,3 +19,17 @@ input[type="file"] {
     cursor: pointer;
     border-color: #007bff;
 }
+                      /* Estilo para el contenedor */
+                      .contenedor-imagenes {
+                        /* Borde para visualización */
+                       height: 100px; /* Altura fija del contenedor */
+                       overflow: auto; /* Agrega scroll si es necesario */
+                     }
+                 
+                     /* Estilo para las imágenes */
+                     .contenedor-imagenes img {
+                       width: auto; /* Ajusta el ancho automático para mantener la proporción original */
+                       height: 100%; /* Ajusta la altura al contenedor */
+                       display: inline-block; /* Muestra las imágenes en línea (horizontalmente) */
+                       margin-right: 5px; /* Añade espacio entre las imágenes (opcional) */
+                     }
