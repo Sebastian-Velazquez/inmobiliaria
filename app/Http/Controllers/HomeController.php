@@ -32,11 +32,9 @@ class HomeController extends Controller
         return view('index/panel');
     }
     public function productList(){
-        $property = Property::all();
+
+        $property = Property::where('status_id','!=', 3)->get();
         $status = Status::all();
-        /* $dato = $property->operations;
-        var_dump($dato->name); 
-        die();*/
         return view('panel/productList',[
             'property' => $property,
             'status' => $status,
@@ -52,18 +50,22 @@ class HomeController extends Controller
     }
     public function viewEdit(Request $request){
         $property = Property::find($request->input('id'));
-        $typeProperty = TypeProperty::all();
-        $operation = Operation::all();
-        $images = Image::where('property_id', $property->id)->get();
-        /* var_dump($images[0]->image_path);
-        die(); */
-        return view('panel/productEdit', [
-            'typeProperty' => $typeProperty,
-            'operation' => $operation,
-            'property' => $property,
-            'images' => $images
-        ],
-    );
+        if($property->status->id != 3){
+            $typeProperty = TypeProperty::all();
+            $operation = Operation::all();
+            $images = Image::where('property_id', $property->id)->get();
+            /* var_dump($images[0]->image_path);
+            die(); */
+            return view('panel/productEdit', [
+                'typeProperty' => $typeProperty,
+                'operation' => $operation,
+                'property' => $property,
+                'images' => $images
+            ],
+        );
+        }else{
+            return redirect('panel');
+        }
     }
     public function imagePath($filename){//ruta de imagen
         $file = Storage::disk('images')->get($filename);

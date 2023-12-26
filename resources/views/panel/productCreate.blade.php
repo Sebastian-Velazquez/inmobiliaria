@@ -182,10 +182,14 @@
                       <strong>{{ $message }}</strong>
                     </span>
                     @enderror
+                      <!-- Contenedor para mostrar miniaturas de las imágenes -->
+                      <div class="contenedor-imagenes">
+                      <div id="imagen-preview-container"></div>
+                    </div>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputFile">Imagenes Detalle</label>
-                    <input type="file" name="image[]" id="exampleInputFile" multiple {{-- accept="image/*" --}}>
+                    <input type="file" name="image[]" id="exampleInputFile2" multiple {{-- accept="image/*" --}}>
                     {{-- Mensaje de error --}}
                     @error('image')
                     <span class="alert alert-succes" style="color:red" role="alert">
@@ -198,6 +202,10 @@
                       <strong>{{ $message }}</strong>
                     </span>
                     @enderror
+                    <!-- Contenedor para mostrar miniaturas de las imágenes -->
+                    <div class="contenedor-imagenes">
+                      <div id="imagen-preview-container2"></div>
+                                          </div>
                   </div>
                   <p class="help-block">Los formatos compartibles son: jpeg, png, jpg, gif</p>
                   <div class="box-footer">

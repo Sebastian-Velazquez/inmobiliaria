@@ -5,12 +5,6 @@
       <!-- Right side column. Contains the navbar and content of the page -->
       
       <div class="content-wrapper">
-        {{-- Mensaje  --}}
-        @if (session('message'))
-          <div class="alert alert-succes" style="color:rgb(0, 255, 136)" role="alert">
-            <strong>{{ session('message') }}</strong>
-          </div>
-        @endif
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>

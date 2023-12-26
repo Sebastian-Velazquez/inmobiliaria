@@ -27,8 +27,9 @@
                   <h3 class="box-title">Completar</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action="{{ route('processCreate')}}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{ route('processEdit')}}" method="POST" enctype="multipart/form-data">
                   @csrf
+                  <input type="hidden" name="id" value="{{$property->id}}">
                   <div class="box-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Tipo de Propiedad</label>
@@ -244,21 +245,25 @@
                     </span>
                     @enderror
 
-                                        <!-- Contenedor para mostrar miniaturas de las imágenes -->
-                                        <div class="contenedor-imagenes">
-                                          <div id="imagen-preview-container"></div>
-                                        </div>
+                  <!-- Contenedor para mostrar miniaturas de las imágenes -->
+                  <div class="contenedor-imagenes">
+                    <div id="imagen-preview-container"></div>
+                  </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="exampleInputFile">Imagenes Detalle</label>
-                    <label for="exampleInputFile">Imagen Portada</label>
-                    <div>
-                      @foreach ($images as $img)
-                      <img src="{{route('imagePath',['filename' =>$img->image_path])}}" style="max-width: 100px">
-                      @endforeach
+                    <label for="exampleInputFile">Imagenes Detalle Cargadas</label>
+                    <div class="contenedor-imagenes">
+                      <div>
+                        @foreach ($images as $img)
+                        <img src="{{route('imagePath',['filename' =>$img->image_path])}}" style="max-width: 100px">
+                        @endforeach
+                      </div>
                     </div>
-                    <input type="file" name="image[]" id="exampleInputFile2" multiple {{-- accept="image/*" --}}>
+                    <div class="form-group">
+                      <label for="exampleInputFile">Imagen Nuevas</label>
+                      <input type="file" name="image[]" id="exampleInputFile2" multiple accept="image/*">
+                    </div>
                     {{-- Mensaje de error --}}
                     @error('image')
                     <span class="alert alert-succes" style="color:red" role="alert">

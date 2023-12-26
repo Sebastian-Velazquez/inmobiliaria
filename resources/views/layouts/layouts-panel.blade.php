@@ -6,7 +6,7 @@
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     
     <!-- CSS - Panel -->
-    <link href="css/style-form.css" rel="stylesheet" type="text/css" />    
+    <link href="css/style-form-image.css" rel="stylesheet" type="text/css" />    
     <!-- Bootstrap 3.3.2 -->
     <link href="dashboard/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
     <!-- FontAwesome 4.3.0 -->

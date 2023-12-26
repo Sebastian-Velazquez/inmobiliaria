@@ -24,6 +24,17 @@
                   <div class="box">
                     <div class="box-header">
                       <h3 class="box-title">Gestión de Propiedades</h3>
+                      {{-- Mensaje  --}}
+        @if (session('message'))
+        <h4 class="alert alert-succes" style="color:rgb(0, 255, 136)" role="alert">
+          <strong>{{ session('message') }}</strong>
+        </h4>
+      @endif
+      @if (session('message-delete'))
+        <h4 class="alert alert-succes" style="color:rgb(127, 11, 9)" role="alert">
+          <strong>{{ session('message-delete') }}</strong>
+        </h4>
+      @endif
                     </div><!-- /.box-header -->
                     <div class="box-body">
                       <table id="example1" class="table table-bordered table-striped">
@@ -56,8 +67,8 @@
                             <td><input type="checkbox" name="" id="" {{$pro->stand_out == 1 ? 'checked' : ''}}></td>
                             <td>
                               <select name="" id="" class="btn-sm btn-primary">
-                                <option value="{{$status[0]->id}}"{{$pro->stand_out == 1 ? 'selected' : ''}}>{{$status[0]->name}}</option>
-                                <option value="{{$status[1]->id}}"{{$pro->stand_out == 1 ? 'selected' : ''}}>{{$status[1]->name}}</option>
+                                <option value="{{$status[0]->id}}"{{$pro->status_id == 1 ? 'selected' : ''}}>{{$status[0]->name}}</option>
+                                <option value="{{$status[1]->id}}"{{$pro->status_id == 2 ? 'selected' : ''}}>{{$status[1]->name}}</option>
                               </select>
                             </td>
                           </tr>
