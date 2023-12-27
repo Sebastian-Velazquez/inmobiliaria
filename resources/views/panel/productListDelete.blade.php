@@ -52,7 +52,6 @@
                             <th>Editar</th>
                             <th>Eliminar</th>
                             <th>Destacado</th>
-                            <th>Estado</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -77,11 +76,7 @@
                               </form>
                             </td>
                             <td><input type="checkbox" name="" id="" {{$pro->stand_out == 1 ? 'checked' : ''}}></td>
-                            <td>
-                              <select name="" id="" class="btn-sm btn-primary">
-                                <option value="{{$status[0]->id}}"{{$pro->status_id == 1 ? 'selected' : ''}}>{{$status[0]->name}}</option>
-                                <option value="{{$status[1]->id}}"{{$pro->status_id == 2 ? 'selected' : ''}}>{{$status[1]->name}}</option>
-                              </select>
+
                             </td>
                           </tr>
                           @endforeach                          
@@ -94,7 +89,6 @@
                             <th>Editar</th>
                             <th>Eliminar</th>
                             <th>Destacado</th>
-                            <th>Estado</th>
                           </tr>
                         </tfoot>
                       </table>

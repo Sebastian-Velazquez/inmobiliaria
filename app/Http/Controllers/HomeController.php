@@ -67,8 +67,16 @@ class HomeController extends Controller
             return redirect('panel');
         }
     }
+
     public function imagePath($filename){//ruta de imagen
         $file = Storage::disk('images')->get($filename);
         return new Response($file,200);
+    }
+
+    public function viewDelete(){
+        $property = Property::where('status_id', 3)->get();
+        return view('panel/productListDelete', [
+            'property' => $property
+        ]);
     }
 }

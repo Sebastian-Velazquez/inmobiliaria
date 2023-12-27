@@ -46,11 +46,17 @@ Auth::routes();
     Route::get('/image/file/{filename}', [App\Http\Controllers\HomeController::class, 'imagePath']) //EL id esta mandado por get en request
         ->name('imagePath')
         ->middleware('auth');
+        Route::get('/list-delete', [App\Http\Controllers\HomeController::class, 'viewDelete'])
+        ->name('listDelete')
+        ->middleware('auth');
 
 /** ProductController - CRUD */
     Route::post('/process-create', [App\Http\Controllers\ProductController::class, 'create'])
         ->name('processCreate')
         ->middleware('auth');
-    Route::post('/process-edit', [App\Http\Controllers\ProductController::class, 'edit'])
+    Route::put('/process-edit', [App\Http\Controllers\ProductController::class, 'edit'])
         ->name('processEdit')
+        ->middleware('auth');
+    Route::delete('/process-delete', [App\Http\Controllers\ProductController::class, 'delete'])
+        ->name('processDelete')
         ->middleware('auth');

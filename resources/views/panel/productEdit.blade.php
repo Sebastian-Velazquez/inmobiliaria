@@ -29,6 +29,7 @@
                 <!-- form start -->
                 <form role="form" action="{{ route('processEdit')}}" method="POST" enctype="multipart/form-data">
                   @csrf
+                  @method('PUT')
                   <input type="hidden" name="id" value="{{$property->id}}">
                   <div class="box-body">
                     <div class="form-group">

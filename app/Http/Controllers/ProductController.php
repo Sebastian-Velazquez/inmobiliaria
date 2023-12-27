@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use App\Models\Property;
 use App\Models\Image;
+use Laravel\Ui\Presets\React;
 
 class ProductController extends Controller
 {
@@ -146,7 +147,7 @@ class ProductController extends Controller
 
     public function edit(Request $request){
         $delete = Property::find($request->input('id'));
-                    if ($delete->status_id == 3) {
+                    if ($delete->status_id != 3) {
             //validación
             $validate = $this->validate($request, [
                 //Slect
@@ -292,5 +293,22 @@ class ProductController extends Controller
                 'message-delete' => 'No se puede realizar la operación'
             ]);
         }
+    }
+    
+    public function delete(Request $request){
+        $id = $request->input('id');
+        $property = Property::find($id);
+        if($property->status_id != 3){
+        $property->status_id = 3;
+        $property->update();
+        
+        return redirect()->route('list')->with([
+            'message' => 'La propiedad fue Eliminda con exito!'
+        ]);
+    }else{
+        return redirect()->route('list')->with([
+            'message-delete' => 'No se puede realizar la operación'
+        ]);
+    }
     }
 }
