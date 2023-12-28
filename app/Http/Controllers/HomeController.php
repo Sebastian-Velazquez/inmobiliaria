@@ -79,4 +79,23 @@ class HomeController extends Controller
             'property' => $property
         ]);
     }
+    public function viewRestore(Request $request){
+        $property = Property::find($request->input('id'));
+        if($property->status->id == 3){
+            $typeProperty = TypeProperty::all();
+            $operation = Operation::all();
+            $images = Image::where('property_id', $property->id)->get();
+            /* var_dump($images[0]->image_path);
+            die(); */
+            return view('panel/productEdit', [
+                'typeProperty' => $typeProperty,
+                'operation' => $operation,
+                'property' => $property,
+                'images' => $images
+            ],
+        );
+        }else{
+            return redirect('panel');
+        }
+        }
 }

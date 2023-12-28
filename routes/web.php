@@ -46,8 +46,11 @@ Auth::routes();
     Route::get('/image/file/{filename}', [App\Http\Controllers\HomeController::class, 'imagePath']) //EL id esta mandado por get en request
         ->name('imagePath')
         ->middleware('auth');
-        Route::get('/list-delete', [App\Http\Controllers\HomeController::class, 'viewDelete'])
+    Route::get('/list-delete', [App\Http\Controllers\HomeController::class, 'viewDelete'])
         ->name('listDelete')
+        ->middleware('auth');
+    Route::get('/view-restore', [App\Http\Controllers\HomeController::class, 'viewRestore'])
+        ->name('formRestores')
         ->middleware('auth');
 
 /** ProductController - CRUD */
@@ -59,4 +62,7 @@ Auth::routes();
         ->middleware('auth');
     Route::delete('/process-delete', [App\Http\Controllers\ProductController::class, 'delete'])
         ->name('processDelete')
+        ->middleware('auth');
+        Route::put('/process-restore', [App\Http\Controllers\ProductController::class, 'restore'])
+        ->name('processRestore')
         ->middleware('auth');

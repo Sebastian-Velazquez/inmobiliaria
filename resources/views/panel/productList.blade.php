@@ -73,7 +73,7 @@
                                 @method('DELETE')
                                 @csrf
                                 <input type="hidden" name="id" value="{{$pro->id}}">
-                                <button type="button" class="btn-sm btn-danger" onclick="confirmDelete()">Elimina</button>
+                                <button type="button" class="btn-sm btn-danger" onclick="confirmDelete()">Eliminar</button>
                               </form>
                             </td>
                             <td><input type="checkbox" name="" id="" {{$pro->stand_out == 1 ? 'checked' : ''}}></td>

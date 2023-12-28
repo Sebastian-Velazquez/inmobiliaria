@@ -19,7 +19,7 @@
               </h1>
               <ol class="breadcrumb">
                 <li><a href="{{route('panel')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Gestión de Propiedades</a></li>
+                <li><a href="#">Gestión de Propiedades Eliminados</a></li>
               </ol>
             </section>
     
@@ -29,7 +29,7 @@
                 <div class="col-xs-12">
                   <div class="box">
                     <div class="box-header">
-                      <h3 class="box-title">Gestión de Propiedades</h3>
+                      <h3 class="box-title">Gestión de Propiedades Eliminados</h3>
                       {{-- Mensaje  --}}
         @if (session('message'))
         <h4 class="alert alert-succes" style="color:rgb(0, 255, 136)" role="alert">
@@ -46,36 +46,36 @@
                       <table id="example1" class="table table-bordered table-striped">
                         <thead>
                           <tr>
+                            <th>Fecha</th>
                             <th>Propiedad</th>
                             <th>Tipo</th>
                             <th>Operación</th>
-                            <th>Editar</th>
-                            <th>Eliminar</th>
-                            <th>Destacado</th>
+                            <th>Recuperar</th>
+                            <th>Destruir</th>
                           </tr>
                         </thead>
                         <tbody>
                           @foreach ($property as $pro)
                           <tr>
+                            <td>{{$pro->updated_at}}</td>
                             <td>{{$pro->adress}} - {{$pro->adress_number}}</td>
                             <td>{{$pro->type_properties->name}}</td>
                             <td>{{$pro->operations->name}}</td>
+                     
                             <td>
-                              <form method="get" action="{{ route('viewEdit') }}">
+                              <form method="get" action="{{route('formRestores')}}">
                                 @csrf
                                 <input type="hidden" name="id" value="{{$pro->id}}">
-                                <button type="submit" class="btn-sm btn-primary">ir</button>
+                                <input type="submit" class="btn-sm btn-success" value="Recuperar">
                               </form>
                             </td>
                             <td>
-                              <form method="post" action="{{ route('processDelete') }}" id="deleteForm">
+                              <form method="post" action="#" id="deleteForm">
                                 @method('DELETE')
                                 @csrf
                                 <input type="hidden" name="id" value="{{$pro->id}}">
-                                <button type="button" class="btn-sm btn-danger" onclick="confirmDelete()">Elimina</button>
+                                <button type="button" class="btn-sm btn-danger" onclick="confirmDelete()">Eliminar</button>
                               </form>
-                            </td>
-                            <td><input type="checkbox" name="" id="" {{$pro->stand_out == 1 ? 'checked' : ''}}></td>
 
                             </td>
                           </tr>
@@ -83,12 +83,12 @@
                         </tbody>
                         <tfoot>
                           <tr>
+                            <th>Fecha</th>
                             <th>Propiedad</th>
-                            <th>Tipod</th>
+                            <th>Tipo</th>
                             <th>Operación</th>
-                            <th>Editar</th>
+                            <th>Recuperar</th>
                             <th>Eliminar</th>
-                            <th>Destacado</th>
                           </tr>
                         </tfoot>
                       </table>

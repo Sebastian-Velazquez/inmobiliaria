@@ -27,10 +27,11 @@
                   <h3 class="box-title">Completar</h3>
                 </div><!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action="{{ route('processEdit')}}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{ $property->status_id !=3 ? route('processEdit') : route('processRestore')}}" method="POST" enctype="multipart/form-data">
                   @csrf
                   @method('PUT')
                   <input type="hidden" name="id" value="{{$property->id}}">
+                  <input type="hidden" name="statusId" value="{{$property->status_id}}">
                   <div class="box-body">
                     <div class="form-group">
                       <label for="exampleInputEmail1">Tipo de Propiedad</label>
