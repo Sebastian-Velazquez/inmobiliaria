@@ -63,6 +63,9 @@ Auth::routes();
     Route::delete('/process-delete', [App\Http\Controllers\ProductController::class, 'delete'])
         ->name('processDelete')
         ->middleware('auth');
-        Route::put('/process-restore', [App\Http\Controllers\ProductController::class, 'restore'])
+    Route::put('/process-restore', [App\Http\Controllers\ProductController::class, 'restore'])
         ->name('processRestore')
+        ->middleware('auth');
+    Route::delete('/process-destroy', [App\Http\Controllers\ProductController::class, 'destroy'])
+        ->name('processDestroy')
         ->middleware('auth');

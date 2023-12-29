@@ -70,11 +70,11 @@
                               </form>
                             </td>
                             <td>
-                              <form method="post" action="#" id="deleteForm">
+                              <form method="post" action="{{route('processDestroy')}}" id="deleteForm{{$pro->id}}">
                                 @method('DELETE')
                                 @csrf
                                 <input type="hidden" name="id" value="{{$pro->id}}">
-                                <button type="button" class="btn-sm btn-danger" onclick="confirmDelete()">Eliminar</button>
+                                <button type="button" class="btn-sm btn-danger" onclick="confirmDelete('deleteForm{{$pro->id}}')">Destruir</button>
                               </form>
 
                             </td>
@@ -101,22 +101,22 @@
         </div><!-- ./wrapper -->
 <!-- Script para mostrar SweetAlert2 en lugar del formulario de eliminación directamente -->
 <script>
-  function confirmDelete() {
-    Swal.fire({
-      title: '¿Estás seguro?',
-      text: 'Esta acción no se puede deshacer.',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#d33',
-      cancelButtonColor: '#3085d6',
-      confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Si el usuario confirma, envía el formulario
-        $('#deleteForm').submit();
-      }
-    });
+  function confirmDelete(formId) {
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: 'Esta acción no se puede deshacer.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#3085d6',
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Si el usuario confirma, envía el formulario
+      $('#' + formId).submit();
+    }
+  });
   }
 </script>
     
