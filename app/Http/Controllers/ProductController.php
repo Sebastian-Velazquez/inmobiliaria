@@ -493,4 +493,17 @@ class ProductController extends Controller
             ]);
         }
     }
+
+    public function outstanding( $id){
+        $property = Property::find($id);
+        if($property->stand_out == 1){
+            $property->stand_out = 0;
+            $property->save();
+        }else{
+            $property->stand_out = 1;
+            $property->save();
+        }
+        var_dump("Grabado con exito");
+        die();
+    }
 }

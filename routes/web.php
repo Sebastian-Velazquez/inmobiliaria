@@ -69,3 +69,8 @@ Auth::routes();
     Route::delete('/process-destroy', [App\Http\Controllers\ProductController::class, 'destroy'])
         ->name('processDestroy')
         ->middleware('auth');
+
+/** ProductController - Funciones */
+    Route::get('/outstanding/{id}', [App\Http\Controllers\ProductController::class, 'outstanding'])
+        ->name('outstanding')
+        ->middleware('auth');
