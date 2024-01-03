@@ -74,3 +74,6 @@ Auth::routes();
     Route::get('/outstanding/{id}', [App\Http\Controllers\ProductController::class, 'outstanding'])
         ->name('outstanding')
         ->middleware('auth');
+    Route::get('/status/{id}', [App\Http\Controllers\ProductController::class, 'status'])
+        ->name('status')
+        ->middleware('auth');

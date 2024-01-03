@@ -76,9 +76,9 @@
                                 <input type="button" class="btn-sm btn-danger" onclick="confirmDelete('deleteForm{{$pro->id}}')" value="Eliminar">
                               </form>
                             </td>
-                            <td><input type="checkbox" class="miCheckbox" id="" {{$pro->stand_out == 1 ? 'checked' : ''}}  data-id="{{$pro->id}}"></td>
+                            <td><input type="checkbox" class="miCheckbox" id="" {{$pro->stand_out == 1 ? 'checked' : ''}}  data-url={{route('outstanding',['id' => $pro->id])}}></td>
                             <td>
-                              <select name="" id="" class="btn-sm btn-primary">
+                              <select name="" id="" class="{{ $pro->status_id == 1 ? 'btn-sm btn-success' : 'btn-sm btn-warning ' }}  ajax-class" data-url="{{route('status',['id' => $pro->id])}}">
                                 <option value="{{$status[0]->id}}"{{$pro->status_id == 1 ? 'selected' : ''}}>{{$status[0]->name}}</option>
                                 <option value="{{$status[1]->id}}"{{$pro->status_id == 2 ? 'selected' : ''}}>{{$status[1]->name}}</option>
                               </select>

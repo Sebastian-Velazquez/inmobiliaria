@@ -494,14 +494,28 @@ class ProductController extends Controller
         }
     }
 
-    public function outstanding( $id){
+    public function outstanding($id){
         $property = Property::find($id);
         if($property->stand_out == 1){
             $property->stand_out = 0;
-            $property->save();
+            $property->update();
         }else{
             $property->stand_out = 1;
-            $property->save();
+            $property->update();
+        }
+        var_dump("Grabado con exito");
+        die();
+    }
+    public function status($id){
+        $property = Property::find($id);
+        if($property->status_id == 1){
+            $property->status_id = 2;
+            $property->updated_at = now();
+            $property->update();
+        }else{
+            $property->status_id = 1;
+            $property->updated_at = now();
+            $property->update();
         }
         var_dump("Grabado con exito");
         die();

@@ -264,8 +264,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="../UI/general.html"><i class="fa fa-circle-o"></i> Disponible</a></li>
-                <li><a href="../UI/icons.html"><i class="fa fa-circle-o"></i> No disponible</a></li>
+                <li><a href="#><i class="fa fa-circle-o"></i> Disponible</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> No disponible</a></li>
                 <li><a href="{{route('listDelete')}}"><i class="fa fa-circle-o"></i> Eliminado</a></li>
               </ul>
             </li>
