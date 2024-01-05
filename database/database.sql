@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS properties(
     maps text null,
     main_image varchar(255) default 'main.png',
     dimension varchar(100),
-    room_number int(10) not null,
+    room_number int(10) not null,#habitaciones
     bathroom_number int(10) not null,
     description text null,
     dining_room boolean null, #comedor

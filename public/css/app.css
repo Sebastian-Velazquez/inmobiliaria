@@ -1,0 +1,30 @@
+.pagination-container {
+    text-align: center;
+    margin-top: 20px; /* Ajusta el margen superior según sea necesario */
+}
+
+/* Opcional: Estilo para los enlaces de paginación */
+.pagination-container ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-container ul.pagination li {
+    display: inline;
+    margin-right: 5px; /* Espacio entre los enlaces de paginación */
+}
+
+.pagination-container ul.pagination li a {
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #eee;
+    border: 1px solid #ddd;
+    color: #333;
+    border-radius: 3px;
+}
+
+.pagination-container ul.pagination li.active a {
+    background-color: #007BFF;
+    color: #fff;
+}

@@ -31,8 +31,8 @@ class HomeController extends Controller
     {
         return view('index/panel');
     }
-    public function productList(){
 
+    public function productList(){
         $property = Property::where('status_id','!=', 3)->get();
         $status = Status::all();
         return view('panel/productList',[
@@ -40,6 +40,7 @@ class HomeController extends Controller
             'status' => $status,
         ]);
     }
+
     public function productCreate(){
         $typeProperty = TypeProperty::all();
         $operation = Operation::all();
@@ -48,6 +49,7 @@ class HomeController extends Controller
             'operation' => $operation,
         ]);
     }
+
     public function viewEdit(Request $request){
         $property = Property::find($request->input('id'));
         if($property->status->id != 3){
@@ -68,10 +70,7 @@ class HomeController extends Controller
         }
     }
 
-    public function imagePath($filename){//ruta de imagen
-        $file = Storage::disk('images')->get($filename);
-        return new Response($file,200);
-    }
+
 
     public function viewDelete(){
         $property = Property::where('status_id', 3)->get();

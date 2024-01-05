@@ -13,11 +13,11 @@
           <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
             <div class="sl-slide-inner">
               <div class="bg-img bg-img-1"></div>
-              <h2><a href="#">Apartamento de 2 Dormitorios y 1 Comedor en Venta</a></h2>
+              <h2><a href="#">Inmobiliaria Flores</a></h2>
               <blockquote>              
               <p class="location"><span class="glyphicon glyphicon-map-marker"></span> Alberdi 2355, Villa Gobernador Galvaz</p>
               <p>Somos una empresa familiar con mas de 20 años de trayectoria, brindando la mejor experienza de gestión. </p>
-              <cite>$ 20,000,000</cite>
+              {{-- <cite>$ 20,000,000</cite> --}}
               </blockquote>
             </div>
           </div>
@@ -25,16 +25,16 @@
           <div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
             <div class="sl-slide-inner">
               <div class="bg-img bg-img-2"></div>
-              <h2><a href="#">Apartamento de 2 Dormitorios y 1 Comedor en Venta</a></h2>
+              <h2><a href="#">Inmobiliaria Flores</a></h2>
               <blockquote>              
               <p class="location"><span class="glyphicon glyphicon-map-marker"></span> Alberdi 2355, Villa Gobernador Galvaz</p>
               <p>Somos una empresa familiar con mas de 20 años de trayectoria, brindando la mejor experienza de gestión.</p>
-              <cite>$ 20,000,000</cite>
+              {{-- <cite>$ 20,000,000</cite> --}}
               </blockquote>
             </div>
           </div>
           
-          <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+          {{-- <div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
             <div class="sl-slide-inner">
               <div class="bg-img bg-img-3"></div>
               <h2><a href="#">Apartamento de 2 Dormitorios y 1 Comedor en Venta</a></h2>
@@ -68,18 +68,18 @@
               <cite>$ 20,000,000</cite>
               </blockquote>
             </div>
-          </div>
+          </div> --}}
         </div><!-- /sl-slider -->
 
 
 
-        <nav id="nav-dots" class="nav-dots">
+        {{-- <nav id="nav-dots" class="nav-dots">
           <span class="nav-dot-current"></span>
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-        </nav>
+        </nav> --}}
 
       </div><!-- /slider-wrapper -->
 </div>
@@ -146,97 +146,22 @@
   <div class="properties-listing spacer" > <a href="{{ route('buy') }}" class="pull-right viewall" style="color:#a94b77">Ver todo el listado</a>
     <h2>Propiedades Destacadas</h2>
     <div id="owl-example" class="owl-carousel">
-
-    @foreach ($propiedadDestacado as $propiedad)
-    <div class="properties">
-      <div class="image-holder"><img src="images/properties/1.jpg" class="img-responsive" alt="properties"/>
-        <div class="status sold" style="background-color:#a94b77">Vendido</div>
-      </div>
-      <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
-      <p class="price">Precio: $234,900</p>
-      <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-      <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
-    </div>
-    @endforeach
-      {{-- <div class="properties">
-        <div class="image-holder"><img src="images/properties/2.jpg" class="img-responsive" alt="properties"/>
-          <div class="status Nuevo">Nuevo</div>
+      @foreach ($propiedadDestacado as $pro)
+      <div class="properties">
+        <div class="image-holder" style="height: 200px"><img src="{{route('imagePath', ['filename' => $pro->main_image])}}" style="width: 100%;   height: 100%;  object-fit: cover; "  class="img-responsive" alt="properties"/>
+          <div class="status sold" style="background-color:#a94b77">{{$pro->status_id == 1 ? $pro->operations->name : $pro->status->name}}</div>
         </div>
-        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
-        <p class="price">Precio: $234,900</p>
-        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
-      </div>
-      <div class="properties">
-        <div class="image-holder"><img src="images/properties/3.jpg" class="img-responsive" alt="properties"/></div>
-        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
-        <p class="price">Precio: $234,900</p>
-        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
-      </div>
-      <div class="properties">
-        <div class="image-holder"><img src="images/properties/4.jpg" class="img-responsive" alt="properties"/></div>
-        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
-        <p class="price">Precio: $234,900</p>
-        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
-      </div>
-      <div class="properties">
-        <div class="image-holder"><img src="images/properties/1.jpg" class="img-responsive" alt="properties"/>
-          <div class="status sold" style="background-color:#a94b77">Vendido</div>
+        <h4><a href="{{ route('productDetail',['id' => $pro->id])}}" style="color:#a94b77">{{$pro->adress}}</a></h4>
+        <p class="price">${{$pro->price}}</p>
+        <div class="listing-detail">
+          <span data-toggle="tooltip" data-placement="bottom" data-original-title="Habitaciones">{{$pro->room_number}}</span> 
+          <span data-toggle="tooltip" data-placement="bottom" data-original-title="baño">{{$pro->bathroom_number}}</span> 
+          <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">{{$pro->kitchen == 0 ? "No" :"Si"}}</span> 
+          <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">{{$pro->garage == 0 ? "No" :"Si"}}</span> 
         </div>
-        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
-        <p class="price">Precio: $234,900</p>
-        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
+        <a class="btn btn-primary" href="{{ route('productDetail',['id' => $pro->id])}}" style="background-color:#a94b77">Ver Detalle</a>
       </div>
-      <div class="properties">
-        <div class="image-holder"><img src="images/properties/2.jpg" class="img-responsive" alt="properties"/>
-          <div class="status sold" style="background-color:#a94b77">Vendido</div>
-        </div>
-        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
-        <p class="price">Precio: $234,900</p>
-        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
-      </div>
-      <div class="properties">
-        <div class="image-holder"><img src="images/properties/3.jpg" class="img-responsive" alt="properties"/>
-          <div class="status Nuevo">Nuevo</div>
-        </div>
-        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
-        <p class="price">Precio: $234,900</p>
-        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
-      </div>
-      <div class="properties">
-        <div class="image-holder"><img src="images/properties/4.jpg" class="img-responsive" alt="properties"/></div>
-        <h4><a href="{{ route('productDetail')}}"  style="color:#a94b77">Posada Real</a></h4>
-        <p class="price">Precio: $234,900</p>
-        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
-      </div>
-      <div class="properties">
-        <div class="image-holder"><img src="images/properties/1.jpg" class="img-responsive" alt="properties"/></div>
-        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
-        <p class="price">Precio: $234,900</p>
-        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
-      </div>
-      <div class="properties">
-        <div class="image-holder"><img src="images/properties/2.jpg" class="img-responsive" alt="properties"/></div>
-        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
-        <p class="price">Precio: $234,900</p>
-        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
-      </div>
-      <div class="properties">
-        <div class="image-holder"><img src="images/properties/3.jpg" class="img-responsive" alt="properties"/></div>
-        <h4><a href="{{ route('productDetail')}}" style="color:#a94b77">Posada Real</a></h4>
-        <p class="price">Precio: $234,900</p>
-        <div class="listing-detail"><span data-toggle="tooltip" data-placement="bottom" data-original-title="Dormitorio">5</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Living">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Garaje">2</span> <span data-toggle="tooltip" data-placement="bottom" data-original-title="Cocina">1</span> </div>
-        <a class="btn btn-primary" href="{{ route('productDetail')}}" style="background-color:#a94b77">Ver Detalle</a>
-      </div> --}}
-      
+      @endforeach
     </div>
   </div>
   <div class="spacer">
@@ -247,7 +172,7 @@
       
       </div>
       <div class="col-lg-5 col-lg-offset-1 col-sm-3 recommended">
-        <h3>Propiedades recomendadas</h3>
+        <h3>Propiedades nuevas</h3>
         <div id="myCarousel" class="carousel slide">
           <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -259,38 +184,38 @@
           <div class="carousel-inner">
             <div class="item active">
               <div class="row">
-                <div class="col-lg-4"><img src="images/properties/1.jpg" class="img-responsive" alt="properties"/></div>
+                <div class="col-lg-4" style="height: 150px;"><img src="{{route('imagePath', ['filename' => $PropiedadNuevo[0]->main_image])}}" style="width: 100%;   height: 100%;  object-fit: cover; " class="img-responsive" alt="properties"/></div>
                 <div class="col-lg-8">
-                  <h5><a href="{{ route('productDetail')}}"  style="color:#a94b77">Casa con 2 habiataciones</a></h5>
-                  <p class="price">$300,000</p>
-                  <a href="{{ route('productDetail')}}" class="more">Mas Detalles</a> </div>
+                  <h5><a href="{{ route('productDetail',['id' => $PropiedadNuevo[0]->id])}}"  style="color:#a94b77">{{ $PropiedadNuevo[0]->adress." - ".$PropiedadNuevo[0]->adress_number}}</a></h5>
+                  <p class="price">${{ $PropiedadNuevo[0]->price}} </p>
+                  <a href="{{ route('productDetail',['id' => $PropiedadNuevo[0]->id])}}" class="more">Mas Detalles</a> </div>
               </div>
             </div>
             <div class="item">
               <div class="row">
-                <div class="col-lg-4"><img src="images/properties/2.jpg" class="img-responsive" alt="properties"/></div>
+                <div class="col-lg-4" style="height: 150px"><img src="{{route('imagePath', ['filename' => $PropiedadNuevo[1]->main_image])}}" style="width: 100%;   height: 100%;  object-fit: cover; " class="img-responsive" alt="properties"/></div>
                 <div class="col-lg-8">
-                  <h5><a href="{{ route('productDetail')}}"  style="color:#a94b77">Casa con 2 habiataciones</a></h5>
-                  <p class="price">$300,000</p>
-                  <a href="{{ route('productDetail')}}" class="more">Mas Detalles</a> </div>
+                  <h5><a href="{{ route('productDetail',['id' => $PropiedadNuevo[1]->id])}}"  style="color:#a94b77">{{ $PropiedadNuevo[1]->adress." - ".$PropiedadNuevo[1]->adress_number}}</a></h5>
+                  <p class="price">${{ $PropiedadNuevo[1]->price}}</p>
+                  <a href="{{ route('productDetail',['id' => $PropiedadNuevo[1]->id])}}" class="more">Mas Detalles</a> </div>
               </div>
             </div>
             <div class="item">
               <div class="row">
-                <div class="col-lg-4"><img src="images/properties/3.jpg" class="img-responsive" alt="properties"/></div>
+                <div class="col-lg-4" style="height: 150px"><img src="{{route('imagePath', ['filename' => $PropiedadNuevo[2]->main_image])}} " style="width: 100%;   height: 100%;  object-fit: cover; " class="img-responsive" alt="properties"/></div>
                 <div class="col-lg-8">
-                  <h5><a href="{{ route('productDetail')}}"  style="color:#a94b77">Casa con 2 habiataciones</a></h5>
-                  <p class="price">$300,000</p>
-                  <a href="{{ route('productDetail')}}" class="more">Mas Detalles</a> </div>
+                  <h5><a href="{{ route('productDetail',['id' => $PropiedadNuevo[2]->id])}}"  style="color:#a94b77">{{ $PropiedadNuevo[2]->adress." - ".$PropiedadNuevo[2]->adress_number}}</a></h5>
+                  <p class="price">${{ $PropiedadNuevo[2]->price}}</p>
+                  <a href="{{ route('productDetail',['id' => $PropiedadNuevo[2]->id])}}" class="more">Mas Detalles</a> </div>
               </div>
             </div>
-            <div class="item">
+            <div class="item">  
               <div class="row">
-                <div class="col-lg-4"><img src="images/properties/4.jpg" class="img-responsive" alt="properties"/></div>
+                <div class="col-lg-4" style="height: 150px"><img src="{{route('imagePath', ['filename' => $PropiedadNuevo[3]->main_image])}}"  style="width: 100%;   height: 100%;  object-fit: cover; " class="img-responsive" alt="properties"/></div>
                 <div class="col-lg-8">
-                  <h5><a href="{{ route('productDetail')}}"  style="color:#a94b77">Casa con 2 habiataciones</a></h5>
-                  <p class="price">$300,000</p>
-                  <a href="{{ route('productDetail')}}" class="more">Mas Detalles</a> </div>
+                  <h5><a href="{{ route('productDetail',['id' => $PropiedadNuevo[3]->id])}}"  style="color:#a94b77">{{ $PropiedadNuevo[3]->adress." - ".$PropiedadNuevo[3]->adress_number}}</a></h5>
+                  <p class="price">${{ $PropiedadNuevo[3]->price}}</p>
+                  <a href="{{ route('productDetail',['id' => $PropiedadNuevo[3]->id])}}" class="more">Mas Detalles</a> </div>
               </div>
             </div>
           </div>

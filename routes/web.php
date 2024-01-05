@@ -28,9 +28,11 @@ Auth::routes();
     Route::get('/contact', [App\Http\Controllers\IndexController::class, 'contact'])->name('contact');
     Route::get('/buy', [App\Http\Controllers\IndexController::class, 'buyRent'])->name('buy');
     Route::get('/sale', [App\Http\Controllers\IndexController::class, 'sale'])->name('sale');
-    Route::get('/product-detail', [App\Http\Controllers\IndexController::class, 'productDetail'])->name('productDetail');
-
-/** HomeController - Panel de usario */
+    Route::get('/product-detail/{id}', [App\Http\Controllers\IndexController::class, 'productDetail'])->name('productDetail');
+    Route::get('/image/file/{filename}', [App\Http\Controllers\IndexController::class, 'imagePath']) //EL id esta mandado por get en request
+        ->name('imagePath');
+        
+    /** HomeController - Panel de usario */
     Route::get('/panel', [App\Http\Controllers\HomeController::class, 'panelHome'])
         ->name('panel')
         ->middleware('auth'); //middllwares que no te deja entrar si no estas logueado
@@ -43,9 +45,7 @@ Auth::routes();
     Route::get('/form-edit', [App\Http\Controllers\HomeController::class, 'viewEdit']) //EL id esta mandado por get en request
         ->name('viewEdit')
         ->middleware('auth');
-    Route::get('/image/file/{filename}', [App\Http\Controllers\HomeController::class, 'imagePath']) //EL id esta mandado por get en request
-        ->name('imagePath')
-        ->middleware('auth');
+
     Route::get('/list-delete', [App\Http\Controllers\HomeController::class, 'viewDelete'])
         ->name('listDelete')
         ->middleware('auth');

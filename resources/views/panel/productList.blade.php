@@ -73,7 +73,7 @@
                                 @method('DELETE')
                                 @csrf
                                 <input type="hidden" name="id" value="{{$pro->id}}">
-                                <input type="button" class="btn-sm btn-danger" onclick="confirmDelete('deleteForm{{$pro->id}}')" value="Eliminar">
+                                <input type="button" class="btn-sm btn-danger"  onclick="confirmDelete('deleteForm{{$pro->id}}')" value="Eliminar">
                               </form>
                             </td>
                             <td><input type="checkbox" class="miCheckbox" id="" {{$pro->stand_out == 1 ? 'checked' : ''}}  data-url={{route('outstanding',['id' => $pro->id])}}></td>
