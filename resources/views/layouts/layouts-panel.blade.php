@@ -9,7 +9,7 @@
     {{-- Form --}}
     <script src="{{asset('js/jquery-form.js')}}"></script>
     <!-- CSS - Panel -->
-    <link href="css/style-form-image.css" rel="stylesheet" type="text/css" />    
+    <link href="{{asset('css/style-form-image.css')}}" rel="stylesheet" type="text/css" />    
     <!-- Bootstrap 3.3.2 -->
     <link href="dashboard/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
     <!-- FontAwesome 4.3.0 -->

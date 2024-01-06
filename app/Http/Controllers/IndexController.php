@@ -63,12 +63,12 @@ class IndexController extends Controller
         $property = Property::where('status_id', '!=', 3)
             ->find($id);
         $images = Image::where('property_id', $property->id)->get();
-        $PropertyNew = Property::orderBy('created_at', 'desc')
+        $PropertySimilar = Property::where('type_property_id',  $property->type_property_id)
             ->where('status_id', '!=', 3)
             ->limit(4)
             ->get();
         return view('index/productDetail',[
-            'PropiedadNuevo' => $PropertyNew,
+            'PropiedadSimilar' => $PropertySimilar,
             'propiedad' => $property,
             'imagen' => $images
         ]);//carpeta y archivo

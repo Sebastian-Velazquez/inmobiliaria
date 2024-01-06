@@ -42,7 +42,7 @@ CREATE TABLE IF NOT EXISTS properties(
     main_image varchar(255) default 'main.png',
     dimension varchar(100),
     room_number int(10) not null,#habitaciones
-    bathroom_number int(10) not null,
+    bathroom_number int(10) not null,#baños
     description text null,
     dining_room boolean null, #comedor
     stand_out boolean default 0, #destacado
