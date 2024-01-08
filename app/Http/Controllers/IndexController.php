@@ -62,6 +62,15 @@ class IndexController extends Controller
     public function productDetail($id){
         $property = Property::where('status_id', '!=', 3)
             ->find($id);
+        // Botones de WhatsApp para editar información 
+        $propertyId = route('productDetail', ['id' => $property->id]);
+
+        $message = "Hola, quiero hacer una consulta sobre: ".$property->adress.' '.$property->adress_number.' en '. $property->operations->name ;
+        $whatsappLink = "https://api.whatsapp.com/send?phone=543402552259&text=" . urlencode("{$propertyId}\n\n{$message}");
+        /* var_dump($message);
+        die(); */
+
+        
         $images = Image::where('property_id', $property->id)->get();
         $PropertySimilar = Property::where('type_property_id',  $property->type_property_id)
             ->where('status_id', '!=', 3)
@@ -70,7 +79,8 @@ class IndexController extends Controller
         return view('index/productDetail',[
             'PropiedadSimilar' => $PropertySimilar,
             'propiedad' => $property,
-            'imagen' => $images
+            'imagen' => $images,
+            'whatsappLink' => $whatsappLink
         ]);//carpeta y archivo
     }
 

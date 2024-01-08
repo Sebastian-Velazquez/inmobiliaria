@@ -5,7 +5,7 @@
 <div class="inside-banner">
   <div class="container"> 
     <span class="pull-right"><a href="{{route('/')}}">Home</a> / Detalle</span>
-    <h2>Detalle</h2>
+    <h2>{{ $propiedad->adress." ".$propiedad->adress_number}}, Rosario</h2>
 </div>
 </div>
 <!-- banner -->
@@ -16,7 +16,40 @@
 
 <div class="row">
 <div class="col-lg-3 col-sm-4 hidden-xs">
+  <div class="search-form"><h4><span class="glyphicon glyphicon-search"></span> Buscar Propiedad</h4>
+    <input type="text" class="form-control" placeholder="Search of Properties">
+    <div class="row">
+            <div class="col-lg-5">
+              <select class="form-control">
+                <option>Comprar</option>
+                <option>Alquilar</option>
+                <option>Vender</option>
+              </select>
+            </div>
+            <div class="col-lg-7">
+              <select class="form-control">
+                <option>Precio</option>
+                <option>$150,000 - $200,000</option>
+                <option>$200,000 - $250,000</option>
+                <option>$250,000 - $300,000</option>
+                <option>$300,000 - above</option>
+              </select>
+            </div>
+          </div>
 
+          <div class="row">
+          <div class="col-lg-12">
+              <select class="form-control">
+                <option>Casa</option>
+                <option>Departamento</option>
+                <option>Galpón</option>
+                <option>Local</option>
+                <option>Terreno</option>
+              </select>
+              </div>
+          </div>
+          <button class="btn btn-primary" style="background-color:#a94b77">Buscar</button>
+  </div>
 <div class="hot-properties hidden-xs">
   <h4>Propiedades similares</h4>
   @foreach ($PropiedadSimilar as $pro)
@@ -106,8 +139,13 @@
       <h6><strong>Expensas: </strong>{{$propiedad->expenses ? "Si" :  "No"}}</h6>
       <h6><strong>Cocina: </strong>{{$propiedad->kitchen ? "Si" :  "No"}}</h6>
   <div class="profile">
-  <span class="glyphicon glyphicon-user"></span> Contactanos
-  <p>WhatsApp:<br>341-5555555</p>
+  <span class="glyphicon glyphicon-user">
+    </span> Contactanos
+    <a href="{{$whatsappLink}}" target="_blank" class="btn btn-success">Consultar por WhatsApp</a>
+    <!-- Botones de WhatsApp para editar información -->
+    
+      
+
   </div>
 </div>
 
