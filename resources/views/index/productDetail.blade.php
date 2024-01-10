@@ -5,7 +5,7 @@
 <div class="inside-banner">
   <div class="container"> 
     <span class="pull-right"><a href="{{route('/')}}">Home</a> / Detalle</span>
-    <h2>{{ $propiedad->adress." ".$propiedad->adress_number}}, Rosario</h2>
+    <h2>{{ $propiedad->adress." ".$propiedad->adress_number." (".$propiedad->cities->name.")"}}</h2>
 </div>
 </div>
 <!-- banner -->
@@ -127,7 +127,7 @@
   <div class="col-lg-12  col-sm-6">
 <div class="property-info">
 <p class="price">$ {{$propiedad->price}}</p>
-  <p class="area"><span class="glyphicon glyphicon-map-marker"></span> {{$propiedad->adress}} {{$propiedad->adress_number}}, Rosario</p>
+  <p class="area"><span class="glyphicon glyphicon-map-marker"></span> {{$propiedad->adress." ".$propiedad->adress_number." (".$propiedad->cities->name.")"}}</p>
   <h6><span class="glyphicon glyphicon-home"></span> Disponibilidad</h6>
       <h6><strong>Habitaciones: </strong>{{$propiedad->room_number ? $propiedad->room_number :  "No"}}</h6>
       <h6><strong>Comedor: </strong>{{$propiedad->bathroom_number ? $propiedad->bathroom_number :  "No"}}</h6>

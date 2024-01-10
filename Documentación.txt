@@ -34,6 +34,7 @@ Realizando Model para el ORM:
     php artisan make:model Property
     php artisan make:model Status
     php artisan make:model TypeOfProperty
+    php artisan make:model City
 
 Puebas y corrección de ORM terminado
 

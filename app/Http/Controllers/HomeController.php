@@ -9,6 +9,7 @@ use App\Models\TypeProperty;
 use App\Models\Operation;
 use App\Models\Status;
 use App\Models\Image;
+use App\Models\City;
 
 class HomeController extends Controller
 {
@@ -33,7 +34,8 @@ class HomeController extends Controller
     }
 
     public function productList(){
-        $property = Property::where('status_id','!=', 3)->get();
+        $property = Property::where('status_id','!=', 3)
+        ->get();
         $status = Status::all();
         return view('panel/productList',[
             'property' => $property,
@@ -44,9 +46,12 @@ class HomeController extends Controller
     public function productCreate(){
         $typeProperty = TypeProperty::all();
         $operation = Operation::all();
+        $city = City::orderBy('name', 'asc')->get();
+
         return view('panel/productCreate', [
             'typeProperty' => $typeProperty,
             'operation' => $operation,
+            'city' => $city,
         ]);
     }
 
@@ -55,6 +60,7 @@ class HomeController extends Controller
         if($property->status->id != 3){
             $typeProperty = TypeProperty::all();
             $operation = Operation::all();
+            $city = City::orderBy('name', 'asc')->get();
             $images = Image::where('property_id', $property->id)->get();
             /* var_dump($images[0]->image_path);
             die(); */
@@ -62,6 +68,7 @@ class HomeController extends Controller
                 'typeProperty' => $typeProperty,
                 'operation' => $operation,
                 'property' => $property,
+                'city' => $city,
                 'images' => $images
             ],
         );
@@ -83,6 +90,7 @@ class HomeController extends Controller
         if($property->status->id == 3){
             $typeProperty = TypeProperty::all();
             $operation = Operation::all();
+            $city = City::orderBy('name', 'asc')->get();
             $images = Image::where('property_id', $property->id)->get();
             /* var_dump($images[0]->image_path);
             die(); */
@@ -90,6 +98,7 @@ class HomeController extends Controller
                 'typeProperty' => $typeProperty,
                 'operation' => $operation,
                 'property' => $property,
+                'city' => $city,
                 'images' => $images
             ],
         );

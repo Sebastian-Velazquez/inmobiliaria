@@ -96,6 +96,28 @@
                       @enderror
                     </div>
                     <div class="form-group">
+                      <label for="exampleInputEmail1">Cuidad</label>
+                      <select  name="city"   class="form-control" id="exampleInputEmail1"> 
+                        <option value="" >Seleccionar</option>
+                        @foreach ($city  as $ci)
+                        <option value="{{ $ci->id}}" 
+                          @if (old('city')==null && $property->city_id == $ci->id)
+                          selected
+                        @elseif(old('tipoPropiedad')==$ci->id)
+                          selected
+                        @endif
+                        >{{ $ci->name}}
+                        </option>
+                        @endforeach
+                      </select>
+                      {{-- Mensaje de error --}}
+                      @error('city')
+                        <span class="alert alert-succes" style="color:red" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                    <div class="form-group">
                       <label for="exampleInputPassword1">Precio</label>
                       <input type="number" name="price" class="form-control" id="exampleInputPassword1" placeholder="Ej: 50200" value="{{old('price') ? old('price') : $property->price}}">
                       {{-- Mensaje de error --}}

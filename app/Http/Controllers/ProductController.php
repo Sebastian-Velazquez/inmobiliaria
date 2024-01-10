@@ -23,6 +23,7 @@ class ProductController extends Controller
             //Slect
             'tipoPropiedad' => 'required|in:1,2,3,4,5',
             'tipoOperacion' => 'required|in:1,2',
+            'city' => 'required|in:1,2,3,4,5,6,7',
             //String
             'adress' => 'required|string|min:3|max:200',
             'dimension' => 'nullable|string|min:3|max:200',
@@ -46,6 +47,9 @@ class ProductController extends Controller
             //Select
             'tipoPropiedad.required' => 'Campo obligatorio',
             'tipoPropiedad.in' => 'Algo salió mal',
+            //Select
+            'city.required' => 'Campo obligatorio',
+            'city.in' => 'Algo salió mal',
             //Select
             'tipoOperacion.required' => 'Campo obligatorio',
             'tipoOperacion.in' => 'Algo salió mal',
@@ -86,6 +90,7 @@ class ProductController extends Controller
             $type_operation = $request->input('tipoOperacion');
             $adress = $request->input('adress');
             $adressNumber = $request->input('adressNumber');
+            $city = $request->input('city');
             $price = $request->input('price');
             $dimension = $request->input('dimension');
             $room = $request->input('room'); //Habitaciones
@@ -106,6 +111,7 @@ class ProductController extends Controller
             $property->operation_id = $type_operation;
             $property->adress = $adress;
             $property->adress_number = $adressNumber;
+            $property->city_id = $city;
             $property->price = $price;
             $property->maps = $maps;
             $property->dimension = $dimension;
@@ -153,6 +159,7 @@ class ProductController extends Controller
                 //Slect
                 'tipoPropiedad' => 'required|in:1,2,3,4,5',
                 'tipoOperacion' => 'required|in:1,2',
+                'city' => 'required|in:1,2,3,4,5,6,7',
                 //String
                 'adress' => 'required|string|min:3|max:200',
                 'dimension' => 'nullable|string|min:3|max:200',
@@ -179,6 +186,9 @@ class ProductController extends Controller
                 //Select
                 'tipoOperacion.required' => 'Campo obligatorio',
                 'tipoOperacion.in' => 'Algo salió mal',
+                //Select
+                'city.required' => 'Campo obligatorio',
+                'city.in' => 'Algo salió mal',
                 //String
                 'adress.required' => 'Campo obligatorio',
                 'adress.min' => 'Tiene que contener mas de 3 carcteres',
@@ -219,6 +229,7 @@ class ProductController extends Controller
                 $type_operation = $request->input('tipoOperacion');
                 $adress = $request->input('adress');
                 $adressNumber = $request->input('adressNumber');
+                $city = $request->input('city');
                 $price = $request->input('price');
                 $dimension = $request->input('dimension');
                 $room = $request->input('room'); //Habitaciones
@@ -240,6 +251,7 @@ class ProductController extends Controller
                 $property->operation_id = $type_operation;
                 $property->adress = $adress;
                 $property->adress_number = $adressNumber;
+                $property->city_id = $city;
                 $property->price = $price;
                 $property->maps = $maps;
                 $property->dimension = $dimension;
@@ -325,6 +337,7 @@ class ProductController extends Controller
             //Slect
             'tipoPropiedad' => 'required|in:1,2,3,4,5',
             'tipoOperacion' => 'required|in:1,2',
+            'city' => 'required|in:1,2,3,4,5,6,7',
             //String
             'adress' => 'required|string|min:3|max:200',
             'dimension' => 'nullable|string|min:3|max:200',
@@ -348,6 +361,9 @@ class ProductController extends Controller
             //Select
             'tipoPropiedad.required' => 'Campo obligatorio',
             'tipoPropiedad.in' => 'Algo salió mal',
+            //Select
+            'city.required' => 'Campo obligatorio',
+            'city.in' => 'Algo salió mal',
             //Select
             'tipoOperacion.required' => 'Campo obligatorio',
             'tipoOperacion.in' => 'Algo salió mal',
@@ -391,6 +407,7 @@ class ProductController extends Controller
             $type_operation = $request->input('tipoOperacion');
             $adress = $request->input('adress');
             $adressNumber = $request->input('adressNumber');
+            $city = $request->input('city');
             $price = $request->input('price');
             $dimension = $request->input('dimension');
             $room = $request->input('room'); //Habitaciones
@@ -413,6 +430,7 @@ class ProductController extends Controller
             $property->operation_id = $type_operation;
             $property->adress = $adress;
             $property->adress_number = $adressNumber;
+            $property->city_id = $city;
             $property->price = $price;
             $property->maps = $maps;
             $property->dimension = $dimension;

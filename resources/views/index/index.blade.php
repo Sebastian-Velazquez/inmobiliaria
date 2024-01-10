@@ -151,7 +151,7 @@
         <div class="image-holder" style="height: 200px"><img src="{{route('imagePath', ['filename' => $pro->main_image])}}" style="width: 100%;   height: 100%;  object-fit: cover; "  class="img-responsive" alt="properties"/>
           <div class="status sold" style="background-color:#a94b77">{{$pro->status_id == 1 ? $pro->operations->name : $pro->status->name}}</div>
         </div>
-        <h4><a href="{{ route('productDetail',['id' => $pro->id])}}" style="color:#a94b77">{{$pro->adress}}</a></h4>
+        <h4><a href="{{ route('productDetail',['id' => $pro->id])}}" style="color:#a94b77">{{$pro->adress.' '.$pro->adress_number.' ('.$pro->cities->name.')'}}</a></h4>
         <p class="price">${{$pro->price}}</p>
         <div class="listing-detail">
           <span data-toggle="tooltip" data-placement="bottom" data-original-title="Habitaciones">{{$pro->room_number}}</span> 
@@ -186,7 +186,7 @@
               <div class="row">
                 <div class="col-lg-4" style="height: 150px;"><img src="{{route('imagePath', ['filename' => $PropiedadNuevo[0]->main_image])}}" style="width: 100%;   height: 100%;  object-fit: cover; " class="img-responsive" alt="properties"/></div>
                 <div class="col-lg-8">
-                  <h5><a href="{{ route('productDetail',['id' => $PropiedadNuevo[0]->id])}}"  style="color:#a94b77">{{ $PropiedadNuevo[0]->adress." - ".$PropiedadNuevo[0]->adress_number}}</a></h5>
+                  <h5><a href="{{ route('productDetail',['id' => $PropiedadNuevo[0]->id])}}"  style="color:#a94b77">{{ $PropiedadNuevo[0]->adress."  ".$PropiedadNuevo[0]->adress_number.' ('.$PropiedadNuevo[0]->cities->name.')'}}</a></h5>
                   <p class="price">${{ $PropiedadNuevo[0]->price}} </p>
                   <a href="{{ route('productDetail',['id' => $PropiedadNuevo[0]->id])}}" class="more">Mas Detalles</a> </div>
               </div>
@@ -195,7 +195,7 @@
               <div class="row">
                 <div class="col-lg-4" style="height: 150px"><img src="{{route('imagePath', ['filename' => $PropiedadNuevo[1]->main_image])}}" style="width: 100%;   height: 100%;  object-fit: cover; " class="img-responsive" alt="properties"/></div>
                 <div class="col-lg-8">
-                  <h5><a href="{{ route('productDetail',['id' => $PropiedadNuevo[1]->id])}}"  style="color:#a94b77">{{ $PropiedadNuevo[1]->adress." - ".$PropiedadNuevo[1]->adress_number}}</a></h5>
+                  <h5><a href="{{ route('productDetail',['id' => $PropiedadNuevo[1]->id])}}"  style="color:#a94b77">{{ $PropiedadNuevo[1]->adress."  ".$PropiedadNuevo[1]->adress_number.' ('.$PropiedadNuevo[1]->cities->name.')'}}</a></h5>
                   <p class="price">${{ $PropiedadNuevo[1]->price}}</p>
                   <a href="{{ route('productDetail',['id' => $PropiedadNuevo[1]->id])}}" class="more">Mas Detalles</a> </div>
               </div>
@@ -204,7 +204,7 @@
               <div class="row">
                 <div class="col-lg-4" style="height: 150px"><img src="{{route('imagePath', ['filename' => $PropiedadNuevo[2]->main_image])}} " style="width: 100%;   height: 100%;  object-fit: cover; " class="img-responsive" alt="properties"/></div>
                 <div class="col-lg-8">
-                  <h5><a href="{{ route('productDetail',['id' => $PropiedadNuevo[2]->id])}}"  style="color:#a94b77">{{ $PropiedadNuevo[2]->adress." - ".$PropiedadNuevo[2]->adress_number}}</a></h5>
+                  <h5><a href="{{ route('productDetail',['id' => $PropiedadNuevo[2]->id])}}"  style="color:#a94b77">{{ $PropiedadNuevo[2]->adress."  ".$PropiedadNuevo[2]->adress_number.' ('.$PropiedadNuevo[2]->cities->name.')'}}</a></h5>
                   <p class="price">${{ $PropiedadNuevo[2]->price}}</p>
                   <a href="{{ route('productDetail',['id' => $PropiedadNuevo[2]->id])}}" class="more">Mas Detalles</a> </div>
               </div>
@@ -213,7 +213,7 @@
               <div class="row">
                 <div class="col-lg-4" style="height: 150px"><img src="{{route('imagePath', ['filename' => $PropiedadNuevo[3]->main_image])}}"  style="width: 100%;   height: 100%;  object-fit: cover; " class="img-responsive" alt="properties"/></div>
                 <div class="col-lg-8">
-                  <h5><a href="{{ route('productDetail',['id' => $PropiedadNuevo[3]->id])}}"  style="color:#a94b77">{{ $PropiedadNuevo[3]->adress." - ".$PropiedadNuevo[3]->adress_number}}</a></h5>
+                  <h5><a href="{{ route('productDetail',['id' => $PropiedadNuevo[3]->id])}}"  style="color:#a94b77">{{ $PropiedadNuevo[3]->adress."  ".$PropiedadNuevo[3]->adress_number.' ('.$PropiedadNuevo[3]->cities->name.')'}}</a></h5>
                   <p class="price">${{ $PropiedadNuevo[3]->price}}</p>
                   <a href="{{ route('productDetail',['id' => $PropiedadNuevo[3]->id])}}" class="more">Mas Detalles</a> </div>
               </div>

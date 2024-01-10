@@ -35,7 +35,7 @@
                       <select  name="tipoPropiedad"   class="form-control" id="exampleInputEmail1"> 
                         <option value="" >Seleccionar</option>
                         @foreach ($typeProperty as $pro)
-                        <option value="{{ $pro->id}}" {{old('tipoPropiedad') ? 'selected' : '' }}>{{ $pro->name}}</option>
+                        <option value="{{ $pro->id}}" {{old('tipoPropiedad') == $pro->id  ? 'selected' : '' }}>{{ $pro->name}}</option>
                         @endforeach
                       </select>
                       {{-- Mensaje de error --}}
@@ -50,7 +50,7 @@
                       <select  name="tipoOperacion"   class="form-control" id="exampleInputEmail1">
                         <option value="">Seleccionar</option>
                         @foreach ($operation as $ope)
-                        <option value="{{ $ope->id}}" {{old('tipoOperacion') ? 'selected' : '' }}>{{ $ope->name}}</option>
+                        <option value="{{ $ope->id}}" {{old('tipoOperacion')  == $ope->id ? 'selected' : '' }}>{{ $ope->name}}</option>
                         @endforeach
                       </select>
                       {{-- Mensaje de error --}}
@@ -75,6 +75,21 @@
                       <input type="number" name="adressNumber" class="form-control" id="exampleInputPassword1" placeholder="Ej: 2255" value="{{old('adressNumber') ? old('adressNumber') : ''}}">
                       {{-- Mensaje de error --}}
                       @error('adressNumber')
+                        <span class="alert alert-succes" style="color:red" role="alert">
+                          <strong>{{ $message }}</strong>
+                        </span>
+                      @enderror
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Cuidad</label>
+                      <select  name="city"   class="form-control" id="exampleInputEmail1"> 
+                        <option value="" >Seleccionar</option>
+                        @foreach ($city  as $ci)
+                        <option value="{{ $ci->id}}" {{old('city') == $ci->id ? 'selected' : '' }}>{{ $ci->name}}</option>
+                        @endforeach
+                      </select>
+                      {{-- Mensaje de error --}}
+                      @error('city')
                         <span class="alert alert-succes" style="color:red" role="alert">
                           <strong>{{ $message }}</strong>
                         </span>

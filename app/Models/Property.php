@@ -13,7 +13,7 @@ class Property extends Model
 
     protected $primaryKey = 'id';
 
-    protected $fillable = [
+/*     protected $fillable = [
         'id',
         'type_property_id',
         'status_id',
@@ -36,7 +36,7 @@ class Property extends Model
         'stand_out',
         'created_at',
         'updated_at'
-    ];
+    ]; */
 
     //One To One
     public function operations(): BelongsTo
@@ -45,6 +45,12 @@ class Property extends Model
     }
 
     //One To One
+    public function cities(): BelongsTo
+    {
+        return $this->belongsTo(City::class, 'city_id');
+    }
+
+        //One To One
     public function status(): BelongsTo
     {
         return $this->belongsTo(Status::class,);
