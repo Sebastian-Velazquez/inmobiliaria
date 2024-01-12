@@ -7,6 +7,7 @@ use App\Models\Property;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Response;
 use App\Models\Image;
+use App\Models\Message;
 
 class IndexController extends Controller
 {
@@ -67,10 +68,7 @@ class IndexController extends Controller
 
         $message = "Hola, quiero hacer una consulta sobre: ".$property->adress.' '.$property->adress_number.' en '. $property->operations->name ;
         $whatsappLink = "https://api.whatsapp.com/send?phone=543402552259&text=" . urlencode("{$propertyId}\n\n{$message}");
-        /* var_dump($message);
-        die(); */
 
-        
         $images = Image::where('property_id', $property->id)->get();
         $PropertySimilar = Property::where('type_property_id',  $property->type_property_id)
             ->where('status_id', '!=', 3)
@@ -87,5 +85,50 @@ class IndexController extends Controller
     public function imagePath($filename){//ruta de imagen
         $file = Storage::disk('images')->get($filename);
         return new Response($file,200);
+    }
+
+    public function message(Request $request){
+        $validate = $this->validate($request, [
+            //String
+            'name' => 'required|string|min:3|max:200',
+            'question' => 'required|string|min:3|max:200',
+            //Email
+            'email' => 'required|email',
+            ],[
+            //String
+            'name.required' => 'Campo obligatorio',
+            'name.min' => 'Tiene que contener mas de 3 carcteres',
+            'name.max' => 'No puede superar los 200 carcteres',
+            //String
+            'question.required' => 'Campo obligatorio',
+            'question.min' => 'Tiene que contener mas de 3 carcteres',
+            'question.max' => 'No puede superar los 200 carcteres',
+            //Email
+            'email.required' => 'El campo es obligatorio'
+        ]);
+        //guardar reques
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+        $message = $request->input('question');
+        $id=  $request->input('id');
+
+        //guardar 
+        $messages = new Message();
+        $messages->name = $name;
+        $messages->email = $email;
+        $messages->phone_number = $phone;
+        $messages->message = $message;
+        $messages->status = 0;
+        $messages->save();
+        if($id){
+            return redirect()->route('productDetail',['id' =>$id])->with([
+                'message' => 'Mensaje ENVIADO!'
+            ]);
+        }else{
+            return redirect()->route('contact')->with([
+                'message' => 'Mensaje ENVIADO!'
+            ]);
+        }
     }
 }

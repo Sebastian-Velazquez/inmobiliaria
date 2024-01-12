@@ -29,11 +29,14 @@ window.addEventListener("load", function () {
   $('.ajax-class').on('change', function () {
     // Obtener el valor seleccionado
     var selectedValue = $(this).val();
-
     // Obtener el ID del producto (data-id)
     var productId = $(this).data('id');
-    console.log(selectedValue + '-' + productId);
-
+// Asigna la clase correspondiente al select según la opción seleccionada para cambiar el color
+if (selectedValue == 1) {
+  $(this).removeClass('btn-warning').addClass('btn-success');
+} else if (selectedValue == 2) {
+  $(this).removeClass('btn-success').addClass('btn-warning');
+}
     // Realizar la solicitud AJAX
     $.ajax({
       type: 'GET',
@@ -50,6 +53,7 @@ window.addEventListener("load", function () {
         // Manejar el error si es necesario
         console.error(error);
       }
+      
     });
   });
 });

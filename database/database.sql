@@ -82,7 +82,18 @@ CREATE TABLE IF NOT EXISTS images(
     CONSTRAINT pk_id_property FOREIGN KEY (property_id) REFERENCES properties(id)
 )ENGINE=InnoDb;
 
-
+#Mensajes
+CREATE TABLE IF NOT EXISTS messages(
+    id int(255) auto_increment not null,
+    name varchar(255) not null,
+    email varchar(255) not null,
+    phone_number BIGINT null,
+    message varchar(255) not null,
+    status int(255) default 0,
+    created_at datetime default CURRENT_TIMESTAMP not null,
+    updated_at datetime,
+    CONSTRAINT pk_message PRIMARY KEY(id)
+)ENGINE=InnoDb;
 
 #Cargar información 
     #Tipo de Propiedad
@@ -125,3 +136,7 @@ CREATE TABLE IF NOT EXISTS images(
     INSERT INTO images VALUE (null, 1, 'images.jpg', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
     INSERT INTO images VALUE (null, 2, 'images.jpg', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
     INSERT INTO images VALUE (null, 3,'image.jpg', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP );
+    
+    #Tipo de estado de mesajes 
+    INSERT INTO messages VALUE(null, 'No Leido', 'email',3402558789,'Hola',0,CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+    INSERT INTO messages VALUE(null, 'Leido', 'email',341123456,'Hola', 1, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);

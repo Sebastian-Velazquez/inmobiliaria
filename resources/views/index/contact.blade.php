@@ -15,16 +15,37 @@
 <div class="spacer">
 <div class="row contact">
   <div class="col-lg-6 col-sm-6 ">
-
-
-                <input type="text" class="form-control" placeholder="Full Name">
-                <input type="text" class="form-control" placeholder="Dirección de correo electrónico">
-                <input type="text" class="form-control" placeholder="Número de contacto">
-                <textarea rows="6" class="form-control" placeholder="Mensaje"></textarea>
-      <button type="submit" class="btn btn-success" name="Submit" style="background-color: 	#a94b77">Enviar mensaje</button>
-          
-
-
+    @if (session('message'))
+      <h4 class="alert alert-succes" style="color:rgb(0, 255, 136)" role="alert">
+        <strong>{{ session('message') }}</strong>
+      </h4>
+    @endif
+    <form action="{{route('message')}}" role="form" method="POST">
+      @csrf
+        <input type="text" name="name" class="form-control" placeholder="Nombre completo" value="{{ old('name') ? old('name') : '' }}"/>
+        {{-- Mensaje de error --}}
+          @error('name')
+          <span class="alert alert-succes" style="color:red" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+          @enderror
+        <input type="text" name="email" class="form-control" placeholder="nombre@email.com" value="{{ old('email') ? old('email') : '' }}"/>
+        {{-- Mensaje de error --}}
+          @error('email')
+          <span class="alert alert-succes" style="color:red" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+          @enderror
+        <input type="text" name="phone" class="form-control" placeholder="Numero. Ej: 341222222" value="{{ old('phone') ? old('phone') : '' }}"/>
+        <textarea rows="6" name="question" class="form-control" placeholder="Cuál es tu consulta?">{{ old('question') ? old('question') : '' }}</textarea>
+          {{-- Mensaje de error --}}
+          @error('question')
+          <span class="alert alert-succes" style="color:red" role="alert">
+            <strong>{{ $message }}</strong>
+          </span>
+          @enderror
+        <button type="submit" class="btn btn-primary" name="Submit" style="background-color: 	#a94b77">Enviar mensaje</button>
+    </form>
                 
         </div>
   <div class="col-lg-6 col-sm-6 ">

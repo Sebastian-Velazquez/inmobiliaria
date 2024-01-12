@@ -106,6 +106,7 @@
           </div><!-- /.content-wrapper -->
         </div><!-- ./wrapper -->
 <!-- Script para mostrar SweetAlert2 en lugar del formulario de eliminación directamente -->
+
 <script>
   function confirmDelete(formId) {
   Swal.fire({

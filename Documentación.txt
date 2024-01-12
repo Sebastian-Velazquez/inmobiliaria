@@ -44,5 +44,3 @@ php artisan make:controller ProductController
 Se realizo el layouts de Panel de Administración
 
 trabajando en editar producto. cuidado! estoy validando en con el post de process producto crear
-
-php artisan serve -- Para crear un server virtual para desarrollo
