@@ -77,14 +77,13 @@ class HomeController extends Controller
         }
     }
 
-
-
     public function viewDelete(){
         $property = Property::where('status_id', 3)->get();
         return view('panel/productListDelete', [
             'property' => $property
         ]);
     }
+
     public function viewRestore(Request $request){
         $property = Property::find($request->input('id'));
         if($property->status->id == 3){
@@ -105,5 +104,9 @@ class HomeController extends Controller
         }else{
             return redirect('panel');
         }
-        }
+    }
+
+    public function Message(){
+        
+    }
 }

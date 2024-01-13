@@ -66,25 +66,25 @@
               <li class="dropdown messages-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <i class="fa fa-envelope-o"></i>
-                  <span class="label label-success">4</span>
+                  <span class="label label-success">{{ $notificationsCount }}</span>
                 </a>
                 <ul class="dropdown-menu">
-                  <li class="header">Tienes 4 mensajes</li>
+                  <li class="header">Tienes {{ $notificationsCount }} mensajes</li>
                   <li>
                     <!-- inner menu: contains the actual data -->
                     <ul class="menu">
+                      @foreach ($unreadMessage as $message)
                       <li><!-- start message -->
                         <a href="#">
-                          <div class="pull-left">
-                            <img src="dashboard/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
-                          </div>
                           <h4>
-                            Equipo de soporte
-                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                            <strong>{{$message->name}}</strong>
+                            <small><i class="fa fa-clock-o"></i> {{ $message->created_at->diffForHumans() }}</small>
                           </h4>
-                          <p>¿Por qué no comprar un tema nuevo e increíble?</p>
+                          <p>{{$message->message}}</p>
+                              
                         </a>
                       </li><!-- end message -->
+                      @endforeach
                     </ul>
                   </li>
                   <li class="footer"><a href="#">Ver todos los mensajes</a></li>
@@ -264,8 +264,8 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#><i class="fa fa-circle-o"></i> Disponible</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i> No disponible</a></li>
+                {{-- <li><a href="#"><i class="fa fa-circle-o"></i> Disponible</a></li>
+                <li><a href="#"><i class="fa fa-circle-o"></i> No disponible</a></li> --}}
                 <li><a href="{{route('listDelete')}}"><i class="fa fa-circle-o"></i> Eliminado</a></li>
               </ul>
             </li>
@@ -299,7 +299,7 @@
             <li>
               <a href="../mailbox/mailbox.html">
                 <i class="fa fa-envelope"></i> <span>Buzon de Mensajes</span>
-                <small class="label pull-right bg-yellow">1</small>
+                <small class="label pull-right bg-yellow">{{ $notificationsCount }}</small>
               </a>
             </li>
            {{--  <li class="treeview">
