@@ -75,7 +75,7 @@
                     <ul class="menu">
                       @foreach ($unreadMessage as $message)
                       <li><!-- start message -->
-                        <a href="#">
+                        <a href="{{route('boxMessage')}}">
                           <h4>
                             <strong>{{$message->name}}</strong>
                             <small><i class="fa fa-clock-o"></i> {{ $message->created_at->diffForHumans() }}</small>
@@ -297,7 +297,7 @@
               </a> --}}
             </li>
             <li>
-              <a href="../mailbox/mailbox.html">
+              <a href="{{route('boxMessage')}}">
                 <i class="fa fa-envelope"></i> <span>Buzon de Mensajes</span>
                 <small class="label pull-right bg-yellow">{{ $notificationsCount }}</small>
               </a>

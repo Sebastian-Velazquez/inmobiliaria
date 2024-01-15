@@ -10,6 +10,7 @@ use App\Models\Operation;
 use App\Models\Status;
 use App\Models\Image;
 use App\Models\City;
+use App\Models\Message;
 
 class HomeController extends Controller
 {
@@ -106,7 +107,10 @@ class HomeController extends Controller
         }
     }
 
-    public function Message(){
-        
+    public function boxMessage(){
+        $messages = Message::orderBy('created_at', 'DESC')->get();
+        return view('panel/message',[
+            'mensaje' =>  $messages
+        ]);
     }
 }

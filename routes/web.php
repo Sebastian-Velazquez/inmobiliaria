@@ -46,6 +46,9 @@ Auth::routes();
     Route::get('/form-edit', [App\Http\Controllers\HomeController::class, 'viewEdit']) //EL id esta mandado por get en request
         ->name('viewEdit')
         ->middleware('auth');
+    Route::get('/box-message', [App\Http\Controllers\HomeController::class, 'boxMessage']) //EL id esta mandado por get en request
+        ->name('boxMessage')
+        ->middleware('auth');
 
     Route::get('/list-delete', [App\Http\Controllers\HomeController::class, 'viewDelete'])
         ->name('listDelete')

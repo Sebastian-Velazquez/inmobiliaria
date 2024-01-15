@@ -33,3 +33,9 @@ input[type="file"] {
                        display: inline-block; /* Muestra las imágenes en línea (horizontalmente) */
                        margin-right: 5px; /* Añade espacio entre las imágenes (opcional) */
                      }
+
+/* Agrega estilos al contenedor de la tabla */
+.table-container {
+  overflow-x: auto; /* Habilita el desplazamiento horizontal */
+  max-width: 100%; /* Ajusta el ancho máximo según tus necesidades */
+}
