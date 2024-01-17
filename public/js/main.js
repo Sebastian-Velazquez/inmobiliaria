@@ -57,3 +57,60 @@ if (selectedValue == 1) {
     });
   });
 });
+
+//Message pasar a leidos
+window.addEventListener("load", function () {
+  //alert("La pagina fuue cargada con exito!")
+  /** mandar get */
+  // Detectar el cambio en cualquier checkbox con la clase 'miCheckbox'
+  $('.messageStatus').click(function() {
+    var selectedValue = $(this).data('status');
+
+    var icono = $(this).find('i');
+    if (selectedValue == 0) {
+        var nuevoContenido = ' Leído';  // Cambia esto según tus necesidades
+        // Cambiar el contenido del <i>
+        icono.html(nuevoContenido);
+    } 
+    $.ajax({
+      type: "GET",
+      url: $(this).data('url'),
+      data:   $(this).is('status'),
+      success: function (response) {
+        console.log(response);
+      },
+      success: function(data) {
+        // Manejar la respuesta exitosa del servidor
+        console.log(data);
+      },
+      error: function(error) {
+          // Manejar errores de la solicitud
+          console.error('Error:', error);
+        }
+    });
+  })
+}); 
+
+//Message pasar a leidos
+window.addEventListener("load", function () {
+  //alert("La pagina fuue cargada con exito!")
+  /** mandar get */
+  // Detectar el cambio en cualquier checkbox con la clase 'miCheckbox'
+  $('.messageDelete').click(function() {
+    $.ajax({
+      type: "GET",
+      url: $(this).data('url'),
+      success: function (response) {
+        console.log(response);
+      },
+      success: function(data) {
+        // Manejar la respuesta exitosa del servidor
+        console.log(data);
+      },
+      error: function(error) {
+          // Manejar errores de la solicitud
+          console.error('Error:', error);
+        }
+    });
+  })
+}); 

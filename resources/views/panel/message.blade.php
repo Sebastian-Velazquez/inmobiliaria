@@ -8,7 +8,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            ADMINISTRACION
+            Buzón de mensajes
             <small></small>
           </h1>
           <ol class="breadcrumb">
@@ -21,7 +21,7 @@
         <!-- Main content -->
         <section class="content">
           <div class="callout callout-info">
-            <h4>Bienvenido al Panel de Control!</h4>
+            <h4>Bienvenido a la casilla de mensajes recibidas de las consultas. </h4>
             <p></p>
           </div>
           <!-- Default box -->
@@ -30,11 +30,13 @@
               <div class="box-header with-border">
                 <h3 class="box-title"><strong>{{$sms->name}}</strong> mando un mensaje {{ $sms->created_at->diffForHumans() }} </h3>
                 <div class="box-tools pull-right">
-                  <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                  <button class="btn btn-box-tool messageStatus" data-widget="collapse" data-toggle="tooltip" title="Collapse"
+                    data-url={{route('messageStatus',['id' => $sms->id])}} data-status="{{$sms->status}}">
                   {{-- <button class="btn btn-box-tool toggle-button{{$sms->id}}" data-id="{{$sms->id}}" id="boton" data-toggle-target=".box-body{{$sms->id}}" > --}}
                     <i id="icono" class="fa fa-plus">{{$sms->status==0 ? " No Leído" : " Leído"}}</i>
                   </button>
-                  <button class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                  <button class="btn btn-box-tool messageDelete" data-widget="remove" data-toggle="tooltip" title="Remove"
+                    data-url={{route('messageDelete',['id' => $sms->id])}}>
                     <i class="fa fa-times"> Eliminar</i>
                   </button>
                 </div>
@@ -51,7 +53,5 @@
       </div><!-- /.content-wrapper -->
       <!-- Agrega esto a tu sección de scripts -->
 <!-- Agrega esto a tu sección de scripts -->
-
-
 
       @endsection

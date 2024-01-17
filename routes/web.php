@@ -81,3 +81,11 @@ Auth::routes();
     Route::get('/status/{id}', [App\Http\Controllers\ProductController::class, 'status'])
         ->name('status')
         ->middleware('auth');
+
+/** MessageController - Funciones */
+    Route::get('/message-status/{id}', [App\Http\Controllers\MessageController::class, 'messageStatus'])
+        ->name('messageStatus')
+        ->middleware('auth');
+    Route::get('/message-delete/{id}', [App\Http\Controllers\MessageController::class, 'messageDelete'])
+        ->name('messageDelete')
+        ->middleware('auth');

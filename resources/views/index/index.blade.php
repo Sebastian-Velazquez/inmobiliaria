@@ -104,22 +104,20 @@
             </div>
             <div class="col-lg-3 col-sm-4">
               <select class="form-control">
-                <option>Precio</option>
-                <option>$150,000 - $200,000</option>
-                <option>$200,000 - $250,000</option>
-                <option>$250,000 - $300,000</option>
-                <option>$300,000 - Mas</option>
-              </select>
+                  <option>Casa</option>
+                  <option>Departamento</option>
+                  <option>Galpón</option>
+                  <option>Local</option>
+                  <option>Terreno</option>
+                </select>
+                </div>
+            <div class="col-lg-3 col-sm-4">
+              <input class="form-control" type="text" placeholder="Precio mínimo">
             </div>
             <div class="col-lg-3 col-sm-4">
-            <select class="form-control">
-                <option>Casa</option>
-                <option>Departamento</option>
-                <option>Galpón</option>
-                <option>Local</option>
-                <option>Terreno</option>
-              </select>
-              </div>
+              <input class="form-control" type="text" placeholder="Precio máximo">
+            </div>
+            
               <div class="col-lg-3 col-sm-4">
               <button class="btn btn-success"  onclick="window.location.href='{{ route('buy') }}'" style="background-color:#a94b77">Buscar</button>
               </div>

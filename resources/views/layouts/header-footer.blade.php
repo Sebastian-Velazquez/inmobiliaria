@@ -36,11 +36,6 @@
 </head>
 
 <body>
-  @if (isset(Auth::user()->name))
-      
-  {{ Auth::user()->name }} estoy logueado
-  @endif
-
 <!-- Header Starts -->
 <div class="navbar-wrapper" >
   
