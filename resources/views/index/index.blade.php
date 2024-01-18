@@ -16,7 +16,7 @@
               <h2><a href="#">Inmobiliaria Flores</a></h2>
               <blockquote>              
               <p class="location"><span class="glyphicon glyphicon-map-marker"></span> Alberdi 2355, Villa Gobernador Galvaz</p>
-              <p>Somos una empresa familiar con mas de 20 años de trayectoria, brindando la mejor experienza de gestión. </p>
+              <p>Somos una empresa familiar con mas de 25 años de trayectoria, brindando la mejor experiencia de gestión. </p>
               {{-- <cite>$ 20,000,000</cite> --}}
               </blockquote>
             </div>
@@ -28,7 +28,7 @@
               <h2><a href="#">Inmobiliaria Flores</a></h2>
               <blockquote>              
               <p class="location"><span class="glyphicon glyphicon-map-marker"></span> Alberdi 2355, Villa Gobernador Galvaz</p>
-              <p>Somos una empresa familiar con mas de 20 años de trayectoria, brindando la mejor experienza de gestión.</p>
+              <p>Somos una empresa familiar con mas de 25 años de trayectoria, brindando la mejor experiencia de gestión.</p>
               {{-- <cite>$ 20,000,000</cite> --}}
               </blockquote>
             </div>
@@ -93,36 +93,38 @@
     <div class="searchbar">
       <div class="row">
         <div class="col-lg-6 col-sm-6">
-          <input type="text" class="form-control" placeholder="Búsqueda de Propiedad">
-          <div class="row">
-            <div class="col-lg-3 col-sm-3 ">
-              <select class="form-control">
-                <option>Comprar</option>
-                <option>Alquilar</option>
-                <option>Vender</option>
-              </select>
-            </div>
-            <div class="col-lg-3 col-sm-4">
-              <select class="form-control">
-                  <option>Casa</option>
-                  <option>Departamento</option>
-                  <option>Galpón</option>
-                  <option>Local</option>
-                  <option>Terreno</option>
+          <form action="{{route('search')}}" method="get">
+            @csrf
+            <input type="text" name="name" class="form-control" placeholder="Búsqueda de Propiedad">
+            <div class="row">
+              <div class="col-lg-3 col-sm-3 ">
+                <select class="form-control" name="optionAccion">
+                  <option value="" >Todo</option>
+                  @foreach ($operacion as $ope)
+                  <option value="{{$ope->id}}">{{$ope->name}}</option>
+                  @endforeach
+
                 </select>
-                </div>
-            <div class="col-lg-3 col-sm-4">
-              <input class="form-control" type="text" placeholder="Precio mínimo">
-            </div>
-            <div class="col-lg-3 col-sm-4">
-              <input class="form-control" type="text" placeholder="Precio máximo">
-            </div>
-            
-              <div class="col-lg-3 col-sm-4">
-              <button class="btn btn-success"  onclick="window.location.href='{{ route('buy') }}'" style="background-color:#a94b77">Buscar</button>
               </div>
-          </div>
-          
+              <div class="col-lg-3 col-sm-4">
+                <select class="form-control"  name="optionTipo">
+                  <option value="" >Todo</option>
+                  @foreach ($tipoPropiedad as $tipo)
+                    <option value="{{$tipo->id}}">{{$tipo->name}}</option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="col-lg-3 col-sm-4">
+                <input class="form-control" type="number" name="minimo" placeholder="Precio mín">
+              </div>
+              <div class="col-lg-3 col-sm-4">
+                <input class="form-control" type="numer" name="maximo" placeholder="Precio máx">
+              </div>
+                <div class="col-lg-3 col-sm-4">
+                <button class="btn btn-success"  type="submit" style="background-color:#a94b77">Buscar</button>
+                </div>
+            </div>
+          </form>
           
         </div>
         <div class="col-lg-5 col-lg-offset-1 col-sm-6 ">

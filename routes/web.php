@@ -32,7 +32,9 @@ Auth::routes();
     Route::get('/image/file/{filename}', [App\Http\Controllers\IndexController::class, 'imagePath']) //EL id esta mandado por get en request
         ->name('imagePath');
     Route::post('/message', [App\Http\Controllers\IndexController::class, 'message'])->name('message');
+    Route::get('/search', [App\Http\Controllers\SearchController::class, 'search'])->name('search');
         
+
     /** HomeController - Panel de usario */
     Route::get('/panel', [App\Http\Controllers\HomeController::class, 'panelHome'])
         ->name('panel')

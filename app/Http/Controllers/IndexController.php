@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Response;
 use App\Models\Image;
 use App\Models\Message;
+use App\Models\Operation;
+use App\Models\TypeProperty;
 
 class IndexController extends Controller
 {
@@ -19,9 +21,14 @@ class IndexController extends Controller
             ->where('status_id', '!=', 3)
             ->limit(4)
             ->get();
+        $operation = Operation::all();
+        $typeProperty = TypeProperty::all();
+
         return view('index/index',[
             'propiedadDestacado' => $propertyOut,
-            'PropiedadNuevo' => $PropertyNew
+            'PropiedadNuevo' => $PropertyNew,
+            'operacion' => $operation,
+            'tipoPropiedad' => $typeProperty
         ]);
     }
     //mostrar sobre nosotros
@@ -42,6 +49,8 @@ class IndexController extends Controller
     }
     //mostrar Comprar y Alquilar
     public function buyRent(){
+        $operation = Operation::all();
+        $typeProperty = TypeProperty::all();
         $propertyAll = Property::where('status_id', '!=', 3)
             ->orderBy('adress', 'asc')
             ->paginate(6); // Número de elementos por página (ajústalo según tus necesidades)
@@ -51,7 +60,9 @@ class IndexController extends Controller
             ->get();
         return view('index/buy-rent',[
             'propiedades' => $propertyAll,
-            'PropiedadNuevo' => $PropertyNew
+            'PropiedadNuevo' => $PropertyNew,
+            'operacion' => $operation,
+            'tipoPropiedad' => $typeProperty
         ]);//carpeta y archivo
     }
     //mostrar Vender
