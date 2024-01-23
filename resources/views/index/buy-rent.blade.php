@@ -17,7 +17,7 @@
 <div class="col-lg-3 col-sm-4 ">
 
   <div class="search-form"><h4><span class="glyphicon glyphicon-search"></span> Buscar Propiedad</h4>
-    <form action="" method="get">
+    <form action="{{route('search')}}" method="get">
       @csrf
       <input type="text" class="form-control" name="name" placeholder="Búsqueda de Propiedad">
       <div class="row">
@@ -44,6 +44,12 @@
               </div>
               <div class="col-lg-6">
                 <input type="number" class="form-control" name="maximo" id="" placeholder="Precio máx">
+              </div>
+              <div class="col-lg-6">
+                <input type="number" class="form-control" name="room_number" id="" placeholder="N°habitaciones">
+              </div>
+              <div class="col-lg-6">
+                <input type="number" class="form-control" name="bathroom_number" id="" placeholder="N° baños">
               </div>
               <div>Opciones:</div>
               <div class="checkbox ">
@@ -81,14 +87,14 @@
                     <input type="checkbox" name="kitchen" value="1" > Cocina 
                   </label>
                 </div>
-            </div>
+              </div>
 
             <div class="row">
            
             </div>
             <button class="btn btn-primary" style="background-color:#a94b77">Buscar</button>
-    </div>
-  </form>
+          </form>
+  </div>
 
 
 <div class="hot-properties hidden-xs">
@@ -131,13 +137,9 @@
 
 <div class="col-lg-9 col-sm-8">
 <div class="sortby clearfix">
-<div class="pull-left result">Showing: 12 of 100 </div>
   <div class="pull-right">
-  <select class="form-control">
-  <option>Sort by</option>
-  <option>Price: Low to High</option>
-  <option>Price: High to Low</option>
-</select></div>
+    <a href="{{route('buy')}}">
+  Ver todas la propiedades</a></div>
 
 </div>
 <div class="row">

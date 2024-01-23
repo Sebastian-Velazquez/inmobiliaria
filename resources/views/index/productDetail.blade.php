@@ -17,38 +17,83 @@
 <div class="row">
 <div class="col-lg-3 col-sm-4 hidden-xs">
   <div class="search-form"><h4><span class="glyphicon glyphicon-search"></span> Buscar Propiedad</h4>
-    <input type="text" class="form-control" placeholder="Search of Properties">
-    <div class="row">
-            <div class="col-lg-5">
-              <select class="form-control">
-                <option>Comprar</option>
-                <option>Alquilar</option>
-                <option>Vender</option>
-              </select>
-            </div>
-            <div class="col-lg-7">
-              <select class="form-control">
-                <option>Precio</option>
-                <option>$150,000 - $200,000</option>
-                <option>$200,000 - $250,000</option>
-                <option>$250,000 - $300,000</option>
-                <option>$300,000 - above</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row">
-          <div class="col-lg-12">
-              <select class="form-control">
-                <option>Casa</option>
-                <option>Departamento</option>
-                <option>Galpón</option>
-                <option>Local</option>
-                <option>Terreno</option>
-              </select>
+    <form action="{{route('search')}}" method="get">
+      @csrf
+      <input type="text" class="form-control" name="name" placeholder="Búsqueda de Propiedad">
+      <div class="row">
+              <div class="col-lg-6">
+                <select class="form-control" name="optionAccion">
+                  <option value="" >Todo</option>
+                  @foreach ($operacion as $ope)
+                    <option value="{{$ope->id}}">{{$ope->name}}</option>
+                  @endforeach
+                </select>
               </div>
-          </div>
-          <button class="btn btn-primary" style="background-color:#a94b77">Buscar</button>
+
+              <div class="col-lg-6">
+                <select class="form-control" name="optionTipo">
+                  <option value="" >Todo</option>
+                  @foreach ($tipoPropiedad as $tipo)
+                    <option value="{{$tipo->id}}">{{$tipo->name}}</option>
+                  @endforeach
+                </select>
+              </div>
+
+              <div class="col-lg-6">
+                <input type="number" class="form-control" name="minimo" id="" placeholder="Precio mín">
+              </div>
+              <div class="col-lg-6">
+                <input type="number" class="form-control" name="maximo" id="" placeholder="Precio máx">
+              </div>
+              <div class="col-lg-6">
+                <input type="number" class="form-control" name="room_number" id="" placeholder="N°habitaciones">
+              </div>
+              <div class="col-lg-6">
+                <input type="number" class="form-control" name="bathroom_number" id="" placeholder="N° baños">
+              </div>
+              <div>Opciones:</div>
+              <div class="checkbox ">
+                <label>
+                  <input type="checkbox" name="diningRoom" value="1"   > Comedor
+                </label>
+              </div>
+              <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="yard"  value="1"  > Patio
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="pool" value="1" > Piscina
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="garage" value="1" > Garaje
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="gas" value="1"  > Gas 
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="expenses" value="1" > Expensas 
+                  </label>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox" name="kitchen" value="1" > Cocina 
+                  </label>
+                </div>
+              </div>
+
+            <div class="row">
+           
+            </div>
+            <button class="btn btn-primary" style="background-color:#a94b77">Buscar</button>
+          </form>
   </div>
 <div class="hot-properties hidden-xs">
   <h4>Propiedades similares</h4>

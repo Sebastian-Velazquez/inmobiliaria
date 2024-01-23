@@ -41,6 +41,10 @@ class SearchController extends Controller
         $gas = $request->input('gas'); 
         $expenses = $request->input('expenses'); 
         $kitchen = $request->input('kitchen'); 
+        $room_number = $request->input('room_number');
+        /* var_dump($room_number);
+        die(); */
+        $bathroom_number = $request->input('bathroom_number');
 
         if ($dining_room) {
             $propertyAll->where('dining_room', '=', $dining_room);
@@ -62,6 +66,12 @@ class SearchController extends Controller
         }
         if ($kitchen) {
             $propertyAll->where('kitchen', '=', $kitchen);
+        }
+        if ($room_number) {
+            $propertyAll->where('room_number', '=', $room_number);
+        }
+        if ($bathroom_number) {
+            $propertyAll->where('bathroom_number', '=', $bathroom_number);
         }
         $propertyAll = $propertyAll->orderBy('adress', 'asc')->paginate(6);
         //vista

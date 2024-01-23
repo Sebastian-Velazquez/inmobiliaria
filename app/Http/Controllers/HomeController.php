@@ -31,8 +31,15 @@ class HomeController extends Controller
      */
     public function panelHome()
     {
-        return view('index/panel');
+        $properties = Property::where('status_id', '!=', 3)
+            ->orderBy('view_property', 'asc')
+            ->get();
+    
+        return view('index.panel', [
+            'properties' => $properties
+        ]);
     }
+    
 
     public function productList(){
         $property = Property::where('status_id','!=', 3)

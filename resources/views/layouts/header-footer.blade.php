@@ -7,7 +7,8 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+    <link rel="icon" href="{{asset('images/logo.jpg')}}" type="image/x-icon">
+
  	<link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.css')}}" />
   <link rel="stylesheet" href="{{asset('assets/style.css')}}"/>
   <link rel="stylesheet" href="{{asset('css/app.css')}}"/>
@@ -118,44 +119,53 @@
 
   <div class="container">
   <div class="row">
-              <div class="col-lg-3 col-sm-3">
-                     <h4 style="color: 	#a94b77">Información</h4>
-                     <ul class="row">
-                  <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('about') }}" >Acerca de nosotros</a></li>
-                  <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('agents') }}">Agentes</a></li>         
-                  {{-- <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('blog') }}">Blog</a></li> --}}
-                  <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('contact') }}">Contacto</a></li>
-                </ul>
-              </div>
+            <div class="col-lg-3 col-sm-3">
+              <h4 style="color: 	#a94b77">Información</h4>
+              <ul class="row">
+                <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('about') }}" >Acerca de nosotros</a></li>
+                <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('agents') }}">Agentes</a></li>         
+                {{-- <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('blog') }}">Blog</a></li> --}}
+                <li class="col-lg-12 col-sm-12 col-xs-3"><a href="{{ route('contact') }}">Contacto</a></li>
+              </ul>
+            </div>
               
-              <div class="col-lg-3 col-sm-3">
-                      <h4 style="color:#a94b77">Notificaciones</h4>
-                      <p>Reciba notificaciones sobre las últimas propiedades en nuestro mercado.</p>
-                      <form class="form-inline" role="form">
-                              <input type="text" placeholder="Ingrese su email" class="form-control">
-                                  <button class="btn btn-success" type="button" style="background-color: 	#a94b77">¡Notificarme!</button></form>
+            <div class="col-lg-3 col-sm-3">
+              <h4 style="color: 	#a94b77">Seguinos en nuestras redes</h4>
+              <a href="#"><img src="{{asset('images/facebook.png')}}" alt="facebook"></a>
+              <a href="#"><img src="{{asset('images/twitter.png')}}" alt="twitter"></a>
+              <a href="#"><img src="{{asset('images/linkedin.png')}}" alt="linkedin"></a>
+              <a href="#"><img src="{{asset('images/instagram.png')}}" alt="instagram"></a>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+              <h4 style="color: 	#a94b77">Contacto</h4>
+              <p><b>Inmobiliaria Flores</b><br>
+              <span class="glyphicon glyphicon-map-marker"></span> Julio a Roca 000, Villa Gobernador Galvez <br>
+              <span class="glyphicon glyphicon-envelope"></span> inmobiliariafloresvgg@gmail.com<br>
+              <span class="glyphicon glyphicon-earphone"></span> (341) 999-9999</p>
+            </div>
+            <div class="col-lg-3 col-sm-3">
+              <h4 style="color: #a94b77">¡Desarrollo Web - Contacto!</h4>
+              <!-- Enlace a LinkedIn -->
+              <a href="https://www.linkedin.com/in/sergio-sebastian-velazquez-2a1831148/" target="_blank" style="text-decoration: none; color: #333;">
+                  <img src="enlace-a-tu-icono-linkedin.png" alt="LinkedIn" style="width: 30px; height: 30px; margin-right: 5px;">
+                  LinkedIn
+              </a>
+              <br>
+              <!-- Enlace a GitHub -->
+              <a href="https://github.com/Sebastian-Velazquez" target="_blank" style="text-decoration: none; color: #333;">
+                  <img src="enlace-a-tu-icono-github.png" alt="GitHub" style="width: 30px; height: 30px; margin-right: 5px;">
+                  GitHub
+              </a>
+              <!-- Mensaje sobre tu servicio como programador de páginas web -->
+              <div style="margin-top: 20px;">
+                <p style="font-size: 14px;">¡Hola! Soy un programador de páginas web y puedo ayudarte a crear una presencia en línea impresionante. Contáctame para más información.</p>
+                <a href="enlace-a-tu-pagina" class="btn btn-primary" style="background-color: #a94b77; color: #fff;">Conoce más</a>
               </div>
-              
-              <div class="col-lg-3 col-sm-3">
-                      <h4 style="color: 	#a94b77">Seguinos en nuestras redes</h4>
-                      <a href="#"><img src="{{asset('images/facebook.png')}}" alt="facebook"></a>
-                      <a href="#"><img src="{{asset('images/twitter.png')}}" alt="twitter"></a>
-                      <a href="#"><img src="{{asset('images/linkedin.png')}}" alt="linkedin"></a>
-                      <a href="#"><img src="{{asset('images/instagram.png')}}" alt="instagram"></a>
-              </div>
-  
-               <div class="col-lg-3 col-sm-3">
-                      <h4 style="color: 	#a94b77">Contacto</h4>
-                      <p><b>Inmobiliaria Flores</b><br>
-  <span class="glyphicon glyphicon-map-marker"></span> Julio a Roca 000, Villa Gobernador Galvez <br>
-  <span class="glyphicon glyphicon-envelope"></span> inmobiliariafloresvgg@gmail.com<br>
-  <span class="glyphicon glyphicon-earphone"></span> (341) 999-9999</p>
-              </div>
-          </div>
-  <p class="copyright" style="color: 	#a94b77">Copyright 2023. Todos los derechos reservados.	</p>
-  
-  
-  </div></div>
+            </div>
+            </div>
+              <p class="copyright" style="color: 	#a94b77">Copyright 2023. Todos los derechos reservados.	</p>
+            </div>
+</div>
   
   
   

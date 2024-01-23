@@ -37,8 +37,38 @@
               Hola. Que tengas un buen día!
             </div><!-- /.box-body -->
           </div><!-- /.box -->
+          <div style="width: 80%; margin: auto;">
+            <canvas id="miGrafica"></canvas>
+        </div>
+        
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->
-      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var ctx = document.getElementById('miGrafica').getContext('2d');
+    
+            var datosLaravel = @json($properties);
+            var data = {
+                labels: datosLaravel.map(function(item) { return item.adress+' '+ item.adress_number}),
+                datasets: [{
+                    data: datosLaravel.map(function(item) { return item.view_property }),
+                    backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#148F77', '#AEB6BF',
+                                      '#F5B041', '#212F3D', '#D98880', '#DC7633', '#6C3483' ]
+                }]
+            };
+    
+            var options = {
+                responsive: true
+            };
+    
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: data,
+                options: options
+            });
+        });
+    </script>
+    
       @endsection

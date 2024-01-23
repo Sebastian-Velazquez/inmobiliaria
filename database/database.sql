@@ -64,6 +64,7 @@ CREATE TABLE IF NOT EXISTS properties(
     kitchen boolean null,  #cocina
     created_at datetime default CURRENT_TIMESTAMP not null,
     updated_at datetime,
+    view_property int(10) default 0;
     CONSTRAINT pk_property PRIMARY KEY(id), 
     CONSTRAINT pk_type_property FOREIGN KEY (type_property_id) REFERENCES type_properties(id),
     CONSTRAINT pk_status_id FOREIGN KEY (status_id) REFERENCES status(id),

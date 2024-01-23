@@ -39,10 +39,6 @@ class IndexController extends Controller
     public function agents(){
         return view('index/agents');//carpeta y archivo
     }
-    //mostrar Blog
-    /* public function blog(){
-        return view('index/blog');//carpeta y archivo
-    } */
     //mostrar Contacto
     public function contact(){
         return view('index/contact');//carpeta y archivo
@@ -58,6 +54,7 @@ class IndexController extends Controller
             ->where('status_id', '!=', 3)
             ->limit(4)
             ->get();
+
         return view('index/buy-rent',[
             'propiedades' => $propertyAll,
             'PropiedadNuevo' => $PropertyNew,
@@ -85,11 +82,19 @@ class IndexController extends Controller
             ->where('status_id', '!=', 3)
             ->limit(4)
             ->get();
+            $operation = Operation::all();
+            $typeProperty = TypeProperty::all();
+        //Cargar vista en el contador
+        $property->view_property += 1;
+        $property->update();
+
         return view('index/productDetail',[
             'PropiedadSimilar' => $PropertySimilar,
             'propiedad' => $property,
             'imagen' => $images,
-            'whatsappLink' => $whatsappLink
+            'whatsappLink' => $whatsappLink,
+            'operacion' => $operation,
+            'tipoPropiedad' => $typeProperty
         ]);//carpeta y archivo
     }
 
